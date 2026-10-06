@@ -1,0 +1,15 @@
+{
+  "groups": {
+    "organization": "组织与账号",
+    "permissions": "权限",
+    "data": "基础数据"
+  },
+  "pages": {
+    "dashboard": "首页",
+    "users": "用户",
+    "depts": "组织架构",
+    "roles": "角色",
+    "menus": "菜单",
+    "posts": "岗位"
+  }
+}

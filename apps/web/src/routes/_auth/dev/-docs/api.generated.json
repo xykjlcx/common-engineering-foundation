@@ -1,0 +1,6260 @@
+{
+  "sourceHash": "26d5e6e087485a4627c5d231f5af7caa23b74920145a888b2b73ea23fbe39708",
+  "generatedAt": "2026-10-05T14:20:15.548Z",
+  "components": {
+    "AnimatedTabs": {
+      "displayName": "AnimatedTabs",
+      "description": "",
+      "source": "src/components/pro/AnimatedTabs.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "AnimatedTabItem<TValue>[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: TValue) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"page\" | \"content\"",
+          "required": false,
+          "defaultValue": "page",
+          "description": ""
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "trailing",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Avatar": {
+      "displayName": "Avatar",
+      "description": "",
+      "source": "src/components/ui/avatar.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"form\" | \"sm\" | \"lg\" | \"row\" | \"hero\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "muted",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        }
+      ]
+    },
+    "AvatarBadge": {
+      "displayName": "AvatarBadge",
+      "description": "",
+      "source": "src/components/ui/avatar.tsx",
+      "props": []
+    },
+    "AvatarFallback": {
+      "displayName": "AvatarFallback",
+      "description": "",
+      "source": "src/components/ui/avatar.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "AvatarGroup": {
+      "displayName": "AvatarGroup",
+      "description": "",
+      "source": "src/components/ui/avatar.tsx",
+      "props": []
+    },
+    "AvatarGroupCount": {
+      "displayName": "AvatarGroupCount",
+      "description": "",
+      "source": "src/components/ui/avatar.tsx",
+      "props": []
+    },
+    "AvatarImage": {
+      "displayName": "AvatarImage",
+      "description": "",
+      "source": "src/components/ui/avatar.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Badge": {
+      "displayName": "Badge",
+      "description": "",
+      "source": "src/components/ui/badge.tsx",
+      "props": [
+        {
+          "name": "dot",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "dotTestId",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"danger\" | \"warning\" | \"success\" | \"info\" | \"neutral\" | \"purple\" | \"teal\" | null",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Button": {
+      "displayName": "Button",
+      "description": "",
+      "source": "src/components/ui/button.tsx",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"link\" | \"text\" | \"primary\" | \"secondary\" | \"outline\" | \"dashed\" | \"ghost\" | \"danger\" | \"destructive\" | \"danger-ghost\" | null",
+          "required": false,
+          "defaultValue": "primary",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"md\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | \"icon-xs\" | \"icon-sm\" | \"icon-lg\" | null",
+          "required": false,
+          "defaultValue": "md",
+          "description": ""
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        }
+      ]
+    },
+    "ButtonSpinner": {
+      "displayName": "ButtonSpinner",
+      "description": "",
+      "source": "src/components/ui/button.tsx",
+      "props": []
+    },
+    "Calendar": {
+      "displayName": "Calendar",
+      "description": "",
+      "source": "src/components/ui/calendar.tsx",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "month",
+          "type": "Date",
+          "required": false,
+          "defaultValue": null,
+          "description": "受控当前月"
+        },
+        {
+          "name": "onMonthChange",
+          "type": "((month: Date) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "defaultMonth",
+          "type": "Date",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "numberOfMonths",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "Matcher | Matcher[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "禁用日矩阵，直接透传 DayPicker matcher"
+        },
+        {
+          "name": "startMonth",
+          "type": "Date",
+          "required": false,
+          "defaultValue": null,
+          "description": "月份导航下界，缺省为 today 的 100 年前（captionLayout=dropdown 必须显式给，否则默认锁到今年年底）"
+        },
+        {
+          "name": "endMonth",
+          "type": "Date",
+          "required": false,
+          "defaultValue": null,
+          "description": "月份导航上界，缺省为 today 的 20 年后"
+        },
+        {
+          "name": "today",
+          "type": "Date",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "BCP-47 语言标签。给了就用 Intl 派生星期 / 月份 / 年份文案，并按语言决定「年 月」还是「月 年」顺序"
+        },
+        {
+          "name": "weekdayNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "星期文案，索引 = Date#getDay()（0 = 周日）。优先级高于 locale"
+        },
+        {
+          "name": "monthNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "月份文案，索引 = 月份（0 = 一月）。优先级高于 locale"
+        },
+        {
+          "name": "formatYear",
+          "type": "((year: number) => string)",
+          "required": false,
+          "defaultValue": null,
+          "description": "年份下拉文案。优先级高于 locale"
+        },
+        {
+          "name": "calendarAriaLabels",
+          "type": "Partial<Labels>",
+          "required": false,
+          "defaultValue": null,
+          "description": "无障碍文案（上/下月钮、年月下拉、日格 aria-label…）；不给就是 DayPicker 内置英文。\n刻意不叫 `labels`：上层 DatePicker / DateRangePicker 的 `labels` 是可见文案，两者不能撞名。"
+        },
+        {
+          "name": "mode",
+          "type": "\"single\" | \"range\"",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "selected",
+          "type": "Date | DateRange",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSelect",
+          "type": "((day: Date) => void) | ((range: DateRange) => void) | undefined",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Card": {
+      "displayName": "Card",
+      "description": "",
+      "source": "src/components/ui/card.tsx",
+      "props": [
+        {
+          "name": "spacing",
+          "type": "CardSpacing",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "CardAction": {
+      "displayName": "CardAction",
+      "description": "",
+      "source": "src/components/ui/card.tsx",
+      "props": []
+    },
+    "CardContent": {
+      "displayName": "CardContent",
+      "description": "",
+      "source": "src/components/ui/card.tsx",
+      "props": []
+    },
+    "CardDescription": {
+      "displayName": "CardDescription",
+      "description": "",
+      "source": "src/components/ui/card.tsx",
+      "props": []
+    },
+    "CardFooter": {
+      "displayName": "CardFooter",
+      "description": "",
+      "source": "src/components/ui/card.tsx",
+      "props": []
+    },
+    "CardHeader": {
+      "displayName": "CardHeader",
+      "description": "",
+      "source": "src/components/ui/card.tsx",
+      "props": []
+    },
+    "CardTitle": {
+      "displayName": "CardTitle",
+      "description": "",
+      "source": "src/components/ui/card.tsx",
+      "props": []
+    },
+    "Checkbox": {
+      "displayName": "Checkbox",
+      "description": "",
+      "source": "src/components/ui/checkbox.tsx",
+      "props": [
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "onCheckedChange",
+          "type": "((checked: boolean) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ChipsField": {
+      "displayName": "ChipsField",
+      "description": "",
+      "source": "src/components/pro/ChipsField.tsx",
+      "props": [
+        {
+          "name": "ref",
+          "type": "Ref<HTMLButtonElement>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onBlur",
+          "type": "FocusEventHandler<HTMLButtonElement>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "nodes",
+          "type": "PickerNode[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string[]) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "ChipsFieldLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "添加按钮 id，供 FieldLabel.htmlFor 与 RHF 的实际焦点目标使用。"
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-invalid",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ColumnSettings": {
+      "displayName": "ColumnSettings",
+      "description": "",
+      "source": "src/components/pro/ColumnSettings.tsx",
+      "props": [
+        {
+          "name": "density",
+          "type": "TableDensity",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onDensityChange",
+          "type": "(density: TableDensity) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "columns",
+          "type": "ColumnSettingsItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onColumnsChange",
+          "type": "(next: ColumnSettingsItem[]) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onReset",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "ColumnSettingsLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onOpenChange",
+          "type": "((open: boolean) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ConfirmDialog": {
+      "displayName": "ConfirmDialog",
+      "description": "",
+      "source": "src/components/pro/ConfirmDialog.tsx",
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "cancelText",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": "不传则只渲染确认钮（结果告知：「密码已重置」这类没有取消语义）"
+        },
+        {
+          "name": "confirmText",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "severity",
+          "type": "ConfirmSeverity",
+          "required": false,
+          "defaultValue": "impact",
+          "description": ""
+        },
+        {
+          "name": "confirmation",
+          "type": "ConfirmDialogConfirmation",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "confirmVariant",
+          "type": "\"default\" | \"link\" | \"text\" | \"primary\" | \"secondary\" | \"outline\" | \"dashed\" | \"ghost\" | \"danger\" | \"destructive\" | \"danger-ghost\" | null",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "pending",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "error",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": "消费方映射后的提交失败文案；保持弹窗和输入可重试。"
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onConfirm",
+          "type": "() => void | Promise<void>",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DataTable": {
+      "displayName": "DataTable",
+      "description": "",
+      "source": "src/components/pro/DataTable.tsx",
+      "props": [
+        {
+          "name": "columns",
+          "type": "ColumnDef<T>[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "data",
+          "type": "T[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "rowKey",
+          "type": "(row: T) => string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "retryText",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onRetry",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "selection",
+          "type": "DataTableSelection<T>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "pagination",
+          "type": "DataTablePagination",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onRowClick",
+          "type": "((row: T) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "loadingText",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "rowState",
+          "type": "((row: T) => \"selected\")",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "columnState",
+          "type": "Partial<TableColumnState>",
+          "required": false,
+          "defaultValue": null,
+          "description": "列状态（可见性 / 列序 / 列宽）三合一：给了哪一项哪一项就受控，变更经 `onColumnStateChange`\n以「只含变化项的 patch」回吐，业务层直接 `setPrefs(patch)` 落到同一份持久化里；\n没给的项由表格自持（如列宽不持久化时）。拆成六个 prop 的老形态 Phase D 要照抄五遍，先在这收口。"
+        },
+        {
+          "name": "onColumnStateChange",
+          "type": "((patch: Partial<TableColumnState>) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "density",
+          "type": "TableDensity",
+          "required": false,
+          "defaultValue": "default",
+          "description": "行高档（32/34/44），见 table-density.ts"
+        },
+        {
+          "name": "floatingBarSpace",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "sorting",
+          "type": "DataTableSorting | null",
+          "required": false,
+          "defaultValue": "null",
+          "description": ""
+        },
+        {
+          "name": "onSortingChange",
+          "type": "((next: DataTableSorting | null) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "sortAriaLabel",
+          "type": "((header: string, next: \"desc\" | \"none\" | \"asc\") => string)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "enableColumnResizing",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "true",
+          "description": ""
+        },
+        {
+          "name": "resizeHint",
+          "type": "((label: string, px: number) => string)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "skeletonRows",
+          "type": "number",
+          "required": false,
+          "defaultValue": "6",
+          "description": ""
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "busyLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "errorBanner",
+          "type": "{ message: string; traceId?: string; retryLabel: string; copyLabel?: string; onRetry: () => void; } | undefined",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "rowMenu",
+          "type": "((row: T) => RowMenuItem[])",
+          "required": false,
+          "defaultValue": null,
+          "description": "行尾三点钮的菜单项；**必须与 `rowMenuLabel` 成对提供**，缺一编译期报错。"
+        },
+        {
+          "name": "rowMenuLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "行尾三点钮的可访问名（静态文案，pro 层不做 i18n，由业务层注入）；**必须与 `rowMenu` 成对提供**。"
+        }
+      ]
+    },
+    "DataToolbar": {
+      "displayName": "DataToolbar",
+      "description": "",
+      "source": "src/components/pro/DataToolbar.tsx",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"plain\" | \"surface\"",
+          "required": false,
+          "defaultValue": "plain",
+          "description": ""
+        },
+        {
+          "name": "onRefresh",
+          "type": "(() => void | Promise<unknown>)",
+          "required": false,
+          "defaultValue": null,
+          "description": "刷新回调。返回 Promise 时图标自动转圈到 resolve/reject 为止"
+        },
+        {
+          "name": "refreshing",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": "外部受控的转圈态；显式传入时优先于内部跟 Promise 的自动态"
+        },
+        {
+          "name": "fullscreen",
+          "type": "ToolbarFullscreenState",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "ToolbarIconActionsLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": "三个图标钮的无障碍名 + tooltip 文案；缺省时整组不渲染"
+        }
+      ]
+    },
+    "DataToolbarGroup": {
+      "displayName": "DataToolbarGroup",
+      "description": "",
+      "source": "src/components/pro/DataToolbar.tsx",
+      "props": [
+        {
+          "name": "align",
+          "type": "\"start\" | \"end\"",
+          "required": false,
+          "defaultValue": "start",
+          "description": ""
+        }
+      ]
+    },
+    "DatePicker": {
+      "displayName": "DatePicker",
+      "description": "",
+      "source": "src/components/pro/DatePicker.tsx",
+      "props": [
+        {
+          "name": "ref",
+          "type": "Ref<HTMLInputElement>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onBlur",
+          "type": "FocusEventHandler<HTMLInputElement>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "string | null",
+          "required": true,
+          "defaultValue": null,
+          "description": "`YYYY-MM-DD`，showTime 时 `YYYY-MM-DD HH:mm[:ss]`；null = 未填"
+        },
+        {
+          "name": "onChange",
+          "type": "(next: string | null) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "showTime",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "withSeconds",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": "↑↓ 在「分」段上的步进（分钟）"
+        },
+        {
+          "name": "presets",
+          "type": "readonly DatePickerPreset[]",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "DatePickerLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "timeLabels",
+          "type": "TimeFieldLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "allowClear",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "触发器尾部出「清空」钮（板上默认不出，故默认 false）"
+        },
+        {
+          "name": "size",
+          "type": "\"form\" | \"toolbar\"",
+          "required": false,
+          "defaultValue": "form",
+          "description": ""
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "给外部 FieldLabel 的 htmlFor 用"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-invalid",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "BCP-47 语言标签。给了就用 Intl 派生星期 / 月份 / 年份文案，并按语言决定「年 月」还是「月 年」顺序"
+        },
+        {
+          "name": "weekdayNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "星期文案，索引 = Date#getDay()（0 = 周日）。优先级高于 locale"
+        },
+        {
+          "name": "monthNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "月份文案，索引 = 月份（0 = 一月）。优先级高于 locale"
+        },
+        {
+          "name": "formatYear",
+          "type": "((year: number) => string)",
+          "required": false,
+          "defaultValue": null,
+          "description": "年份下拉文案。优先级高于 locale"
+        },
+        {
+          "name": "calendarAriaLabels",
+          "type": "Partial<Labels>",
+          "required": false,
+          "defaultValue": null,
+          "description": "无障碍文案（上/下月钮、年月下拉、日格 aria-label…）；不给就是 DayPicker 内置英文。\n刻意不叫 `labels`：上层 DatePicker / DateRangePicker 的 `labels` 是可见文案，两者不能撞名。"
+        }
+      ]
+    },
+    "DatePickerPanel": {
+      "displayName": "DatePickerPanel",
+      "description": "",
+      "source": "src/components/pro/DatePicker.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string | null",
+          "required": true,
+          "defaultValue": null,
+          "description": "面板当前（草稿）值"
+        },
+        {
+          "name": "onChange",
+          "type": "(next: string | null) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": "草稿变更：showTime 下点日 / 改时间 / 此刻"
+        },
+        {
+          "name": "onCommit",
+          "type": "(next: string | null) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": "提交并请求关闭：不带时间点日、快捷项、今天、清除、确定"
+        },
+        {
+          "name": "showTime",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "withSeconds",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": "↑↓ 在「分」段上的步进（分钟）"
+        },
+        {
+          "name": "presets",
+          "type": "readonly DatePickerPreset[]",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "可选下界 `YYYY-MM-DD`"
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "可选上界 `YYYY-MM-DD`"
+        },
+        {
+          "name": "labels",
+          "type": "DatePickerLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "timeLabels",
+          "type": "TimeFieldLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "BCP-47 语言标签。给了就用 Intl 派生星期 / 月份 / 年份文案，并按语言决定「年 月」还是「月 年」顺序"
+        },
+        {
+          "name": "weekdayNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "星期文案，索引 = Date#getDay()（0 = 周日）。优先级高于 locale"
+        },
+        {
+          "name": "monthNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "月份文案，索引 = 月份（0 = 一月）。优先级高于 locale"
+        },
+        {
+          "name": "formatYear",
+          "type": "((year: number) => string)",
+          "required": false,
+          "defaultValue": null,
+          "description": "年份下拉文案。优先级高于 locale"
+        },
+        {
+          "name": "calendarAriaLabels",
+          "type": "Partial<Labels>",
+          "required": false,
+          "defaultValue": null,
+          "description": "无障碍文案（上/下月钮、年月下拉、日格 aria-label…）；不给就是 DayPicker 内置英文。\n刻意不叫 `labels`：上层 DatePicker / DateRangePicker 的 `labels` 是可见文案，两者不能撞名。"
+        }
+      ]
+    },
+    "DateRange": {
+      "displayName": "DateRange",
+      "description": "A range of dates. Unlike {@link DateInterval}, the range ends are included.",
+      "source": "src/components/ui/calendar.tsx",
+      "props": []
+    },
+    "DateRangePicker": {
+      "displayName": "DateRangePicker",
+      "description": "",
+      "source": "src/components/pro/DateRangePicker.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "DateRangeValue | null",
+          "required": true,
+          "defaultValue": null,
+          "description": "`[起, 止]`，两侧都是 `YYYY-MM-DD`；null = 未填。任一侧空串表示半截草稿"
+        },
+        {
+          "name": "onChange",
+          "type": "(next: DateRangeValue | null) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "presets",
+          "type": "readonly QuickRangeKey[]",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "DateRangePickerLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"form\" | \"toolbar\"",
+          "required": false,
+          "defaultValue": "form",
+          "description": ""
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "给外部 FieldLabel 的 htmlFor 用（落在起始段输入上）"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-invalid",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "BCP-47 语言标签。给了就用 Intl 派生星期 / 月份 / 年份文案，并按语言决定「年 月」还是「月 年」顺序"
+        },
+        {
+          "name": "weekdayNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "星期文案，索引 = Date#getDay()（0 = 周日）。优先级高于 locale"
+        },
+        {
+          "name": "monthNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "月份文案，索引 = 月份（0 = 一月）。优先级高于 locale"
+        },
+        {
+          "name": "formatYear",
+          "type": "((year: number) => string)",
+          "required": false,
+          "defaultValue": null,
+          "description": "年份下拉文案。优先级高于 locale"
+        },
+        {
+          "name": "calendarAriaLabels",
+          "type": "Partial<Labels>",
+          "required": false,
+          "defaultValue": null,
+          "description": "无障碍文案（上/下月钮、年月下拉、日格 aria-label…）；不给就是 DayPicker 内置英文。\n刻意不叫 `labels`：上层 DatePicker / DateRangePicker 的 `labels` 是可见文案，两者不能撞名。"
+        }
+      ]
+    },
+    "DateRangePickerPanel": {
+      "displayName": "DateRangePickerPanel",
+      "description": "",
+      "source": "src/components/pro/DateRangePicker.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "DateRangeValue | null",
+          "required": true,
+          "defaultValue": null,
+          "description": "面板当前（草稿）区间，任一侧可为空串"
+        },
+        {
+          "name": "onChange",
+          "type": "(next: DateRangeValue | null) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": "草稿变更（点日 / 快捷项）"
+        },
+        {
+          "name": "onCommit",
+          "type": "(next: DateRangeValue | null) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": "提交并请求关闭（清除 / 确定）"
+        },
+        {
+          "name": "presets",
+          "type": "readonly QuickRangeKey[]",
+          "required": false,
+          "defaultValue": "[\n  'today',\n  'last7',\n  'last30',\n  'thisMonth',\n  'lastMonth',\n  'thisQuarter',\n]",
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "DateRangePickerLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "locale",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "BCP-47 语言标签。给了就用 Intl 派生星期 / 月份 / 年份文案，并按语言决定「年 月」还是「月 年」顺序"
+        },
+        {
+          "name": "weekdayNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "星期文案，索引 = Date#getDay()（0 = 周日）。优先级高于 locale"
+        },
+        {
+          "name": "monthNames",
+          "type": "readonly string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "月份文案，索引 = 月份（0 = 一月）。优先级高于 locale"
+        },
+        {
+          "name": "formatYear",
+          "type": "((year: number) => string)",
+          "required": false,
+          "defaultValue": null,
+          "description": "年份下拉文案。优先级高于 locale"
+        },
+        {
+          "name": "calendarAriaLabels",
+          "type": "Partial<Labels>",
+          "required": false,
+          "defaultValue": null,
+          "description": "无障碍文案（上/下月钮、年月下拉、日格 aria-label…）；不给就是 DayPicker 内置英文。\n刻意不叫 `labels`：上层 DatePicker / DateRangePicker 的 `labels` 是可见文案，两者不能撞名。"
+        }
+      ]
+    },
+    "DescriptionList": {
+      "displayName": "DescriptionList",
+      "description": "",
+      "source": "src/components/pro/DescriptionList.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "DescriptionListItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "columns",
+          "type": "1 | 2 | 3 | 4 | 5",
+          "required": false,
+          "defaultValue": "1",
+          "description": ""
+        },
+        {
+          "name": "density",
+          "type": "\"default\" | \"compact\"",
+          "required": false,
+          "defaultValue": "compact",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"compact\" | \"field\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "presentation",
+          "type": "\"plain\" | \"cards\"",
+          "required": false,
+          "defaultValue": "plain",
+          "description": ""
+        },
+        {
+          "name": "divided",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "size=\"compact\" 专用：行间加 1px 分隔线"
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "editLabels",
+          "type": "DescriptionListEditLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": "开 item.editable 时必给：保存 / 取消 / 保存中 / 已保存 / 铅笔的文案"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DetailAside": {
+      "displayName": "DetailAside",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageDetail.tsx",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"side\" | \"panel\" | \"floating\"",
+          "required": false,
+          "defaultValue": "floating",
+          "description": ""
+        }
+      ]
+    },
+    "DetailHeader": {
+      "displayName": "DetailHeader",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageDetail.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "avatar",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"card\" | \"identity\"",
+          "required": false,
+          "defaultValue": "card",
+          "description": ""
+        },
+        {
+          "name": "subtitleMono",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        }
+      ]
+    },
+    "DetailMain": {
+      "displayName": "DetailMain",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageDetail.tsx",
+      "props": []
+    },
+    "DetailSection": {
+      "displayName": "DetailSection",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageDetail.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "toolbar",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": "标题行下方（无标题时即顶部）的筛选条；与正文以同一条分隔线隔开"
+        },
+        {
+          "name": "fill",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "撑满父级剩余高度：正文成为 flex 列，内部表格自己滚动、分页器常驻底部"
+        },
+        {
+          "name": "bodyClassName",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DetailTimeline": {
+      "displayName": "DetailTimeline",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageDetail.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "DetailTimelineItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DetailWorkspace": {
+      "displayName": "DetailWorkspace",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageDetail.tsx",
+      "props": []
+    },
+    "Dialog": {
+      "displayName": "Dialog",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": []
+    },
+    "DialogClose": {
+      "displayName": "DialogClose",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DialogContent": {
+      "displayName": "DialogContent",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "showCloseButton",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "true",
+          "description": ""
+        },
+        {
+          "name": "closeOnInteractOutside",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        }
+      ]
+    },
+    "DialogDescription": {
+      "displayName": "DialogDescription",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"compact\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "DialogFooter": {
+      "displayName": "DialogFooter",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": [
+        {
+          "name": "showCloseButton",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        }
+      ]
+    },
+    "DialogHeader": {
+      "displayName": "DialogHeader",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": []
+    },
+    "DialogOverlay": {
+      "displayName": "DialogOverlay",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DialogPortal": {
+      "displayName": "DialogPortal",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": []
+    },
+    "DialogTitle": {
+      "displayName": "DialogTitle",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DialogTrigger": {
+      "displayName": "DialogTrigger",
+      "description": "",
+      "source": "src/components/ui/dialog.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenu": {
+      "displayName": "DropdownMenu",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": []
+    },
+    "DropdownMenuCheckboxItem": {
+      "displayName": "DropdownMenuCheckboxItem",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuContent": {
+      "displayName": "DropdownMenuContent",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuGroup": {
+      "displayName": "DropdownMenuGroup",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuItem": {
+      "displayName": "DropdownMenuItem",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "inset",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"destructive\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuLabel": {
+      "displayName": "DropdownMenuLabel",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "inset",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuPortal": {
+      "displayName": "DropdownMenuPortal",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": []
+    },
+    "DropdownMenuRadioGroup": {
+      "displayName": "DropdownMenuRadioGroup",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuRadioItem": {
+      "displayName": "DropdownMenuRadioItem",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuSeparator": {
+      "displayName": "DropdownMenuSeparator",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuShortcut": {
+      "displayName": "DropdownMenuShortcut",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": []
+    },
+    "DropdownMenuSub": {
+      "displayName": "DropdownMenuSub",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": []
+    },
+    "DropdownMenuSubContent": {
+      "displayName": "DropdownMenuSubContent",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuSubTrigger": {
+      "displayName": "DropdownMenuSubTrigger",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "inset",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "DropdownMenuTrigger": {
+      "displayName": "DropdownMenuTrigger",
+      "description": "",
+      "source": "src/components/ui/dropdown-menu.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "EditableGrid": {
+      "displayName": "EditableGrid",
+      "description": "",
+      "source": "src/components/pro/EditableGrid.tsx",
+      "props": [
+        {
+          "name": "columns",
+          "type": "EditableGridColumn<Row>[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "rows",
+          "type": "Row[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "rowKey",
+          "type": "(row: Row) => string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "type": "EditableGridMode",
+          "required": false,
+          "defaultValue": "row",
+          "description": "row = 点「编辑」整行变控件（默认）｜cell = 点格即编、失焦即存｜all = 整表编辑态"
+        },
+        {
+          "name": "editingKeys",
+          "type": "string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "受控编辑行（row 模式）；不给则组件自持。all 模式恒为全部行，本 prop 不生效"
+        },
+        {
+          "name": "onEditingChange",
+          "type": "((keys: string[]) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSave",
+          "type": "((row: Row) => void | Promise<void>)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onCancel",
+          "type": "((row: Row) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onDelete",
+          "type": "((row: Row) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onAdd",
+          "type": "((event: { position: \"top\" | \"bottom\"; }) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "validate",
+          "type": "((row: Row) => Record<string, string> | null)",
+          "required": false,
+          "defaultValue": null,
+          "description": "返回 { 列 key: 文案 } 即阻止保存；返回 null 视为通过"
+        },
+        {
+          "name": "labels",
+          "type": "EditableGridLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "hotkeys",
+          "type": "string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "revealErrors",
+          "type": "\"touched\" | \"always\"",
+          "required": false,
+          "defaultValue": "touched",
+          "description": "校验错误何时显形：touched（默认，改过或点过保存才红）｜always（导入后修正、状态矩阵场景直接红）"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Empty": {
+      "displayName": "Empty",
+      "description": "",
+      "source": "src/components/ui/empty.tsx",
+      "props": [
+        {
+          "name": "variant",
+          "type": "EmptyVariant",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "iconSize",
+          "type": "\"default\" | \"compact\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "iconTone",
+          "type": "\"default\" | \"accent\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ErrorScreen": {
+      "displayName": "ErrorScreen",
+      "description": "",
+      "source": "src/components/pro/ErrorScreen.tsx",
+      "props": [
+        {
+          "name": "code",
+          "type": "\"403\" | \"404\" | \"500\"",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "backHomeLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "homeTo",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "retryLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onRetry",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "secondaryAction",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "linkAction",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "traceId",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Field": {
+      "displayName": "Field",
+      "description": "",
+      "source": "src/components/ui/field.tsx",
+      "props": []
+    },
+    "FieldDescription": {
+      "displayName": "FieldDescription",
+      "description": "",
+      "source": "src/components/ui/field.tsx",
+      "props": [
+        {
+          "name": "size",
+          "type": "\"default\" | \"body\" | \"compact\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "FieldError": {
+      "displayName": "FieldError",
+      "description": "",
+      "source": "src/components/ui/field.tsx",
+      "props": []
+    },
+    "FieldGroup": {
+      "displayName": "FieldGroup",
+      "description": "",
+      "source": "src/components/ui/field.tsx",
+      "props": []
+    },
+    "FieldLabel": {
+      "displayName": "FieldLabel",
+      "description": "",
+      "source": "src/components/ui/field.tsx",
+      "props": [
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "changed",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": "编辑页字段相对初始值已改动：标签后出现品牌色小圆点"
+        },
+        {
+          "name": "presentation",
+          "type": "\"default\" | \"form\" | \"hint\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "FieldLegend": {
+      "displayName": "FieldLegend",
+      "description": "",
+      "source": "src/components/ui/field.tsx",
+      "props": []
+    },
+    "FieldRequiredHint": {
+      "displayName": "FieldRequiredHint",
+      "description": "表单页的必填符号说明，文案由业务按语序传入。",
+      "source": "src/components/ui/field.tsx",
+      "props": [
+        {
+          "name": "before",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "after",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "FieldSet": {
+      "displayName": "FieldSet",
+      "description": "",
+      "source": "src/components/ui/field.tsx",
+      "props": []
+    },
+    "FieldValue": {
+      "displayName": "FieldValue",
+      "description": "表单中的只读字段值，与可编辑输入保持同一排印家族。",
+      "source": "src/components/ui/field.tsx",
+      "props": [
+        {
+          "name": "mono",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        }
+      ]
+    },
+    "FileDropzone": {
+      "displayName": "FileDropzone",
+      "description": "",
+      "source": "src/components/pro/FileDropzone.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "hint",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "inputLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "files",
+          "type": "File[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "accept",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onFiles",
+          "type": "(files: File[]) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "FilterBuilder": {
+      "displayName": "FilterBuilder",
+      "description": "",
+      "source": "src/components/pro/filter-builder/FilterBuilder.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "FilterRoot",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onChange",
+          "type": "(next: FilterRoot) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "fields",
+          "type": "FilterFieldDef[]",
+          "required": true,
+          "defaultValue": null,
+          "description": "可筛字段定义（文案已由业务翻译）"
+        },
+        {
+          "name": "operatorLabels",
+          "type": "Partial<Record<FilterOperator, string>>",
+          "required": true,
+          "defaultValue": null,
+          "description": "运算符文案映射（文案已由业务翻译）"
+        },
+        {
+          "name": "labels",
+          "type": "FilterBuilderLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "defaultOpenConditionId",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "includeSubLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "部门树「含下级」开关文案；不传则树面板不渲染该开关"
+        },
+        {
+          "name": "panelLabels",
+          "type": "FilterValuePanelLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "layout",
+          "type": "\"chips\" | \"rows\"",
+          "required": false,
+          "defaultValue": null,
+          "description": "chips：行内 chip 流（列表条件栏）；rows：一条件一行（高级筛选弹窗），需同时给 rowLabels"
+        },
+        {
+          "name": "rowLabels",
+          "type": "FilterBuilderRowLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "FilterChips": {
+      "displayName": "FilterChips",
+      "description": "",
+      "source": "src/components/pro/filter-chips/FilterChips.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "FilterRoot",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "fields",
+          "type": "FilterFieldDef[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onChange",
+          "type": "(next: FilterRoot) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onOpenAdvanced",
+          "type": "((focusConditionId?: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onClear",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "scheme",
+          "type": "{ id: string; name: string; modified: boolean; }",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "schemes",
+          "type": "SchemeMenuItem[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "方案徽标下拉里可切换的方案"
+        },
+        {
+          "name": "onApplyScheme",
+          "type": "((id: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onManageSchemes",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSchemeSave",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSchemeSaveAs",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "panelLabels",
+          "type": "FilterValuePanelLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "FilterChipsLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "maxRows",
+          "type": "number",
+          "required": false,
+          "defaultValue": "2",
+          "description": "折叠行数上限（D9），默认 2 行"
+        }
+      ]
+    },
+    "FilterMenu": {
+      "displayName": "FilterMenu",
+      "description": "",
+      "source": "src/components/pro/filter-menu/FilterMenu.tsx",
+      "props": [
+        {
+          "name": "fields",
+          "type": "FilterFieldDef[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "FilterRoot",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onChange",
+          "type": "(next: FilterRoot) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "schemes",
+          "type": "FilterMenuScheme[]",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "activeSchemeId",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onApplyScheme",
+          "type": "((id: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onOpenAdvanced",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "operatorLabels",
+          "type": "Partial<Record<FilterOperator, string>>",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "FilterMenuLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "panelLabels",
+          "type": "FilterValuePanelLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "activeCount",
+          "type": "number",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onOpenChange",
+          "type": "((open: boolean) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "FloatingActionBar": {
+      "displayName": "FloatingActionBar",
+      "description": "",
+      "source": "src/components/pro/FloatingActionBar.tsx",
+      "props": [
+        {
+          "name": "count",
+          "type": "number",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "selectedLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "countLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "FloatingActionBarAction[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "moreActions",
+          "type": "FloatingActionBarAction[]",
+          "required": false,
+          "defaultValue": null,
+          "description": "收进「更多」下拉的动作"
+        },
+        {
+          "name": "moreLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onClearSelection",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": "右端 28×28 关闭钮 = 清空选择（唯一退出口，不再有「取消选择」文字钮）"
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": "关闭钮的无障碍名（如「取消选择」）"
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "FormDialogContent": {
+      "displayName": "FormDialogContent",
+      "description": "",
+      "source": "src/components/pro/FormDialog.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "error",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"md\" | \"sm\" | \"lg\" | \"list\"",
+          "required": false,
+          "defaultValue": "md",
+          "description": ""
+        },
+        {
+          "name": "cancelText",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "submitText",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "submitDisabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "submitLoading",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "targets",
+          "type": "{ summary: ReactNode; items: readonly { id: string; label: ReactNode; }[]; }",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onCancel",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSubmit",
+          "type": "() => void | Promise<void>",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "FormErrorSummary": {
+      "displayName": "FormErrorSummary",
+      "description": "",
+      "source": "src/components/pro/FormErrorSummary.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "FormErrorSummaryItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSelect",
+          "type": "((item: FormErrorSummaryItem) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "FullscreenSurface": {
+      "displayName": "FullscreenSurface",
+      "description": "",
+      "source": "src/components/pro/FullscreenSurface.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "escHint",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "exitLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onExit",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "静态缩样：渲染成非 fixed、固定高度的样子（默认 300 高，可用 className 覆盖），\n不监听 Esc、不锁 body 滚动。只给状态矩阵截图用。"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "InboxDetailHeading": {
+      "displayName": "InboxDetailHeading",
+      "description": "",
+      "source": "src/components/pro/Inbox.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "meta",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "kind",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "InboxList": {
+      "displayName": "InboxList",
+      "description": "",
+      "source": "src/components/pro/Inbox.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "InboxItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "activeId",
+          "type": "string | null",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "emptyLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "errorLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "retryLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onRetry",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "InboxNavigation": {
+      "displayName": "InboxNavigation",
+      "description": "",
+      "source": "src/components/pro/Inbox.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "InboxCategory[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "activeId",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Input": {
+      "displayName": "Input",
+      "description": "",
+      "source": "src/components/ui/input.tsx",
+      "props": [
+        {
+          "name": "status",
+          "type": "\"default\" | \"error\" | null",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "inputSize",
+          "type": "\"form\" | \"md\" | \"sm\" | \"lg\" | null",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "mono",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "addonBefore",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "InputGroup": {
+      "displayName": "InputGroup",
+      "description": "",
+      "source": "src/components/ui/input.tsx",
+      "props": [
+        {
+          "name": "status",
+          "type": "\"default\" | \"error\" | null",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "inputSize",
+          "type": "\"form\" | \"md\" | \"sm\" | \"lg\" | null",
+          "required": false,
+          "defaultValue": "md",
+          "description": ""
+        }
+      ]
+    },
+    "InputGroupAddon": {
+      "displayName": "InputGroupAddon",
+      "description": "",
+      "source": "src/components/ui/input.tsx",
+      "props": []
+    },
+    "InputGroupInput": {
+      "displayName": "InputGroupInput",
+      "description": "",
+      "source": "src/components/ui/input.tsx",
+      "props": []
+    },
+    "InputGroupPrefix": {
+      "displayName": "InputGroupPrefix",
+      "description": "",
+      "source": "src/components/ui/input.tsx",
+      "props": []
+    },
+    "InputGroupSuffix": {
+      "displayName": "InputGroupSuffix",
+      "description": "",
+      "source": "src/components/ui/input.tsx",
+      "props": []
+    },
+    "InterruptBanner": {
+      "displayName": "InterruptBanner",
+      "description": "",
+      "source": "src/components/pro/InterruptBanner.tsx",
+      "props": [
+        {
+          "name": "tone",
+          "type": "InterruptTone",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "message",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "action",
+          "type": "{ label: ReactNode; onClick: () => void; }",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Label": {
+      "displayName": "Label",
+      "description": "",
+      "source": "src/components/ui/label.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "LineChart": {
+      "displayName": "LineChart",
+      "description": "",
+      "source": "src/components/pro/LineChart.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "readonly string[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "series",
+          "type": "readonly LineChartSeries[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "emptyLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ListChrome": {
+      "displayName": "ListChrome",
+      "description": "",
+      "source": "src/components/pro/ListChrome.tsx",
+      "props": [
+        {
+          "name": "toolbar",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "filters",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ListPageHeader": {
+      "displayName": "ListPageHeader",
+      "description": "",
+      "source": "src/components/pro/ListChrome.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "count",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ListToolbar": {
+      "displayName": "ListToolbar",
+      "description": "",
+      "source": "src/components/pro/ListChrome.tsx",
+      "props": [
+        {
+          "name": "leading",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "trailing",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onRefresh",
+          "type": "(() => void | Promise<unknown>)",
+          "required": false,
+          "defaultValue": null,
+          "description": "刷新回调。返回 Promise 时图标自动转圈到 resolve/reject 为止"
+        },
+        {
+          "name": "refreshing",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": "外部受控的转圈态；显式传入时优先于内部跟 Promise 的自动态"
+        },
+        {
+          "name": "fullscreen",
+          "type": "ToolbarFullscreenState",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "ToolbarIconActionsLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": "三个图标钮的无障碍名 + tooltip 文案；缺省时整组不渲染"
+        }
+      ]
+    },
+    "MarkdownContent": {
+      "displayName": "MarkdownContent",
+      "description": "",
+      "source": "src/components/pro/MarkdownContent.tsx",
+      "props": [
+        {
+          "name": "content",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "MarkdownEditor": {
+      "displayName": "MarkdownEditor",
+      "description": "",
+      "source": "src/components/pro/MarkdownEditor.tsx",
+      "props": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onBlur",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "maxLength",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "{ bold: string; italic: string; heading: string; list: string; link: string; preview: string; edit: string; placeholder: string; help: string; }",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Metric": {
+      "displayName": "Metric",
+      "description": "",
+      "source": "src/components/pro/Metric.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "trend",
+          "type": "MetricTrend",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "caption",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "tone",
+          "type": "\"default\" | \"warning\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "NativeSelect": {
+      "displayName": "NativeSelect",
+      "description": "",
+      "source": "src/components/ui/native-select.tsx",
+      "props": [
+        {
+          "name": "status",
+          "type": "\"default\" | \"error\" | null",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "selectSize",
+          "type": "\"md\" | \"sm\" | \"lg\" | null",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "NoticeEditorChrome": {
+      "displayName": "NoticeEditorChrome",
+      "description": "",
+      "source": "src/components/pro/NoticeEditorChrome.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "NoticeSettingsGroup": {
+      "displayName": "NoticeSettingsGroup",
+      "description": "",
+      "source": "src/components/pro/NoticeEditorChrome.tsx",
+      "props": []
+    },
+    "NoticeTableLayout": {
+      "displayName": "NoticeTableLayout",
+      "description": "",
+      "source": "src/components/pro/NoticeEditorChrome.tsx",
+      "props": []
+    },
+    "NumberField": {
+      "displayName": "NumberField",
+      "description": "",
+      "source": "src/components/ui/number-field.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "number | null",
+          "required": true,
+          "defaultValue": null,
+          "description": "受控值。null = 空（不是 0）"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: number | null) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "defaultValue": "1",
+          "description": "步长，默认 1；↑↓ 键与步进钮同步长，Shift 加速 ×10"
+        },
+        {
+          "name": "precision",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": "小数位。传了就在失焦/步进时按它归一（toFixed）"
+        },
+        {
+          "name": "prefix",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "formatter",
+          "type": "((value: number) => string)",
+          "required": false,
+          "defaultValue": null,
+          "description": "显示用格式化（千分位等）。与 parser 成对使用"
+        },
+        {
+          "name": "parser",
+          "type": "((text: string) => number | null)",
+          "required": false,
+          "defaultValue": null,
+          "description": "把用户输入文本解析回数值；返回 null = 空值"
+        },
+        {
+          "name": "inputSize",
+          "type": "\"md\" | \"sm\" | \"lg\"",
+          "required": false,
+          "defaultValue": "md",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "stepLabels",
+          "type": "NumberFieldStepLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-invalid",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onBlur",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "OrganizationChart": {
+      "displayName": "OrganizationChart",
+      "description": "",
+      "source": "src/components/pro/OrganizationChart.tsx",
+      "props": [
+        {
+          "name": "nodes",
+          "type": "readonly OrganizationChartNode[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "selectedId",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "toolbar",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "scopeKey",
+          "type": "string",
+          "required": false,
+          "defaultValue": "",
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "{ tree: string; empty: string; hint: string; zoomIn: string; zoomOut: string; reset: string; expand: (name: string) => string; collapse: (name: string) => string; }",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PageBreadcrumb": {
+      "displayName": "PageBreadcrumb",
+      "description": "卡片内的层级路径；当前项不可交互，右侧保留导航或表单提示。",
+      "source": "src/components/pro/page-scaffold/PageSection.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "readonly string[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "current",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "trailing",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "true",
+          "description": "false：不画底部分隔线（与下方内容合成一块时使用）"
+        }
+      ]
+    },
+    "PageDivider": {
+      "displayName": "PageDivider",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageSection.tsx",
+      "props": []
+    },
+    "PageFrame": {
+      "displayName": "PageFrame",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageFrame.tsx",
+      "props": [
+        {
+          "name": "breadcrumbs",
+          "type": "PageBreadcrumbItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "flush",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "铺满型页面（列表/详情/表单）：外壳本身已是一张卡的布局（inset / pipeline）下去掉外框内距；侧栏 / 图标栏仍是「卡片浮在画布上」，保留内距。"
+        }
+      ]
+    },
+    "PageFrameChromeProvider": {
+      "displayName": "PageFrameChromeProvider",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageFrame.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "PageFrameChromeValue",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PagePane": {
+      "displayName": "PagePane",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PagePane.tsx",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"navigation\" | \"master\" | \"detail\"",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PagePaneBody": {
+      "displayName": "PagePaneBody",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PagePane.tsx",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"default\" | \"canvas\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "PagePaneFooter": {
+      "displayName": "PagePaneFooter",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PagePane.tsx",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"form\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "hint",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PagePaneHeader": {
+      "displayName": "PagePaneHeader",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PagePane.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "meta",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PagePaneToolbar": {
+      "displayName": "PagePaneToolbar",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PagePane.tsx",
+      "props": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"plain\" | \"tabs\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "PageSection": {
+      "displayName": "PageSection",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageSection.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "leading",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"plain\" | \"card\" | \"subtle\"",
+          "required": false,
+          "defaultValue": "subtle",
+          "description": ""
+        }
+      ]
+    },
+    "PageSectionHeading": {
+      "displayName": "PageSectionHeading",
+      "description": "同一页面内的分区标题、说明和右侧操作。",
+      "source": "src/components/pro/page-scaffold/PageSection.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PageSurface": {
+      "displayName": "PageSurface",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageFrame.tsx",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"default\" | \"canvas\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": "canvas：内容区是灰底画布（卡片分区页），外壳已是一张卡的布局（inset / pipeline）不画外框线与圆角，由外层卡片统一裁切；侧栏 / 图标栏仍是浮在画布上的圆角卡。"
+        }
+      ]
+    },
+    "PageTabs": {
+      "displayName": "PageTabs",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PageSection.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "items",
+          "type": "PageTabItem<TValue>[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: TValue) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "trailing",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PageThreePane": {
+      "displayName": "PageThreePane",
+      "description": "",
+      "source": "src/components/pro/page-scaffold/PagePane.tsx",
+      "props": []
+    },
+    "Pagination": {
+      "displayName": "Pagination",
+      "description": "",
+      "source": "src/components/pro/Pagination.tsx",
+      "props": [
+        {
+          "name": "page",
+          "type": "number",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "pageCount",
+          "type": "number",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "totalLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "refreshingLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "prevLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "nextLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "currentLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onPageChange",
+          "type": "(page: number) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "pageSize",
+          "type": "PaginationPageSize",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PermissionAction": {
+      "displayName": "PermissionAction",
+      "description": "",
+      "source": "src/components/pro/PermissionAction.tsx",
+      "props": [
+        {
+          "name": "allowed",
+          "type": "boolean",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "degrade",
+          "type": "PermissionActionDegrade",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "reason",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PickerPanel": {
+      "displayName": "PickerPanel",
+      "description": "PickerPopover 的面板体：搜索 + 树 / 扁平匹配 + 键盘导航。筛选二级面板与选择器共用。",
+      "source": "src/components/pro/PickerPopover.tsx",
+      "props": [
+        {
+          "name": "nodes",
+          "type": "PickerNode[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "density",
+          "type": "\"default\" | \"compact\"",
+          "required": false,
+          "defaultValue": null,
+          "description": "compact：与弹窗内表单控件同档（30px 行、28px 搜索框），用于筛选值面板；默认 36px 行供独立选择器使用"
+        },
+        {
+          "name": "appearance",
+          "type": "\"popover\" | \"inline\"",
+          "required": false,
+          "defaultValue": null,
+          "description": "inline：直接嵌进表单 / 弹窗，自带细边框与圆角，不画底部提示栏"
+        },
+        {
+          "name": "indicator",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": "每行前画勾选框（多选）或单选圈（单选），选中态用品牌色，而不是只靠底色"
+        },
+        {
+          "name": "recent",
+          "type": "string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onCreate",
+          "type": "((query: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "PickerPopoverLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "defaultQuery",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "query",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onQueryChange",
+          "type": "((query: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "searchMode",
+          "type": "\"local\" | \"remote\"",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onClose",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "string | readonly string[] | null",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onChange",
+          "type": "((value: string | null) => void) | ((value: string[]) => void)",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PickerPopover": {
+      "displayName": "PickerPopover",
+      "description": "",
+      "source": "src/components/pro/PickerPopover.tsx",
+      "props": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLButtonElement>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onBlur",
+          "type": "FocusEventHandler<HTMLButtonElement>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "nodes",
+          "type": "PickerNode[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "recent",
+          "type": "string[]",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onCreate",
+          "type": "((query: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "PickerPopoverLabels",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"form\" | \"toolbar\"",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-invalid",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "trigger",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onOpenChange",
+          "type": "((open: boolean) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "defaultQuery",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "query",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onQueryChange",
+          "type": "((query: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "searchMode",
+          "type": "\"local\" | \"remote\"",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "string | readonly string[] | null",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onChange",
+          "type": "((value: string | null) => void) | ((value: string[]) => void)",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PickerSelectionProps": {
+      "displayName": "PickerSelectionProps",
+      "description": "模式与值、回调绑定；多选接受只读输入，每次回调提供新数组。",
+      "source": "src/components/pro/PickerPopover.tsx",
+      "props": []
+    },
+    "Popconfirm": {
+      "displayName": "Popconfirm",
+      "description": "",
+      "source": "src/components/pro/Popconfirm.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": "触发器。以 asChild 挂到 Radix Trigger 上，必须是单个可接 ref 的元素"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "cancelText",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "confirmText",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "severity",
+          "type": "ConfirmSeverity",
+          "required": false,
+          "defaultValue": "impact",
+          "description": ""
+        },
+        {
+          "name": "confirmation",
+          "type": "PopconfirmConfirmation",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "pending",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "外部驱动的 pending（调用方自己管 mutation 状态时用）"
+        },
+        {
+          "name": "onConfirm",
+          "type": "() => void | Promise<void>",
+          "required": true,
+          "defaultValue": null,
+          "description": "返回 Promise 时自动进 pending，resolve 后关闭；reject 保持打开交调用方提示"
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onOpenChange",
+          "type": "((open: boolean) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "side",
+          "type": "\"top\" | \"bottom\" | \"right\" | \"left\"",
+          "required": false,
+          "defaultValue": "bottom",
+          "description": ""
+        },
+        {
+          "name": "align",
+          "type": "\"center\" | \"start\" | \"end\"",
+          "required": false,
+          "defaultValue": "end",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "禁用时触发器点击不再打开气泡"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PopconfirmPanel": {
+      "displayName": "PopconfirmPanel",
+      "description": "气泡内容本体。单独导出是为了状态矩阵能把三档并排常显（不必逐个点开），\n也让别处需要「非浮层的确认块」时不必再抄一遍排版。",
+      "source": "src/components/pro/Popconfirm.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "cancelText",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "confirmText",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "severity",
+          "type": "ConfirmSeverity",
+          "required": false,
+          "defaultValue": "impact",
+          "description": ""
+        },
+        {
+          "name": "confirmation",
+          "type": "PopconfirmConfirmation",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "pending",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "onCancel",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onConfirm",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Popover": {
+      "displayName": "Popover",
+      "description": "",
+      "source": "src/components/ui/popover.tsx",
+      "props": []
+    },
+    "PopoverAnchor": {
+      "displayName": "PopoverAnchor",
+      "description": "",
+      "source": "src/components/ui/popover.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PopoverContent": {
+      "displayName": "PopoverContent",
+      "description": "",
+      "source": "src/components/ui/popover.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "PopoverDescription": {
+      "displayName": "PopoverDescription",
+      "description": "",
+      "source": "src/components/ui/popover.tsx",
+      "props": []
+    },
+    "PopoverHeader": {
+      "displayName": "PopoverHeader",
+      "description": "",
+      "source": "src/components/ui/popover.tsx",
+      "props": []
+    },
+    "PopoverTitle": {
+      "displayName": "PopoverTitle",
+      "description": "",
+      "source": "src/components/ui/popover.tsx",
+      "props": []
+    },
+    "PopoverTrigger": {
+      "displayName": "PopoverTrigger",
+      "description": "",
+      "source": "src/components/ui/popover.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ProgressBar": {
+      "displayName": "ProgressBar",
+      "description": "",
+      "source": "src/components/ui/progress.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "defaultValue": "100",
+          "description": ""
+        }
+      ]
+    },
+    "QueryState": {
+      "displayName": "QueryState",
+      "description": "",
+      "source": "src/components/pro/QueryState.tsx",
+      "props": [
+        {
+          "name": "data",
+          "type": "T | undefined",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "pending",
+          "type": "boolean",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "refreshing",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "已有内容的后台刷新或失败重试中。"
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "loadingLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "errorLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "retryLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onRetry",
+          "type": "() => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "skeleton",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "skeletonRows",
+          "type": "number",
+          "required": false,
+          "defaultValue": "6",
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "RadioGroup": {
+      "displayName": "RadioGroup",
+      "description": "",
+      "source": "src/components/ui/radio-group.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "RadioGroupItem": {
+      "displayName": "RadioGroupItem",
+      "description": "",
+      "source": "src/components/ui/radio-group.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Result": {
+      "displayName": "Result",
+      "description": "",
+      "source": "src/components/pro/Result.tsx",
+      "props": [
+        {
+          "name": "status",
+          "type": "ResultStatus",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "extra",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": "动作行：一般传 1~2 个 Button size=\"sm\""
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": "动作行下的补充块，如失败明细清单"
+        },
+        {
+          "name": "compact",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "弹窗 / 侧栏档：36 圆 + 13.5 标题"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "RowActionsMenu": {
+      "displayName": "RowActionsMenu",
+      "description": "",
+      "source": "src/components/pro/RowActionsMenu.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "RowMenuItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": "三点按钮的可访问名（pro 层不做 i18n，文案由外部注入）"
+        },
+        {
+          "name": "revealed",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "强制常显。默认只在祖先 `.group/row` hover、自身 hover/focus-within、菜单展开时可见；\n状态矩阵与无 hover 上下文的场景用它固定展示。"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "true",
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "RowContextMenu": {
+      "displayName": "RowContextMenu",
+      "description": "",
+      "source": "src/components/pro/RowActionsMenu.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "RowMenuItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": "右键落点元素（通常是整行 `<tr>`），必须能接收 props"
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "true",
+          "description": ""
+        }
+      ]
+    },
+    "SegmentedProgress": {
+      "displayName": "SegmentedProgress",
+      "description": "",
+      "source": "src/components/pro/SegmentedProgress.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": "右侧 mono 文本，如「12 / 15」。由外部拼好传入（pro 层不做 i18n / 数字格式化）"
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Select": {
+      "displayName": "Select",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectContent": {
+      "displayName": "SelectContent",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectControl": {
+      "displayName": "SelectControl",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "ref",
+          "type": "Ref<HTMLButtonElement>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onBlur",
+          "type": "FocusEventHandler<HTMLButtonElement>",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-describedby",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "options",
+          "type": "SelectOption[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"md\" | \"sm\" | \"lg\"",
+          "required": false,
+          "defaultValue": "md",
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "triggerClassName",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "contentClassName",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-invalid",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectGroup": {
+      "displayName": "SelectGroup",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectItem": {
+      "displayName": "SelectItem",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectLabel": {
+      "displayName": "SelectLabel",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectScrollDownButton": {
+      "displayName": "SelectScrollDownButton",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectScrollUpButton": {
+      "displayName": "SelectScrollUpButton",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectSeparator": {
+      "displayName": "SelectSeparator",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SelectTrigger": {
+      "displayName": "SelectTrigger",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"md\" | \"sm\" | \"lg\"",
+          "required": false,
+          "defaultValue": "md",
+          "description": ""
+        }
+      ]
+    },
+    "SelectValue": {
+      "displayName": "SelectValue",
+      "description": "",
+      "source": "src/components/ui/select.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SideCardList": {
+      "displayName": "SideCardList",
+      "description": "",
+      "source": "src/components/pro/SideList.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "SideCardListItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "activeId",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SideList": {
+      "displayName": "SideList",
+      "description": "",
+      "source": "src/components/pro/SideList.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "SideListItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "activeId",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "search",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Skeleton": {
+      "displayName": "Skeleton",
+      "description": "",
+      "source": "src/components/ui/skeleton.tsx",
+      "props": []
+    },
+    "SoftSegmented": {
+      "displayName": "SoftSegmented",
+      "description": "SoftSegmented —— 软浮起风格的单选分段控件（如「Light / Dark / System」主题切换）。\n底座是 Radix RadioGroup（role=radiogroup + roving focus，方向键切换），\n受控 API 与 RadioGroup 一致：value / defaultValue / onValueChange / disabled。\n视觉与 SoftSwitch 共用 `--soft-*` token 与 `.ui-soft-*` 状态机：整条是凹槽轨道，选中项即凸起旋钮。",
+      "source": "src/components/ui/soft-segmented.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SoftSegmentedItem": {
+      "displayName": "SoftSegmentedItem",
+      "description": "",
+      "source": "src/components/ui/soft-segmented.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SoftSwitch": {
+      "displayName": "SoftSwitch",
+      "description": "SoftSwitch —— 软浮起（soft UI / 轻量新拟态）开关实验件。\n与 `Switch` 同一 Radix 底座、同一受控 API（checked / onCheckedChange / disabled / size），\n视觉走 `--soft-*` token 族，状态机住 global.css 的 `.ui-soft-*`；不替换现有 Switch。\n`iconChecked` / `iconUnchecked` 可在旋钮里放图标（如 Sun / Moon），随状态淡入淡出。",
+      "source": "src/components/ui/soft-switch.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"sm\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "iconChecked",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "iconUnchecked",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "StatusTabs": {
+      "displayName": "StatusTabs",
+      "description": "",
+      "source": "src/components/pro/StatusTabs.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "StatusTabItem<TValue>[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: TValue) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Steps": {
+      "displayName": "Steps",
+      "description": "",
+      "source": "src/components/pro/Steps.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "StepItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "current",
+          "type": "number",
+          "required": false,
+          "defaultValue": "0",
+          "description": "当前步下标，默认 0"
+        },
+        {
+          "name": "direction",
+          "type": "\"horizontal\" | \"vertical\"",
+          "required": false,
+          "defaultValue": "horizontal",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"md\" | \"sm\"",
+          "required": false,
+          "defaultValue": "md",
+          "description": "md 圈 24 / 标题 13；sm 圈 20 / 标题 12.5"
+        },
+        {
+          "name": "onChange",
+          "type": "((current: number, item: StepItem) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": "传了才可点：可点时每一步渲染成 button"
+        },
+        {
+          "name": "progressDot",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "点式：8px 圆点替代序号圈，当前点带 --pri-soft 外环"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "SummaryStrip": {
+      "displayName": "SummaryStrip",
+      "description": "",
+      "source": "src/components/pro/DataToolbar.tsx",
+      "props": [
+        {
+          "name": "items",
+          "type": "SummaryStripItem[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Switch": {
+      "displayName": "Switch",
+      "description": "",
+      "source": "src/components/ui/switch.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"sm\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "Table": {
+      "displayName": "Table",
+      "description": "",
+      "source": "src/components/ui/table.tsx",
+      "props": [
+        {
+          "name": "containerClassName",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "afterTable",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": "渲染在 <table> 之后、滚动容器之内的插槽（空态要占满表体剩余高度只能在 table 外面铺）"
+        }
+      ]
+    },
+    "TableBody": {
+      "displayName": "TableBody",
+      "description": "",
+      "source": "src/components/ui/table.tsx",
+      "props": []
+    },
+    "TableCaption": {
+      "displayName": "TableCaption",
+      "description": "",
+      "source": "src/components/ui/table.tsx",
+      "props": []
+    },
+    "TableCell": {
+      "displayName": "TableCell",
+      "description": "",
+      "source": "src/components/ui/table.tsx",
+      "props": []
+    },
+    "TableColumnResizer": {
+      "displayName": "TableColumnResizer",
+      "description": "列宽拖拽把手（§3.8）：6px 命中区（hover 才亮把手）+ 3×18 圆角把手 + 拖动中的光晕与跟手气泡。\n单独导出是为了让组件站 /dev/components/data-table 能截到「拖拽中」这一态——它在真实表格里只在按住鼠标时出现。",
+      "source": "src/components/pro/DataTable.tsx",
+      "props": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onKeyDown",
+          "type": "((event: KeyboardEvent<HTMLDivElement>) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "resizing",
+          "type": "boolean",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "hint",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onMouseDown",
+          "type": "((event: MouseEvent<HTMLDivElement, MouseEvent>) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onTouchStart",
+          "type": "((event: TouchEvent<HTMLDivElement>) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onDoubleClick",
+          "type": "(() => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "TableFooter": {
+      "displayName": "TableFooter",
+      "description": "",
+      "source": "src/components/ui/table.tsx",
+      "props": []
+    },
+    "TableHead": {
+      "displayName": "TableHead",
+      "description": "",
+      "source": "src/components/ui/table.tsx",
+      "props": []
+    },
+    "TableHeader": {
+      "displayName": "TableHeader",
+      "description": "",
+      "source": "src/components/ui/table.tsx",
+      "props": []
+    },
+    "TableRow": {
+      "displayName": "TableRow",
+      "description": "",
+      "source": "src/components/ui/table.tsx",
+      "props": []
+    },
+    "TableText": {
+      "displayName": "TableText",
+      "description": "表格单元格的排印与语义色；禁用行的弱化色优先于单元格语气。",
+      "source": "src/components/pro/TableText.tsx",
+      "props": [
+        {
+          "name": "tone",
+          "type": "\"body\" | \"link\" | \"strong\" | \"danger\" | \"hint\" | \"success\" | \"weak\"",
+          "required": false,
+          "defaultValue": "body",
+          "description": ""
+        },
+        {
+          "name": "muted",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "mono",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        }
+      ]
+    },
+    "Tabs": {
+      "displayName": "Tabs",
+      "description": "Tabs —— 基础标签页，两种结构共用一条「滑动指示器」：\n  · default（segmented）：指示器是选中项底下的药丸（--tabs-seg-trigger-bg-active），随选中项平移 / 变宽；\n  · line：指示器是 2px 底线（--tabs-line-indicator），机制与 pro/AnimatedTabs 同源。\n指示器由 TabsList 测量 `[data-state=active]` 触发器的 offset 得出，触发器本身不再各画各的选中底 / 下划线，\n切换时才有连续位移动画——各画各的选中底会让动画断掉，几何也与页头 tab 不协调。\n几何对齐基座画布：触发器高 = --rail-tab-h（30）、13.5px、选中 600；seg 内距 11px；line 间距 24。",
+      "source": "src/components/ui/tabs.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "TabsContent": {
+      "displayName": "TabsContent",
+      "description": "",
+      "source": "src/components/ui/tabs.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "TabsList": {
+      "displayName": "TabsList",
+      "description": "",
+      "source": "src/components/ui/tabs.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"line\" | null",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        }
+      ]
+    },
+    "TabsTrigger": {
+      "displayName": "TabsTrigger",
+      "description": "",
+      "source": "src/components/ui/tabs.tsx",
+      "props": [
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "TimeColumns": {
+      "displayName": "TimeColumns",
+      "description": "",
+      "source": "src/components/pro/TimeColumns.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string | null",
+          "required": true,
+          "defaultValue": null,
+          "description": "`HH:mm` 或 `HH:mm:ss`；null = 未填（列里无高亮）"
+        },
+        {
+          "name": "onChange",
+          "type": "(next: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": "点选任一列后回吐完整串；未填的段按 0 补齐，保证一次点选就得到合法时间"
+        },
+        {
+          "name": "withSeconds",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "defaultValue": "1",
+          "description": "「分」列的步长（分钟），默认 1"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "TimeColumnsLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "TimeField": {
+      "displayName": "TimeField",
+      "description": "",
+      "source": "src/components/pro/TimeField.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string | null",
+          "required": true,
+          "defaultValue": null,
+          "description": "`HH:mm` 或 `HH:mm:ss`；null = 未填"
+        },
+        {
+          "name": "onChange",
+          "type": "(next: string | null) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "withSeconds",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "显示第三段「秒」"
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "defaultValue": "1",
+          "description": "↑↓ 在「分」段上的步进（分钟），默认 1"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "type": "\"form\" | \"toolbar\" | \"panel\"",
+          "required": false,
+          "defaultValue": "form",
+          "description": "尺寸档：form = 34 / toolbar = 32 / panel = 28（面板底栏，且不出尾图标）"
+        },
+        {
+          "name": "labels",
+          "type": "TimeFieldLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "withPicker",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": "false",
+          "description": "聚焦时在下方弹出时 / 分 [/ 秒] 滚动列（TimeColumns），与键盘输入并存；panel 档不用（DatePicker 面板已并排放列）"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-label",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "aria-invalid",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ToastSurface": {
+      "displayName": "ToastSurface",
+      "description": "",
+      "source": "src/components/ui/toast.tsx",
+      "props": [
+        {
+          "name": "tone",
+          "type": "ToastTone",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "message",
+          "type": "ReactNode",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "action",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "ToolbarIconActions": {
+      "displayName": "ToolbarIconActions",
+      "description": "",
+      "source": "src/components/pro/DataToolbar.tsx",
+      "props": [
+        {
+          "name": "onRefresh",
+          "type": "(() => void | Promise<unknown>)",
+          "required": false,
+          "defaultValue": null,
+          "description": "刷新回调。返回 Promise 时图标自动转圈到 resolve/reject 为止"
+        },
+        {
+          "name": "refreshing",
+          "type": "boolean",
+          "required": false,
+          "defaultValue": null,
+          "description": "外部受控的转圈态；显式传入时优先于内部跟 Promise 的自动态"
+        },
+        {
+          "name": "fullscreen",
+          "type": "ToolbarFullscreenState",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "labels",
+          "type": "ToolbarIconActionsLabels",
+          "required": false,
+          "defaultValue": null,
+          "description": "三个图标钮的无障碍名 + tooltip 文案；缺省时整组不渲染"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    },
+    "Tree": {
+      "displayName": "Tree",
+      "description": "",
+      "source": "src/components/pro/Tree.tsx",
+      "props": [
+        {
+          "name": "nodes",
+          "type": "TreeNode[]",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"compact\" | \"management\"",
+          "required": false,
+          "defaultValue": "default",
+          "description": ""
+        },
+        {
+          "name": "selectedId",
+          "type": "string",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onSelect",
+          "type": "(id: string) => void",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "onToggle",
+          "type": "((id: string) => void)",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": true,
+          "defaultValue": null,
+          "description": ""
+        },
+        {
+          "name": "empty",
+          "type": "ReactNode",
+          "required": false,
+          "defaultValue": null,
+          "description": ""
+        }
+      ]
+    }
+  }
+}

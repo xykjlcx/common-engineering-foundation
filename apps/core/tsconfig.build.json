@@ -1,0 +1,19 @@
+{
+  // 生产构建专用（`pnpm build`）：只编译 src 的运行时代码到 dist，工具链只有 tsc。
+  // 基座 tsconfig.json 是 noEmit 的 typecheck 配置（还含 scripts/ 与 config 文件），
+  // 两者职责分开——这里改 rootDir/outDir 不影响 `pnpm typecheck` 的检查面。
+  //
+  // 非 TS 资产为何不用拷：唯一的运行时外部资产是 drizzle migration SQL，
+  // kernel/db.ts 用 `path.resolve(import.meta.dirname, '../../drizzle')` 定位；
+  // src/kernel → dist/kernel 层级同深，编译后该相对路径仍指向 apps/core/drizzle，无需 copy 步骤。
+  // （openapi.json 只被 scripts/generate-openapi.ts 落盘，运行时不读——/api/openapi.json 端点走内存生成。）
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "rootDir": "src",
+    "outDir": "dist",
+    "sourceMap": true
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.ts", "src/**/__tests__/**", "src/testing"]
+}

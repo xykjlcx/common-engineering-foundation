@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX "app_user_email_lower_idx" ON "app_user" USING btree (lower("email"));

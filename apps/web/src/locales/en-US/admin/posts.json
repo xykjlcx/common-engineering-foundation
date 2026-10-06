@@ -1,0 +1,105 @@
+{
+  "title": "Posts",
+  "breadcrumbGroup": "Administration",
+  "searchLabel": "Search posts",
+  "searchPlaceholder": "Name / code",
+  "count": "{{count}} total",
+  "emptyText": "No posts",
+  "refreshing": "Refreshing",
+  "loadFailed": "Failed to load posts",
+  "retry": "Retry",
+  "pagination": {
+    "prev": "Previous",
+    "next": "Next",
+    "current": "Page {{page}}",
+    "pageSize": "{{size}} / page",
+    "pageSizeLabel": "Page size",
+    "filteredTotal": "{{count}} filtered"
+  },
+  "status": {
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "columns": {
+    "name": "Name",
+    "code": "Code",
+    "enabled": "Status",
+    "createdAt": "Created"
+  },
+  "actions": {
+    "create": "New post",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "fields": {
+    "name": "Name",
+    "code": "Code",
+    "enabled": "Enabled"
+  },
+  "form": {
+    "title": "New post",
+    "saveFailed": "Save failed. Please retry."
+  },
+  "permission": {
+    "noCreate": "You do not have permission to create posts"
+  },
+  "loading": {
+    "list": "Loading posts",
+    "plain": "Updating"
+  },
+  "error": {
+    "banner": "Refresh failed: {{message}}",
+    "copyTrace": "Copy trace id"
+  },
+  "filters": {
+    "label": "Filters",
+    "menuSearch": "Search fields…",
+    "schemesTitle": "My views",
+    "fieldsTitle": "Filter by field",
+    "advanced": "Advanced filters…",
+    "clearText": "Clear",
+    "clear": "Clear",
+    "removeCondition": "Remove condition",
+    "conditionCount": "{{count}} conditions",
+    "rangeFrom": "From",
+    "rangeTo": "To",
+    "fields": {
+      "enabled": "Status"
+    },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "operators": {
+      "eq": "Equals"
+    },
+    "textOps": {
+      "eq": "Equals"
+    }
+  },
+  "sort": "Order",
+  "remark": "Remark",
+  "defaultRoles": "Default roles",
+  "templateHint": "Roles only prefill a new user form; actual grants are checked separately.",
+  "edit": "Edit post",
+  "delete": "Delete post",
+  "deleteDescription": "Delete “{{name}}” and its default role configuration?",
+  "noRoles": "No default roles",
+  "unavailableRole": "This role cannot be granted now; remove it before saving",
+  "invalid": "Check the field format",
+  "errors": {
+    "codeConflict": "Post code already exists",
+    "nameConflict": "Post name already exists",
+    "versionConflict": "Post changed. Reopen it; your input is preserved",
+    "roleUnavailable": "Role missing or disabled; select again",
+    "escalation": "Default roles exceed your permissions",
+    "inUse": "Referenced by {{count}} users, including archived users. Cannot delete."
+  },
+  "detailLabel": "Post details",
+  "closeDetail": "Close post details",
+  "enable": "Enable",
+  "disable": "Disable",
+  "members": "Members",
+  "noMembers": "No members within your data scope",
+  "usageHint": "Referenced posts can be disabled. Existing references remain; new selections are blocked."
+}

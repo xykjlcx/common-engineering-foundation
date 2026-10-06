@@ -1,0 +1,3 @@
+ALTER TABLE "stored_file" DROP CONSTRAINT "stored_file_status_check";--> statement-breakpoint
+CREATE INDEX "stored_file_cleanup_idx" ON "stored_file" USING btree (coalesce("staged_at", "created_at"),"id") WHERE "stored_file"."purpose" = 'avatar' AND "stored_file"."status" IN ('staging', 'staged', 'failed', 'deleting') AND "stored_file"."bound_user_id" IS NULL AND "stored_file"."bound_at" IS NULL;--> statement-breakpoint
+ALTER TABLE "stored_file" ADD CONSTRAINT "stored_file_status_check" CHECK ("stored_file"."status" IN ('staging', 'staged', 'bound', 'failed', 'deleting', 'deleted'));

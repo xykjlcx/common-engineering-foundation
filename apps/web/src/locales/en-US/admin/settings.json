@@ -1,0 +1,110 @@
+{
+  "title": "System settings",
+  "scope": "Applies to all users · Changes are audited",
+  "loading": "Loading settings",
+  "reload": "Reload",
+  "readOnly": "You can view these settings. Editing requires the settings update permission.",
+  "save": "Save changes",
+  "discard": "Discard",
+  "saved": "Settings saved",
+  "unsaved": "{{count}} unsaved changes",
+  "unsavedHint": "Changes are not active yet. Save to apply them to the relevant operations.",
+  "discardTitle": "Discard unsaved changes?",
+  "discardDescription": "Your draft will be discarded. Saved settings stay in place.",
+  "discardConfirm": "Discard changes",
+  "keepEditing": "Keep editing",
+  "defaults": "Using system defaults",
+  "updatedAt": "Last saved: {{date}}",
+  "sessionHint": "Duration applies to new sign-ins. Existing sessions keep their issued lifetime, with a 30-day absolute limit.",
+  "passwordHint": "Applies to creation, import, resets and password changes. Existing passwords can still sign in.",
+  "uploadHint": "Storage currently serves user avatars. PNG, JPEG and WebP are accepted with file-header verification. The deployment manages the storage directory.",
+  "avatarRequirements": "Choose PNG, JPEG or WebP, up to {{size}} MiB.",
+  "passwordRequirements": "At least {{length}} characters{{requirements}}.",
+  "passwordJoin": ", ",
+  "passwordPrefix": ", including ",
+  "passwordUpper": "uppercase",
+  "passwordLower": "lowercase",
+  "passwordNumber": "a number",
+  "passwordSymbol": "a symbol",
+  "sections": {
+    "general": "General",
+    "security": "Security policy",
+    "credentials": "Password policy",
+    "uploads": "File uploads"
+  },
+  "groups": {
+    "general": "Sign-in branding",
+    "login": "Sign-in",
+    "session": "Sessions",
+    "password": "Password requirements",
+    "uploads": "User avatars"
+  },
+  "units": {
+    "times": "attempts",
+    "minutes": "minutes",
+    "days": "days",
+    "characters": "characters",
+    "mib": "MiB"
+  },
+  "errors": {
+    "load": "Could not load settings. Try again.",
+    "save": "Could not save. Your draft is preserved. Try again.",
+    "conflict": "Another administrator updated these settings. Your draft is preserved. Refresh the page before editing again.",
+    "forbidden": "You do not have permission to update settings.",
+    "invalid": "Enter a valid value within the allowed range."
+  },
+  "fields": {
+    "appName": {
+      "label": "System name",
+      "hint": "Shown as the brand on the sign-in page."
+    },
+    "loginDescription": {
+      "label": "Sign-in description",
+      "hint": "Explain the purpose of the system or how to sign in."
+    },
+    "lockThreshold": {
+      "label": "Account failure threshold",
+      "hint": "Temporarily block sign-in after this many failures in the window."
+    },
+    "ipLockThreshold": {
+      "label": "IP failure threshold",
+      "hint": "Limit incorrect attempts from the same IP; valid accounts can still sign in."
+    },
+    "lockWindowMs": {
+      "label": "Failure window",
+      "hint": "Only failures within this window count; locks expire with the records."
+    },
+    "sessionTtlMs": {
+      "label": "Session duration",
+      "hint": "Sliding lifetime for ordinary sessions, renewed after the activity threshold."
+    },
+    "sessionRememberTtlMs": {
+      "label": "Remember-me duration",
+      "hint": "Lifetime for persistent sign-in sessions, up to 30 days."
+    },
+    "minLength": {
+      "label": "Minimum length",
+      "hint": "New passwords must contain this many characters, between 8 and 128."
+    },
+    "requireUppercase": {
+      "label": "Require uppercase",
+      "hint": "Include at least one A–Z."
+    },
+    "requireLowercase": {
+      "label": "Require lowercase",
+      "hint": "Include at least one a–z."
+    },
+    "requireNumber": {
+      "label": "Require number",
+      "hint": "Include at least one 0–9."
+    },
+    "requireSymbol": {
+      "label": "Require symbol",
+      "hint": "Include a non-letter, non-digit, non-whitespace symbol."
+    },
+    "avatarMaxMiB": {
+      "label": "Avatar size limit",
+      "hint": "Maximum size per avatar file, between 1 and 10 MiB."
+    }
+  }
+}

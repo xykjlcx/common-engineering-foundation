@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "sourceKey": "/_auth/admin/depts#action:dept-member",
+      "reason": "成员管理无后端切片，删除前端声明"
+    },
+    {
+      "sourceKey": "/_auth/admin/depts#action:dept-sort",
+      "reason": "部门排序无后端切片，删除前端声明"
+    },
+    {
+      "sourceKey": "/_auth/admin/menus#action:menu-toggle",
+      "reason": "显隐已由 iam:menu:update 覆盖，删除独立声明"
+    },
+    {
+      "sourceKey": "/_auth/admin/depts#action:dept-create",
+      "reason": "超管专属能力退出可授权节点，保留声明与 meta.perm"
+    },
+    {
+      "sourceKey": "/_auth/admin/depts#action:dept-update",
+      "reason": "超管专属能力退出可授权节点，保留声明与 meta.perm"
+    },
+    {
+      "sourceKey": "/_auth/admin/depts#action:dept-del",
+      "reason": "超管专属能力退出可授权节点，保留声明与 meta.perm"
+    },
+    {
+      "sourceKey": "/_auth/admin/countries#action:country-create",
+      "reason": "国家纵切示例退役，数据字典承担最小列表范本"
+    },
+    {
+      "sourceKey": "/_auth/admin/teams#action:team-create",
+      "reason": "团队纵切示例退役，数据字典承担最小列表范本"
+    }
+  ],
+  "digest": "51c19f5b990bc17c917c947b7f93ed7987146c6c6a2e90370cf64e84ca7c64f3"
+}

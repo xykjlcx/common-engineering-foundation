@@ -1,0 +1,326 @@
+/* src/styles/tokens.pipeline.css —— pipeline 风格自包含 profile（统一基座原型橙，第五风格）。
+
+   值的取法（洋哥 2026-09-01 硬纪律）：每个值都必须能从 design-explore/pipeline-board/ 的板代码里 grep 出来。
+   三级权威源：
+     1) ThemeSwitch.dc.html 的 <style> —— 原型自己的主题 token 定义（[data-theme="默认"] 那一套），
+        品牌 / rail / tab / 语义 / 圆角四档 / 字体栈以它为准；
+     2) DSFoundations.dc.html（1.1–1.7）与 DSComponents.dc.html（2.1–2.10）—— 汇总文档与状态矩阵；
+     3) 其余 47 块页面板的内联样式 —— 具体值与频次仲裁（板内打架时以出现频次 + 规范层为准）。
+   逐值出处（含板名与跨板频次）见 docs/design/pipeline.design.md。
+
+   铁律：板上 grep 不到的值一律不落地，登记「板上未定义，沿用 base」。像素值零推断、零近似。
+   注意「板上可 grep 的规范原文（如 1.1 原则③『tab 的选中态用中性灰，不吃橙』）同样是合法出处」——
+   它不是像素但是白纸黑字的规范，按此落地的槽位在注释里标明引的是哪句话。
+   唯一的例外是暗色块，见该块注释（主进程裁决借用，非板上值）。 */
+
+[data-flavor='pipeline'][data-mode='light'] {
+  /* scaffold-draft/Login.dc.html：右侧船体品牌区与标志。 */
+  --login-hero-bg: #f4f3f0;
+  --login-hull-fg: #2f2e30;
+  --login-mark-bg: linear-gradient(180deg, #8b96a8, #3d4852);
+  /* ThemeSwitch [data-theme="默认"] --brand；DSFoundations 1.2 品牌 brand / brand-soft */
+  --pri: #f97316; --pri-soft: #fff4e9;
+  /* 1.2 表面：page（bg+canvas）· paper（surface+chrome）· fill（surface-2）。
+     paper 用于 chrome：UserList 等板的浮卡内顶栏无自身 background，继承浮卡 #fffffd。
+     --surface-blur 全板 grep 无对应值（毛玻璃底原型未使用），但 M2 强制必填 —— 直接沿用 base 字面值。 */
+  --bg: #f0f0f0; --canvas: #f0f0f0; --surface: #fffffd; --chrome: #fffffd;
+  --surface-2: #f2f2f0; --surface-blur: rgba(255, 255, 255, 0.72);
+  /* 1.2 灰阶：ink-800 正文主色 / ink-500 正文次要 / ink-400 说明；border 控件边；ink-050 未选中边框 */
+  --text: #1c1c1a; --text-2: #505050; --text-3: #8f8f8c; --border: #ececea;
+  --control-border: #d0d0cd;
+  /* ThemeSwitch --st-ok / --st-info / --st-mute + 1.2 语义五组（底 / 字） */
+  --success: #0c9d58; --success-soft: #e4f9ed;
+  --info: #0a6cff; --info-soft: #dbf1ff;
+  --warning: #b3540a; --warning-soft: #fff4e9;
+  --danger: #d94040; --danger-soft: #fdecec;
+  --badge-neutral-fg: #71716d;
+  /* 2.2 输入 + 页面板实测：control 底 #fdfdfc（32px 控件配 #ececea 边共 147 处，无一例外，且 147/147 无阴影）；
+     聚焦不换底；禁用 sunken #fafaf9；占位 #9a9a97（27 块板 30 处，2.2 demo 的 #b0b0ad 仅 FormFeedback 1 处孤例）。 */
+  --field-bg: #fdfdfc;
+  --field-bg-focus: #fdfdfc;
+  --field-bg-disabled: #fafaf9;
+  --field-placeholder: #9a9a97;
+  /* 2.1 次要按钮：control 底，hover「换底不换边」→ fill-2（#f5f5f4 共 23 块板 92 处） */
+  --button-secondary-bg: #fdfdfc;
+  --button-secondary-bg-hover: #f5f5f4;
+  /* ThemeSwitch --brand-ink；页面板实测用在「编辑 · 更多」行尾操作(x14)、凭证号(x13)、待办计数(x12)、
+     「查看」「配置」「手工新增」文字按钮、AuthLogin「忘记密码」链接(font-size:12.5px;color:#e0680c) */
+  --button-text-fg: color-mix(in srgb, var(--pri) 88%, black);
+  --button-link-fg: color-mix(in srgb, var(--pri) 88%, black);
+  /* 板 #e0680c = 主题橙压暗 12%；改为从 --pri 派生，切别的主题色时文字按钮 / 列宽把手跟着变（洋哥 2026-09-03） */
+  --table-action-fg: color-mix(in srgb, var(--pri) 88%, black);
+  --table-resize-glow: color-mix(in srgb, var(--pri) 18%, transparent);
+  /* 2.5 表格：表头 sunken 底、行分割 line-3、hover 中性 sunken（#fafaf9 共 36 块板 115 处）、选中极淡橙 */
+  --table-header-bg: #fafaf9;
+  --table-row-border: #f5f5f3;
+  --table-row-bg-hover: #fafaf9;
+  --table-row-bg-selected: color-mix(in srgb, var(--pri) 6%, white);
+  /* 1.2 fill-2「菜单 hover」；RowMenuHover 菜单项与 PickerSelect 下拉项实测：hover 只换底，字色不动 */
+  --menu-item-bg-highlighted: #f5f5f4;
+  --option-bg-highlighted: #f5f5f4;
+  --option-fg-highlighted: var(--text);
+  /* ThemeSwitch --tab-active-bg / --tab-active-fg；页面板模块 tab 选中实测 13.5px/600/#2e2e2c 共 35 处 */
+  --tabs-seg-trigger-fg-active: color-mix(in srgb, var(--pri) 88%, black);
+  /* line 型 tab 的选中字色与下划线不在此覆盖：沿用 base 的 --pri，跟随用户选的主题色（2026-10-05 洋哥要求，
+     取代板上「tab 选中用中性灰」的原则）。分段型 tab 仍是白块 + 深字。 */
+  /* 2.6 分页当前页：#ffffff 白方块（18 块板实测），比 paper #fffffd 更白，取板代码原值不取调色板近似 */
+  --pagination-current-bg: #ffffff;
+  /* 浮层容器底一律纯白 #ffffff（RailAccount 个人菜单 / PickerSelect / RowMenuHover 板实测），
+     比 paper 更白——布局切片目视对照抓出的 2/255 差异，同上取板代码原值 */
+  --overlay-bg: #ffffff;
+  /* 1.2 hairline「浮卡发丝边」；UserList 等板浮卡 border: 1px solid rgba(0,0,0,0.05) */
+  --pro-panel-border: rgba(0, 0, 0, 0.05);
+
+  /* ── 横切状态族（StateEmpty / StateError / FormFeedback 板，横切切片实测差异 → 主进程补档）──
+     空态插画 stroke #dcdcd8（StateEmpty 三格）；空态说明 ink-300（StateEmpty，说明比正文再弱半档）；
+     错误码 #e8e8e5 = border-2（StateError 34px 大字）；traceId ink-100（StateError，1.2 十档中全局缺失的一档）；
+     feedback 通条/Toast 专用色对与语义 -soft 差半档（StateError 通条 + FormFeedback Toast，边是实心 tint 非半透明）；
+     撤销 Toast 深底 #2f2e30 与 rail 激活同色（FormFeedback）；Toast 阴影两档（FormFeedback 原文）。 */
+  --empty-icon-fg: #dcdcd8;
+  --empty-desc-fg: #9a9a97;
+  --error-code-fg: #e8e8e5;
+  --text-faint: #c4c4c1;
+  --feedback-success-bg: #f2fbf6;
+  --feedback-success-fg: #0c7a4a;
+  --feedback-success-border: #cfeddd;
+  --feedback-warning-bg: #fff6ec;
+  --feedback-warning-fg: #a45a14;
+  --feedback-warning-border: #f9dcbe;
+  --feedback-danger-fg: #b03a3a;
+  --feedback-danger-border: #f7d4d4;
+  --toast-undo-bg: #2f2e30;
+  --toast-undo-fg: #f2f2f0;
+  --shadow-toast: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-toast-undo: 0 6px 18px rgba(0, 0, 0, 0.22);
+
+  /* ── 列表 chrome 族板值（FilterBuilder.dc.html 条件构造行 L109-124 / UserList.dc.html 工具区 L76-98
+        / ActionDark.dc.html 悬浮批量条 L366-378）────────────────────────────────────────────────
+     只覆盖「板值 ≠ base 语义回落解析值」的槽位。板值恰等于回落值故不覆盖的有：
+       --filter-chip-bg #fdfdfc（经 --field-bg）· --filter-chip-border #ececea（经 --field-border→--border）
+       · --filter-chip-field-fg / --filter-add-fg / --filter-label-fg / --tabs-seg-count-fg-active
+         / --list-hint-fg #8f8f8c（经 --text-3）· --filter-chip-op-fg / --filter-connector-fg #636361（经 --text-2）
+       · --filter-chip-value-fg #1c1c1a（经 --text）· --filter-chip-remove-fg #9a9a97 见下（板 svg stroke，需覆盖）。 */
+  /* FilterBuilder 首个（正在编辑的）日期条件 chip：background: #fffaf4; border: 1px solid #f7c99a */
+  --filter-chip-bg-hover: #efefed;
+  --filter-chip-bg-active: color-mix(in srgb, var(--pri) 4%, white);
+  --filter-chip-border-active: color-mix(in srgb, var(--pri) 38%, white);
+  /* chip 三段之间 <span style="width: 1px; background: #f0f0ee"> */
+  --filter-chip-divider: #f0f0ee;
+  /* chip 尾部 × svg stroke="#9a9a97"（1.2 灰阶 ink-300，非 ink-400 #8f8f8c） */
+  --filter-chip-remove-fg: #9a9a97;
+  /* 连接词 chip：「且」background: #f1f1ef; color: #636361（比 --surface-2 #f2f2f0 深 1/255，取板原值） */
+  --filter-connector-bg: #f1f1ef;
+  /* 「或」background: #fff2e4; color: #e0680c（= ThemeSwitch --brand-ink，同 --button-text-fg） */
+  --filter-connector-bg-or: color-mix(in srgb, var(--pri) 11%, white);
+  --filter-connector-fg-or: color-mix(in srgb, var(--pri) 88%, black);
+  /* 括号分组容器 background: #f5f5f3；mono 括号 color: #b0b0ad（1.2 灰阶 ink-200） */
+  --filter-group-bg: #f5f5f3;
+  --filter-group-paren-fg: #b0b0ad;
+  /* 「添加条件」border: 1px dashed #dcdcd9 */
+  --filter-add-border: #dcdcd9;
+  /* 状态 tab 未选中计数 <span class="mono" style="color: #9a9a97">（ink-300） */
+  --tabs-seg-count-fg: #9a9a97;
+  /* 页头标题 font-size:18px;font-weight:600;color:#141412（1.2 灰阶 ink-900 + 1.3 排印「页标题 18/600」）；
+     页头计数 font-size:13px;color:#9a9a97（ink-300） */
+  --list-title-fg: #141412;
+  --list-count-fg: #9a9a97;
+  /* 悬浮批量条：background:#2f2e30（与 rail 激活 / 撤销 Toast 同色）+ 两层阴影原文 */
+  --action-bar-bg: #2f2e30;
+  --action-bar-shadow: 0 10px 32px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.18);
+  /* 「已选」13px color:#a6a6a3；计数 mono color:#ffb066 font-weight:600 */
+  --action-bar-label-fg: #a6a6a3;
+  --action-bar-count-fg: color-mix(in srgb, var(--pri) 62%, white);
+  /* 动作钮 13px/500 color:#f4f4f2；danger color:#ff9a9a；muted（更多 / 取消选择 / 关闭）= #a6a6a3 经 label-fg */
+  --action-bar-item-fg: #f4f4f2;
+  --action-bar-item-fg-danger: #ff9a9a;
+
+  /* ── 行操作 / 选择器族板值（RowMenuHover.dc.html L368-381 / PickerPopover.dc.html L148-163
+        / UserForm.dc.html L132-133 / UserDetail.dc.html L109 / DeptTree.dc.html L121）───────
+     与列表 chrome 族不同，本族**每一条都显式覆盖**（含板值恰等于 base 回落解析值的
+     --chip-bg #f2f2f0）：回落链源值将来可能变，而板值不会。base 语义回落见 tokens.base.css。 */
+  /* 菜单快捷键提示 <span class="mono" style="font-size:11px;color:#b8b8b5">（灰阶介于 ink-300/ink-200） */
+  --menu-item-shortcut-fg: #b8b8b5;
+  /* 行尾 hover 三点钮 background:#ffffff（比浮卡 --surface #fffffd 更白，取板原值）;
+     border:1px solid #e6e6e3; box-shadow:0 1px 2px rgba(0,0,0,0.05) */
+  --row-menu-trigger-bg: #ffffff;
+  --row-menu-trigger-border: #e6e6e3;
+  --row-menu-trigger-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  /* 「最近」标题与「搜索「x」· N 个匹配」提示 color:#a7a7a5 */
+  --picker-hint-fg: #a7a7a5;
+  /* 最近 chip background:#f5f5f3（= --filter-group-bg 同值，语义不同故独立） */
+  --picker-recent-chip-bg: #f5f5f3;
+  /* 底部键盘提示条 background:#fafaf9; border-top:1px solid #f0f0ee; color:#b0b0ad（ink-200） */
+  --picker-footer-bg: #fafaf9;
+  --picker-footer-border: #f0f0ee;
+  --picker-footer-fg: #b0b0ad;
+  /* 多值 chip background:#f2f2f0; color:#4f4f4d（ink-600）；虚线「添加」1px dashed #dcdcd9 */
+  --chip-bg: #f2f2f0;
+  --chip-fg: #4f4f4d;
+  --chip-border-dashed: #dcdcd9;
+  /* 分段进度未达成段 background:#e8e8e5（1.2 border-2） */
+  --progress-segment-off: #e8e8e5;
+  /* 详情侧栏键值行标签 color:#9a9a97（ink-300） */
+  --desc-label-fg: #9a9a97;
+  /* 分页条（UserList L127 等 16 板同值）：border-top #efefed（1.2 line-1）；「共 N 人」#9a9a97。
+     几何 46 / 20 / 6 是共享几何，只住 base 不在此覆盖。 */
+  --pagination-bar-border: #efefed;
+  --pagination-total-fg: #9a9a97;
+  --pagination-nav-fg: #636361;
+  --pagination-nav-fg-disabled: #b0b0ad;
+  /* ── 阶段二 users 范本补槽板值 ───────────────────────────────────────────────
+     UserFormFields（UserForm L96/L113 分区分隔线）· UserDetailHeader（原 UserDetailAside，UserDetail L89 侧栏右边框
+     与 L108/L115 分组线）· UserList L109 行内冻结分界 —— 三处同为 1.2 line-2 #f0f0ee */
+  --page-section-hairline: #f0f0ee;
+  /* SectionHeading 分区说明（UserForm L90 12px #b0b0ad）与角色「+N」（UserList L109 11.5px #b0b0ad）= ink-200 */
+  --text-4: #b0b0ad;
+  /* 灰化行（UserList L122 已禁用 / L123 离职）的次要字与头像字 */
+  --table-row-fg-muted: #a7a7a5;
+  /* 权限点 chip 的来源角色标注（UserDetail L159 10.5px #a7a7a5） */
+  --chip-meta-fg: #a7a7a5;
+  /* 权限点 chip 底（UserDetail L159 #f5f5f4 = 1.2 fill-2，比多值 chip 的 #f2f2f0 浅一档） */
+  --chip-bg-subtle: #f5f5f4;
+  /* 表单底部操作条上边框（UserForm L144 #efefed = 1.2 line-1，与分页条同值不同语义） */
+  --page-action-bar-border: #efefed;
+  /* 头像底（UserList L109 行内 20px / UserForm / UserDetail L91 60px 三处一致 #eeeeec） */
+  --avatar-bg: #eeeeec;
+
+  /* ── Rail 族（pipeline 布局）：全部住亮色块，暗色下回落 base 跟 --pri / --text-* 走 ──
+     出处板见每行注释；未列出的 rail token 板值恰等于 base 回落值，故不覆盖：
+       --rail-bg（板 #f0f0f0 = --canvas）· --rail-dot-bg（板 #f97316 = --pri）
+       · --rail-menu-indicator（板 #f97316 = --pri）· --rail-menu-fg（板 #636361 = --text-2）
+     板上未定义、沿用 base 的：--rail-menu-bg-hover（板无卡内菜单 hover 态）。 */
+  /* ThemeSwitch --rail-active（[data-theme="默认"]）；Main 板 3px 黑胶囊 background: #2f2e30 */
+  --rail-indicator-bg: var(--pri);
+  /* Main 业务区未激活 svg stroke="#9a9a97"（7/8 项）/ 激活 stroke="#2f2e30"（打单系统） */
+  --rail-item-fg: #9a9a97;
+  --rail-item-fg-current: color-mix(in srgb, var(--pri) 88%, black);
+  /* Main 折叠钮 svg stroke="#7a7a76"；RailCollapsed 折叠态换成 #e6e6e3 底 + #4f4f4d 描边 */
+  --rail-toggle-fg: #7a7a76;
+  --rail-toggle-fg-active: #4f4f4d;
+  --rail-toggle-bg-active: #e6e6e3;
+  /* Main rail 两条分隔线 width: 22px; height: 1px; background: #d9d9d5 */
+  --rail-divider-bg: #d9d9d5;
+  /* Main 身份区头像：34px 正圆 + 上白下灰渐变 + #e3e3e1 边 + 0 1px 3px 阴影，内 svg stroke="#6f6f6c" */
+  /* 板值 linear-gradient(#ffffff, #ededeb) + 边 #e3e3e1；毛玻璃画布上灰边成了描边，改 72% 白底 + 70% 白高光边（洋哥 2026-09-03） */
+  --rail-avatar-bg: rgba(255, 255, 255, 0.72);
+  --rail-avatar-border: rgba(255, 255, 255, 0.7);
+  --rail-avatar-fg: #6f6f6c;
+  --rail-avatar-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* 1.2 line-1「结构分割：顶栏 / 分页 / 底部条」#efefed —— 本切片前登记为「无槽位」，
+     这里是它的第一个消费方：Main 卡内侧栏 border-right、SysHome 卡内顶栏 border-bottom */
+  --rail-card-divider: #efefed;
+  /* Main 内容列 background: #fafafa（比 sunken #fafaf9 亮 1/255，取板代码原值不取调色板近似） */
+  --rail-content-bg: #fafafa;
+  /* 毛玻璃分层试验：画布 = 冷灰渐变 + 三块大而柔的光（模拟壁纸，半径拉到视口外，避免成色带）；
+     三块光全部从主题色 --pri 用相对色语法派生（本色 / 色相 +150° / −60°），换主题色壁纸随之变；
+     rail 全透明不 blur（壁纸在浮卡四周连续），浮卡 88% 白 + blur 24px + 冷色悬浮阴影，
+     卡内侧栏 55% 白、内容区 60% 白；表格 / 卡片自身仍不透明，正文对比度不受影响 */
+  --canvas-wallpaper:
+    radial-gradient(90% 80% at -10% -20%, oklch(from var(--pri) l c h / 0.18), transparent 60%),
+    radial-gradient(80% 70% at 110% 115%, oklch(from var(--pri) l c calc(h + 150) / 0.14), transparent 60%),
+    radial-gradient(60% 60% at 70% 10%, oklch(from var(--pri) l c calc(h - 60) / 0.09), transparent 60%),
+    linear-gradient(150deg, #eceff2 0%, #e2e7ec 55%, #d6dde4 100%);
+  --glass-blur: 24px;
+  /* rail 不画底也不 blur：与画布是同一张壁纸，否则模糊面与清晰面一比就成了一根竖条 */
+  --rail-glass-bg: transparent;
+  --rail-card-bg: rgba(255, 255, 253, 0.88);
+  --rail-card-sidebar-bg: rgba(255, 255, 253, 0.55);
+  --rail-content-glass-bg: rgba(250, 250, 250, 0.6);
+  /* 壁纸 + 阴影已把浮卡托起，板上 5% 黑发丝边改成 60% 白高光边；头像同理（洋哥 2026-09-03） */
+  --rail-card-border: rgba(255, 255, 255, 0.6);
+  /* Main 面包屑行分隔符 "/" color: #c0c0bd（不在 1.2 十档灰阶内，属面包屑专用） */
+  --rail-crumb-sep-fg: #c0c0bd;
+  /* Main 卡内侧栏分组标题 color: #a7a7a5（同样不在十档灰阶内） */
+  --rail-menu-group-fg: #a7a7a5;
+  /* Main 卡内菜单项图标 stroke="#7a7a76"；激活项 #f2f2f0 底 + #2e2e2c 字与图标（= ink-700） */
+  --rail-menu-icon-fg: #7a7a76;
+  --rail-menu-bg-current: color-mix(in srgb, var(--pri) 8%, white);
+  --rail-menu-fg-current: color-mix(in srgb, var(--pri) 88%, black);
+}
+
+/* 暗色：全 48 块板无任何暗色定义（prefers-color-scheme / data-mode / 深色 grep 零命中，
+   ThemeSwitch 的「默认 / 飞书」两套主题都是亮色）。但 M2 强制 dark 块填齐 11 色，而 pipeline 将是默认
+   flavor，暗色开关不能是空操作 —— 主进程裁决：**借用 claude 的暖灰墨系**（同族，pipeline ink-900 #141412
+   与 claude #141413 仅差 1/255），品牌橙不变。这是「借用非实测」，画布补出暗色板后整块替换。
+   （曾短暂改成「逐值重复亮色」，因暗色开关变无操作被否；且亮值填进 dark 块同样是无出处值。） */
+[data-flavor='pipeline'][data-mode='dark'] {
+  /* 品牌橙不随明暗变（claude 暗色块同样显式声明 --pri）。不声明的话 CSS 层会回落到 :root 的飞书蓝兜底，
+     运行时虽被 applyAppearance 的内联 --pri 盖住，但 FOUC 首帧与纯 CSS 预览会闪蓝 —— 实测抓到过。 */
+  --pri: #f97316;
+  --pri-soft: rgba(255, 255, 255, 0.09);
+  --bg: #141413; --canvas: #141413; --surface: #30302e; --chrome: #262624;
+  --canvas-wallpaper:
+    radial-gradient(90% 80% at -10% -20%, oklch(from var(--pri) l c h / 0.16), transparent 60%),
+    radial-gradient(80% 70% at 110% 115%, oklch(from var(--pri) l c calc(h + 150) / 0.14), transparent 60%),
+    linear-gradient(150deg, #1a1a19 0%, #141413 55%, #0f0f0e 100%);
+  --rail-glass-bg: transparent;
+  --rail-card-bg: rgba(48, 48, 46, 0.86);
+  --rail-card-sidebar-bg: rgba(38, 38, 36, 0.6);
+  --rail-content-glass-bg: rgba(20, 20, 19, 0.5);
+  --rail-card-border: rgba(255, 255, 255, 0.08);
+  --surface-2: #262624; --surface-blur: rgba(38, 38, 36, 0.78);
+  --text: #faf9f5; --text-2: #dedcd1; --text-3: #b8b5a8; --border: rgba(222, 220, 209, 0.3);
+  --control-border: rgba(222, 220, 209, 0.4);
+}
+
+[data-flavor='pipeline'] {
+  /* 2.1 主按钮 hover demo background: #ea6a0d（压暗，非 base 的混白提亮）。
+     板值 = 主题橙压暗 8%，改为从 --pri 派生（默认橙下 ≈ #e56914，与板值差 <2%），切主题色 hover 不再固定橙。 */
+  --pri-hover: color-mix(in srgb, var(--pri) 92%, black);
+  /* 1.2 brand-soft「选中行底 / 激活控件底」= --pri-soft，跟随主题色 */
+  --fill-selected: var(--pri-soft);
+  --pro-editing-bg: #fffcf7;
+  /* 2.2 输入：边=控件边框 #ececea；聚焦环 box-shadow: 0 0 0 3px rgba(249,115,22,0.14)（6 块板实测），
+     写成 color-mix 后浏览器解析为同一个 rgba，且跟随主题色 */
+  --field-border: var(--border);
+  --field-ring-focus: color-mix(in srgb, var(--pri) 14%, transparent);
+  /* FormFeedback 字段错误态：常驻 3px 环 rgba(229,72,77,.10)——红取仲裁后的单一 danger，透明度取板 10% */
+  --field-ring-invalid: color-mix(in srgb, var(--danger) 10%, transparent);
+  /* 2.1 次要按钮 hover demo：border 仍是 #ececea、color 仍是 #636361；147/147 个 32px 控件无阴影 */
+  --button-secondary-border-hover: var(--border);
+  --button-secondary-fg-hover: var(--text-2);
+  --button-secondary-shadow: none;
+  /* 2.6 模块 tab：tab 条容器无 background（UserList 顶栏 <div style="display:flex;align-items:center;gap:2px">）；
+     选中是 fill 药丸无阴影；未选中 color: #636361 */
+  --tabs-seg-list-bg: transparent;
+  --tabs-seg-trigger-fg: var(--text-2);
+  --tabs-seg-trigger-bg-active: var(--surface-2);
+  --tabs-seg-trigger-shadow-active: none;
+  /* 2.6 分页当前页：#ececea 边 + #1c1c1a 墨字，不是主色块 */
+  --pagination-current-fg: var(--text);
+  --pagination-current-border: var(--border);
+  /* 2.3「半选用橙底白横杠」；26 块板的橙底勾选方块内 svg 一律 stroke="#ffffff" */
+  --choice-bg-indeterminate: var(--pri);
+  --choice-fg-indeterminate: var(--on-pri);
+  /* ThemeSwitch --r-sm: 3px（badge/chip 档）→ --radius-6 × 0.5；2.4 badge demo 11.5px/500 */
+  --badge-radius: var(--radius-6);
+  --badge-font-size: calc(11.5px * var(--app-scale));
+  /* 2.7 遮罩 rgba(24,24,22,.26)（PickerWorkbench 重 picker 实测同值）；
+     1.6 阴影层级：浮卡（40 板次，最高频）/ popover-menu（5 板次）/ drawer（AuditLog 实测）。
+     modal 0 16px 48px rgba(0,0,0,.18) 与 base 逐字节同值，不覆盖。 */
+  --overlay-mask-bg: rgba(24, 24, 22, 0.26);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.05);
+  --shadow-popover: 0 12px 32px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-drawer: -14px 0 40px rgba(0, 0, 0, 0.12);
+  /* 浮卡阴影冷色相 rgba(20,40,70)（借鉴 weagent，2026-09-03 保留）：层次更清、不发灰；板值 --shadow-card 本身不动 */
+  --rail-card-shadow: 0 1px 2px rgba(20, 40, 70, 0.06), 0 12px 32px rgba(20, 40, 70, 0.10);
+  /* ThemeSwitch [data-theme="默认"] 的 font-family 原文 + .mono 原文，前置 @fontsource 的 Variable 家族名。
+     字体文件由 global.css 全局 @import（CSS 无法按 flavor 条件加载），此处只切家族。 */
+  --font-ui: -apple-system, 'SF Pro Text', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+/* ThemeSwitch [data-theme="默认"]：--r-lg 8px / --r-md 4px / --r-sm 3px / --r-xs 2px，四档全部精确命中。
+   --radius-factor: 0.5 拿下控件（rounded-md 8→4）、勾选（rounded-4→2）、badge（--radius-6→3）；
+   浮卡 / 浮层 / modal 走并行切片提升出来的语义槽位 --overlay-radius / --overlay-radius-modal / --card-radius，
+   16 × 0.5 = 8px 命中 --r-lg。就地写 calc 而不是往 base 加 --radius-16 阶梯档：那个档只有本 flavor 用，
+   放进 base 就是一个无人消费的 token（架构第 9 章禁止提前创建未消费 token）。
+
+   三条刻意写在本块内而不是 [data-flavor='pipeline'] 块：用户显式选 data-radius（sharp / round）时整块
+   不命中，浮层交还全局基准（--radius-10 / --radius-14 × 该档系数），不被 pipeline 锁死在 16 基准上。 */
+html:not([data-radius])[data-flavor='pipeline'] {
+  --radius-factor: 0.5;
+  --overlay-radius: calc(16px * var(--radius-factor) * var(--app-scale));
+  --overlay-radius-modal: calc(16px * var(--radius-factor) * var(--app-scale));
+  --card-radius: calc(16px * var(--radius-factor) * var(--app-scale));
+}

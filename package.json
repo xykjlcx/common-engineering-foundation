@@ -1,0 +1,24 @@
+{
+  "name": "common-engineering-foundation",
+  "private": true,
+  "description": "通用技术工程底座",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:core": "DATABASE_DRIVER=pglite pnpm --filter @keel/core dev",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "dev:web": "pnpm --filter @keel/web dev --port 5174 --strictPort",
+    "dev:demo": "pnpm --filter @keel/web dev --mode demo --port 5175 --strictPort",
+    "build": "pnpm --filter @keel/core build && pnpm --filter @keel/web build && pnpm --filter @keel/web assert:dist"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=11.7"
+  },
+  "devDependencies": {
+    "prettier": "3.9.4"
+  }
+}

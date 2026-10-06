@@ -1,0 +1,1023 @@
+@import 'tailwindcss' source('../');
+@import 'tw-animate-css';
+/* 字体文件：CSS 无法按 flavor 条件加载，故全局引入；只有声明了对应家族的 flavor（pipeline）会用到。
+   Inter = 界面文字，JetBrains Mono = 金额 / 日期 / 编码等需要竖向对齐的等宽位（DSFoundations 1.3）。 */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+@import './tokens.base.css';
+@import './tokens.feishu.css';
+@import './tokens.claude.css';
+@import './tokens.shadcn.css';
+@import './tokens.sera.css';
+@import './tokens.pipeline.css';
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-chrome: var(--chrome);
+  --color-surface-2: var(--surface-2);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-border: var(--border);
+  --color-pri: var(--pri);
+  --color-pri-soft: var(--pri-soft);
+  --color-pri-hover: var(--pri-hover);
+  --color-pri-active: var(--pri-active);
+  --color-soft: var(--soft);
+  --color-on-pri: var(--on-pri);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-bg: var(--success-bg);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-bg: var(--danger-bg);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-bg: var(--warning-bg);
+  --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+  --color-purple: var(--purple);
+  --color-purple-bg: var(--purple-bg);
+  --color-teal: var(--teal);
+  --color-teal-bg: var(--teal-bg);
+  --color-control-border: var(--control-border);
+  --color-line-strong: var(--line-strong);
+  --color-surface-blur: var(--surface-blur);
+  --color-tooltip: var(--tooltip-bg);
+  /* shadcn/ui 词汇 → 本项目语义 token（组件用 bg-background/text-muted-foreground 等，
+     全部落到左侧我们的 token；圆角走上面已定义的 --radius-sm/md/lg/xl 乘法体系，不引入 shadcn 的 --radius 计算） */
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--text);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--text);
+  --color-primary: var(--pri);
+  --color-primary-foreground: var(--on-pri);
+  --color-secondary: var(--surface-2);
+  --color-secondary-foreground: var(--text);
+  --color-muted: var(--surface-2);
+  --color-muted-foreground: var(--text-3);
+  --color-accent: var(--surface-2);
+  --color-accent-foreground: var(--text);
+  --color-destructive: var(--danger);
+  --color-destructive-foreground: var(--on-danger);
+  --color-input: var(--border);
+  --color-ring: var(--pri);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  /* 数字全档 → rounded-4…rounded-14 工具类（原型精确 7/9/11 档）；圆角乘法体系见 tokens.base.css */
+  --radius-4: var(--radius-4);
+  --radius-5: var(--radius-5);
+  --radius-6: var(--radius-6);
+  --radius-7: var(--radius-7);
+  --radius-8: var(--radius-8);
+  --radius-9: var(--radius-9);
+  --radius-10: var(--radius-10);
+  --radius-11: var(--radius-11);
+  --radius-12: var(--radius-12);
+  --radius-14: var(--radius-14);
+  /* 弹层/悬浮阴影 → shadow-popover/modal/drawer/tooltip/card/card-sm/inset-card/lift/header 工具类（原型精确值，tokens.base.css 定义） */
+  --shadow-popover: var(--shadow-popover);
+  --shadow-modal: var(--shadow-modal);
+  --shadow-drawer: var(--shadow-drawer);
+  --shadow-tooltip: var(--shadow-tooltip);
+  --shadow-card: var(--shadow-card);
+  --shadow-card-sm: var(--shadow-card-sm);
+  --shadow-inset-card: var(--shadow-inset-card);
+  --shadow-lift: var(--shadow-lift);
+  --shadow-header: var(--shadow-header);
+  /* 界面字体经 --font-ui 挂点取值（默认值在 tokens.base.css，flavor 可覆盖家族）；
+     inline 形态与上面的 --color-* 一致，Tailwind 的 font-sans 工具类与 html 都跟着走。 */
+  --font-sans: var(--font-ui);
+}
+
+/* Tailwind v4 preflight 默认 border-color=currentColor（深色）→ 统一改回语义 --border（浅灰）。
+   否则 shadcn 弹层/卡片的 bare `border` 会显示近黑边框（原型是 1px 浅 --border）。此为 shadcn 标准做法，
+   手动装 shadcn 时漏了这层就会出现"所有弹层一圈深边框"。 */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop {
+    border-color: var(--border);
+  }
+
+  /* 菜单项不在此列：Radix 菜单在 hover / 方向键时都把焦点移到项上，焦点态与高亮态同义，
+     板（RowMenuHover / RowMenuContext）只用 --menu-item-bg-highlighted 底色表达，
+     再叠一圈 3px 焦点环就成了「hover 项上下多出两道淡橙边」（洋哥 2026-09-03）。 */
+  button:focus-visible,
+  a:focus-visible,
+  [role='button']:focus-visible,
+  [role='tab']:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 var(--focus-ring) var(--soft);
+  }
+
+  /* Tailwind v4 / 浏览器默认不会强制 button 显示小手；设计体系要求可点击控件统一 pointer。
+     这里是语义层兜底，组件层仍会显式声明 cursor-pointer，避免 utility 顺序覆盖。 */
+  button:not(:disabled):not([aria-disabled='true']):not([data-disabled]),
+  a[href]:not([aria-disabled='true']):not([data-disabled]),
+  [role='button']:not([aria-disabled='true']):not([data-disabled]),
+  [role='tab']:not([aria-disabled='true']):not([data-disabled]),
+  [role='menuitem']:not([aria-disabled='true']):not([data-disabled]),
+  [data-clickable='true']:not([aria-disabled='true']):not([data-disabled]) {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .ui-login {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    gap: calc(10px * var(--app-scale));
+    padding: calc(10px * var(--app-scale));
+    background: var(--canvas);
+    color: var(--text);
+    overflow: auto;
+  }
+
+  .ui-login-card {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: calc(560px * var(--app-scale));
+    padding: calc(40px * var(--app-scale)) calc(64px * var(--app-scale));
+    overflow-y: auto;
+    background: var(--surface);
+    border: 1px solid var(--pro-panel-border);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-card);
+  }
+
+  .ui-login-brand {
+    display: flex;
+    align-items: center;
+    gap: calc(10px * var(--app-scale));
+    font-size: calc(16px * var(--app-scale));
+    font-weight: 600;
+  }
+
+  .ui-login-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(30px * var(--app-scale));
+    height: calc(30px * var(--app-scale));
+    border-radius: var(--radius-10);
+    background: var(--login-mark-bg);
+    color: var(--surface);
+  }
+
+  .ui-login-mark svg {
+    width: calc(16px * var(--app-scale));
+  }
+  .ui-login-form {
+    width: 100%;
+    margin-block: auto;
+    padding-block: calc(48px * var(--app-scale));
+  }
+  .ui-login-title {
+    font-size: calc(24px * var(--app-scale));
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .ui-login-description {
+    margin-top: calc(6px * var(--app-scale));
+    font-size: calc(14px * var(--app-scale));
+    color: var(--text-3);
+  }
+  .ui-login-account {
+    margin-top: calc(24px * var(--app-scale));
+  }
+  .ui-login-label {
+    display: block;
+    margin-bottom: calc(6px * var(--app-scale));
+    font-size: calc(12.5px * var(--app-scale));
+    font-weight: 500;
+    color: var(--text-2);
+  }
+  .ui-login-input {
+    height: var(--control-lg);
+    border-radius: var(--radius-md);
+  }
+  .ui-login-input input {
+    font-size: calc(14px * var(--app-scale));
+  }
+  .ui-login-password {
+    position: relative;
+    margin-top: calc(14px * var(--app-scale));
+  }
+  .ui-login-password-label {
+    display: flex;
+    align-items: center;
+  }
+  .ui-login-forgot {
+    position: absolute;
+    right: 0;
+    top: calc(-4px * var(--app-scale));
+    font-size: calc(12.5px * var(--app-scale));
+  }
+  .ui-login-remember {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: calc(8px * var(--app-scale));
+    margin-top: calc(14px * var(--app-scale));
+    font-size: calc(13px * var(--app-scale));
+    color: var(--text-2);
+  }
+  .ui-login-submit {
+    height: var(--control-lg);
+    margin-top: calc(22px * var(--app-scale));
+    border-radius: var(--radius-md);
+    font-size: calc(14px * var(--app-scale));
+  }
+  .ui-login-error {
+    margin-top: calc(14px * var(--app-scale));
+    padding: calc(10px * var(--app-scale));
+    border-radius: var(--radius-md);
+    background: var(--danger-soft);
+    color: var(--danger);
+    font-size: calc(13px * var(--app-scale));
+  }
+  .ui-login-footer {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(8px * var(--app-scale));
+    color: var(--text-3);
+  }
+  .ui-login-footer button {
+    color: inherit;
+    font-size: calc(12px * var(--app-scale));
+  }
+
+  .ui-login-hero {
+    position: relative;
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: calc(56px * var(--app-scale)) calc(64px * var(--app-scale));
+    border: 1px solid var(--pro-panel-border);
+    border-radius: var(--card-radius);
+    background: var(--login-hero-bg);
+  }
+  .ui-login-hull {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--login-hull-fg);
+  }
+  .ui-login-grid {
+    stroke: currentColor;
+    stroke-opacity: 0.06;
+  }
+  .ui-login-keel {
+    stroke: var(--pri);
+    fill: var(--pri);
+  }
+  .ui-login-keel-ring {
+    fill: var(--surface);
+  }
+  .ui-login-baseline {
+    fill: var(--text-3);
+    font-family: var(--font-mono);
+  }
+  .ui-login-hero-copy {
+    position: relative;
+  }
+  .ui-login-hero-copy h2 {
+    max-width: calc(520px * var(--app-scale));
+    font-size: calc(30px * var(--app-scale));
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .ui-login-hero-copy p {
+    max-width: calc(460px * var(--app-scale));
+    margin-top: calc(14px * var(--app-scale));
+    color: var(--text-2);
+    font-size: calc(14px * var(--app-scale));
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1023px) {
+    .ui-login {
+      justify-content: center;
+    }
+    .ui-login-card {
+      width: min(100%, calc(560px * var(--app-scale)));
+      padding-inline: clamp(24px, 6vw, 64px);
+    }
+    .ui-login-hero {
+      display: none;
+    }
+  }
+
+  .ui-auth-hero {
+    background: var(--auth-hero-bg);
+  }
+
+  .ui-auth-hero-glow {
+    background: var(--auth-hero-glow);
+  }
+
+  /* 设计体系 Field 状态机。组件只挂 ui-field 和结构尺寸，base/hover/focus/open/invalid/disabled
+     全部从 --field-* token 读取，保证 flavor 可以独立换系。顺序即优先级：disabled > invalid > focus/open > hover > base。 */
+  .ui-field {
+    --_field-bg: var(--field-bg);
+    --_field-border: var(--field-border);
+    --_field-ring-color: transparent;
+    background: var(--_field-bg);
+    color: var(--field-fg);
+    border-color: var(--_field-border);
+    box-shadow: var(--field-shadow);
+  }
+
+  .ui-field[data-variant='sidebar'] {
+    --_field-bg: var(--surface);
+    --_field-border: color-mix(in srgb, var(--control-border) 72%, transparent);
+    box-shadow: var(--shadow-card-sm);
+  }
+
+  /* D4（S5 sera 唯一型分支）：输入族收窄为「仅底边着色」。分边 border-color 四值语义无法优雅 token 化，
+     故在状态机层加这一条 flavor 分支——三边 transparent、底边吃状态机中间态 --_field-border
+     （base/hover/focus/invalid 均自动生效，无需再列状态）。仅 sera 激活时命中，其余 flavor 零影响。 */
+  [data-flavor='sera'] .ui-field {
+    border-color: transparent transparent var(--_field-border) transparent;
+  }
+
+  .ui-field::placeholder,
+  .ui-field [data-slot='input-group-input']::placeholder {
+    color: var(--field-placeholder);
+  }
+
+  .ui-field.ui-field[data-placeholder] {
+    color: var(--field-placeholder);
+  }
+
+  .ui-field [data-icon],
+  .ui-field [data-slot='input-group-prefix'],
+  .ui-field [data-slot='input-group-suffix'] {
+    color: var(--field-icon);
+  }
+
+  .ui-field [data-icon] {
+    width: calc(15px * var(--app-scale));
+    height: calc(15px * var(--app-scale));
+  }
+
+  .ui-field [data-slot='input-group-addon'] {
+    background: var(--field-addon-bg);
+    color: var(--field-addon-fg);
+    border-color: var(--field-border);
+  }
+
+  .ui-field.ui-field:hover {
+    --_field-border: var(--field-border-hover);
+  }
+
+  .ui-field.ui-field:focus-within,
+  .ui-field.ui-field[data-state='open'] {
+    --_field-bg: var(--field-bg-focus);
+    --_field-border: var(--field-border-focus);
+    --_field-ring-color: var(--field-ring-focus);
+    box-shadow: 0 0 0 var(--focus-ring) var(--_field-ring-color);
+  }
+
+  .ui-field.ui-field[data-variant='sidebar']:focus-within,
+  .ui-field.ui-field[data-variant='sidebar'][data-state='open'] {
+    --_field-bg: var(--surface);
+  }
+
+  .ui-field.ui-field[readonly] {
+    --_field-bg: var(--field-bg-readonly);
+  }
+
+  /* 嵌在弹层顶部的搜索框（FilterMenu / PickerPanel / SelectPanel）：弹层打开即自动聚焦，
+     若照常走橙框 + ring 会把注意力从下面的列表抢走（洋哥 2026-09-03 点名）。
+     透明底、无边、聚焦不出 ring，光标本身就是焦点提示；优先级压过 hover / focus-within。 */
+  .ui-field.ui-field[data-variant='embedded'],
+  .ui-field.ui-field[data-variant='embedded']:hover,
+  .ui-field.ui-field[data-variant='embedded']:focus-within {
+    --_field-bg: transparent;
+    --_field-border: transparent;
+    --_field-ring-color: transparent;
+    box-shadow: none;
+  }
+
+  /* 错误态光环**常驻**而非仅聚焦（FormFeedback 板：未聚焦的错误字段就带 3px 环）——
+     聚焦/展开态不再需要单列，环色与静止态同源。 */
+  .ui-field.ui-field[aria-invalid='true'],
+  .ui-field.ui-field[data-status='error'] {
+    --_field-border: var(--field-border-invalid);
+    --_field-ring-color: var(--field-ring-invalid);
+    box-shadow: 0 0 0 var(--focus-ring) var(--_field-ring-color);
+  }
+
+  .ui-field.ui-field:disabled,
+  .ui-field.ui-field[disabled],
+  .ui-field.ui-field[data-disabled='true'],
+  .ui-field.ui-field[data-disabled=''] {
+    --_field-bg: var(--field-bg-disabled);
+    --_field-border: var(--field-border);
+    --_field-ring-color: transparent;
+    box-shadow: var(--field-shadow);
+  }
+
+  /* Sidebar / Rail shell（飞书后台式）：顶栏白底带下边线，侧栏 / 图标栏是浅灰底并与内容区靠明暗区分，
+     内容区是整块白色纸面、贴边铺满，没有浮起的卡片和四周留白。
+     主区不再整体滚动，PageFrame 撑满、PageSurface 拉伸，让列表 / 表格在页内自己滚（洋哥 2026-09-03）；
+     页面级 token 与 Inset 共用同一组（见下），保证同一个内容页在不同布局下观感一致。 */
+  [data-shell-layout='sidebar'],
+  [data-shell-layout='rail'] {
+    background-color: var(--bg);
+  }
+  [data-shell-layout='rail'] #shell-main {
+    background-color: var(--surface);
+  }
+  /* 侧栏式：主区自身是灰底（与侧栏、面包屑行连成一体），白色纸面由内层 PageTransition 承担并在右侧留出灰边。 */
+  [data-shell-layout='sidebar'] #shell-main {
+    background-color: var(--shell-side-bg);
+    padding-right: calc(12px * var(--app-scale));
+  }
+  [data-shell-layout='rail'] > nav,
+  [data-shell-layout='rail'] > aside {
+    background-color: var(--bg);
+    border-color: transparent;
+  }
+  [data-shell-layout='sidebar'] > div > aside {
+    background-color: var(--shell-side-bg);
+    border-color: transparent;
+  }
+
+  /* 内容区是灰底画布的页面（PageSurface tone=canvas）：浮卡不画发丝边，内容铺满到卡片边缘。 */
+  [data-slot='pipeline-card']:has(.ui-page-surface[data-tone='canvas']) {
+    border-color: transparent;
+    background-clip: padding-box;
+  }
+
+  /* Inset shell 的主 surface 已经负责外层卡片感，页面级 PageSurface 只保留业务结构；
+     Sidebar / Rail 的主区同样是整块纸面，共用这一组。 */
+  [data-shell-layout='inset'],
+  [data-shell-layout='sidebar'],
+  [data-shell-layout='rail'] {
+    --page-frame-px: calc(18px * var(--app-scale));
+    --page-frame-py: calc(14px * var(--app-scale));
+    --page-frame-flex: 1 1 auto;
+    --page-frame-min-h: 100%;
+    --page-breadcrumb-mb: calc(8px * var(--app-scale));
+    --page-frame-bg: transparent;
+    --page-surface-flex: 1 1 auto;
+    --page-surface-min-h: 0px;
+    --page-surface-bg: transparent;
+    --page-surface-border: transparent;
+    --page-surface-shadow: none;
+    --page-pane-divider: transparent;
+    --page-section-divider: color-mix(in srgb, var(--border) 45%, transparent);
+    --page-inset-section-divider: var(--page-section-divider);
+    --page-breadcrumb-divider: color-mix(in srgb, var(--border) 70%, transparent);
+    --table-shell-border: transparent;
+    --table-row-border: color-mix(in srgb, var(--table-border) 54%, transparent);
+    --tabs-line-border: transparent;
+    --page-tabs-px: var(--page-side-px);
+    --page-tabs-pt: calc(10px * var(--app-scale));
+    --page-tabs-gap: calc(20px * var(--app-scale));
+    --page-scene-px: calc(18px * var(--app-scale));
+    --page-scene-py: calc(14px * var(--app-scale));
+    --page-side-px: calc(10px * var(--app-scale));
+    --page-side-py: calc(12px * var(--app-scale));
+  }
+
+  /* Pipeline shell：浮卡即纸面，页面级 PageSurface 不再嵌套第二层卡（原型 1.1 原则①「不许卡中卡」）。
+     内容内距取 Main 板页面主体 padding: 10px 22px 20px 的上、左右两值（--page-frame-py 只有一档，
+     底部 20px 取不到，见 pipeline.design.md 已知差异）。 */
+  [data-shell-layout='pipeline'] {
+    --page-frame-px: calc(22px * var(--app-scale));
+    --page-frame-py: calc(10px * var(--app-scale));
+    --page-frame-flex: 1 1 auto;
+    --page-frame-min-h: 100%;
+    --page-breadcrumb-mb: calc(8px * var(--app-scale));
+    --page-frame-bg: transparent;
+    --page-surface-flex: 1 1 auto;
+    --page-surface-min-h: 0px;
+    --page-surface-bg: transparent;
+    --page-surface-border: transparent;
+    --page-surface-shadow: none;
+    --page-pane-divider: transparent;
+    --page-section-divider: color-mix(in srgb, var(--border) 45%, transparent);
+    --page-inset-section-divider: var(--page-section-divider);
+    --page-breadcrumb-divider: color-mix(in srgb, var(--border) 70%, transparent);
+    --table-shell-border: transparent;
+    --tabs-line-border: transparent;
+    --page-tabs-px: var(--page-side-px);
+    --page-tabs-pt: calc(10px * var(--app-scale));
+    --page-tabs-gap: calc(20px * var(--app-scale));
+    --page-scene-px: calc(18px * var(--app-scale));
+    --page-scene-py: calc(14px * var(--app-scale));
+    --page-side-px: calc(10px * var(--app-scale));
+    --page-side-py: calc(12px * var(--app-scale));
+  }
+
+  /* 编辑页「已修改」字段：暖色底 + 暖色边（聚焦时让位给聚焦态）。 */
+  [data-slot='field'][data-changed]
+    :is(
+      [data-slot='input'],
+      [data-slot='input-group'],
+      [data-slot='select-trigger'],
+      [data-slot='picker-trigger'],
+      [data-slot='date-picker-trigger'],
+      [data-slot='chips-field']
+    ):not(:focus, :focus-within) {
+    border-color: var(--field-changed-border);
+    background-color: var(--field-changed-bg);
+  }
+
+  /* 铺满型页面（PageFrame flush）：外壳已是一张卡的布局里去掉外框内距；
+     sidebar / rail 的主区同样是整块纸面，铺满页同样去掉外框内距。 */
+  [data-shell-layout='inset'] .ui-page-frame[data-flush],
+  [data-shell-layout='sidebar'] .ui-page-frame[data-flush],
+  [data-shell-layout='rail'] .ui-page-frame[data-flush],
+  [data-shell-layout='pipeline'] .ui-page-frame[data-flush] {
+    --page-frame-px: 0px;
+    --page-frame-py: 0px;
+  }
+
+  /* 灰底画布页（PageSurface tone=canvas）：外壳本身是卡时由外壳裁切，不再自画圆角与边框。 */
+  [data-shell-layout='inset'],
+  [data-shell-layout='sidebar'],
+  [data-shell-layout='rail'],
+  [data-shell-layout='pipeline'] {
+    --page-canvas-radius: 0px;
+    --page-canvas-border-w: 0px;
+  }
+
+  /* stacked（系统管理）：浮卡即纸面，PageFrame 不再套 22px 外框。
+     工具区 / 分页自己给 20px（UserList L76 / L127），表格 header 背景 full-bleed。 */
+  [data-shell-layout='pipeline'][data-card-layout='stacked'] {
+    --page-frame-px: 0px;
+    --page-frame-py: 0px;
+    --page-frame-min-h: 0px;
+  }
+
+  /* Table 行状态机。顺序即优先级：selected/expanded > hover > base。
+     只有行自身标记 expanded 才上色，行内展开按钮不改变整行背景。 */
+  .ui-table-row {
+    --_table-row-bg: var(--table-row-bg);
+    background: var(--_table-row-bg);
+    color: var(--table-row-fg);
+  }
+
+  /* 固定列必须是最终不透明表面：状态色只叠加一次，底层横向滚动内容不可透出。 */
+  .ui-table-pinned-cell {
+    background: linear-gradient(var(--_table-row-bg), var(--_table-row-bg)), var(--table-bg);
+  }
+
+  .ui-table-row.ui-table-row:focus-visible {
+    outline: var(--focus-ring) solid var(--table-row-focus-ring);
+    outline-offset: calc(-1 * var(--focus-ring));
+  }
+
+  .ui-table-row.ui-table-row:hover {
+    --_table-row-bg: var(--table-row-bg-hover);
+  }
+
+  .ui-table-row.ui-table-row[aria-expanded='true'] {
+    --_table-row-bg: var(--table-row-bg-expanded);
+  }
+
+  .ui-table-row.ui-table-row[data-state='selected'] {
+    --_table-row-bg: var(--table-row-bg-selected);
+  }
+
+  /* Line Tabs 状态机。顺序即优先级：active > hover > base。 */
+  .ui-tabs-line-trigger {
+    --_tabs-line-trigger-fg: var(--tabs-line-trigger-fg);
+  }
+
+  [data-slot='tabs-list'][data-variant='line'] .ui-tabs-line-trigger,
+  [data-slot='animated-tabs'] .ui-tabs-line-trigger {
+    color: var(--_tabs-line-trigger-fg);
+  }
+
+  .ui-tabs-line-trigger.ui-tabs-line-trigger:hover {
+    --_tabs-line-trigger-fg: var(--tabs-line-trigger-fg-hover);
+  }
+
+  .ui-tabs-line-trigger.ui-tabs-line-trigger[data-state='active'] {
+    --_tabs-line-trigger-fg: var(--tabs-line-trigger-fg-active);
+  }
+
+  /* Choice 状态机。顺序即优先级：disabled > invalid > checked/indeterminate > focus > hover > base。 */
+  .ui-choice {
+    --_choice-bg: var(--choice-bg);
+    --_choice-border: var(--choice-border);
+    --_choice-ring-color: transparent;
+    background: var(--_choice-bg);
+    border-color: var(--_choice-border);
+  }
+
+  .ui-choice.ui-choice:hover {
+    --_choice-border: var(--choice-border-hover);
+  }
+
+  .ui-choice.ui-choice:focus-visible {
+    --_choice-border: var(--choice-border-hover);
+    --_choice-ring-color: var(--choice-ring);
+    box-shadow: 0 0 0 var(--focus-ring) var(--_choice-ring-color);
+  }
+
+  .ui-choice.ui-choice:checked,
+  .ui-choice.ui-choice[data-state='checked'] {
+    --_choice-border: var(--choice-border-checked);
+  }
+
+  .ui-choice.ui-choice:checked,
+  .ui-choice.ui-choice[data-state='checked'][role='checkbox'] {
+    --_choice-bg: var(--choice-bg-checked);
+  }
+
+  .ui-choice.ui-choice:indeterminate,
+  .ui-choice.ui-choice[data-indeterminate='true'] {
+    --_choice-bg: var(--choice-bg-indeterminate);
+    --_choice-border: var(--choice-border-indeterminate);
+  }
+
+  .ui-choice.ui-choice[aria-invalid='true'],
+  .ui-choice.ui-choice[data-status='error'] {
+    --_choice-border: var(--field-border-invalid);
+  }
+
+  .ui-choice.ui-choice[aria-invalid='true']:focus-visible,
+  .ui-choice.ui-choice[data-status='error']:focus-visible {
+    --_choice-ring-color: var(--field-ring-invalid);
+    box-shadow: 0 0 0 var(--focus-ring) var(--_choice-ring-color);
+  }
+
+  .ui-choice.ui-choice:disabled,
+  .ui-choice.ui-choice[disabled],
+  .ui-choice.ui-choice[data-disabled='true'],
+  .ui-choice.ui-choice[data-disabled=''] {
+    --_choice-bg: var(--choice-bg-disabled);
+    --_choice-border: var(--choice-border);
+    --_choice-ring-color: transparent;
+    box-shadow: none;
+  }
+
+  /* 软浮起（soft UI）实验件状态机：SoftSwitch / SoftSegmented 共用一套「凹槽轨道 + 凸起旋钮」。
+     旋钮三层：右下柔和投影（外）+ 左上细高光（inset）+ 左上亮→右下暗微渐变（背景图）。
+     focus-visible 只在最外层追加一圈 ring，不改动阴影结构。顺序即优先级：disabled > focus > checked > base。 */
+  .ui-soft-track {
+    --_soft-ring: transparent;
+    background-color: var(--soft-track-bg);
+    box-shadow:
+      inset 0 1px 2px var(--soft-track-inset),
+      0 0 0 var(--focus-ring) var(--_soft-ring);
+    transition:
+      background-color var(--soft-motion) ease-out,
+      box-shadow var(--soft-motion) ease-out;
+  }
+
+  .ui-soft-track:focus-visible {
+    --_soft-ring: var(--soft-ring);
+  }
+
+  .ui-soft-track[data-state='checked'] {
+    background-color: var(--soft-track-bg-checked);
+  }
+
+  .ui-soft-thumb {
+    background-color: var(--soft-thumb-bg);
+    background-image: linear-gradient(
+      135deg,
+      var(--soft-highlight) 0%,
+      transparent 45%,
+      var(--soft-shade) 100%
+    );
+    box-shadow:
+      inset 1px 1px 0 var(--soft-highlight),
+      1px 2px 3px var(--soft-shadow),
+      3px 6px 12px var(--soft-shadow-far),
+      0 0 0 var(--focus-ring) var(--_soft-ring, transparent);
+    transition:
+      transform var(--soft-motion) ease-out,
+      opacity var(--soft-motion) ease-out,
+      box-shadow var(--soft-motion) ease-out;
+  }
+
+  /* 旋钮落在轨道内部：直径 = 轨道高 − 2×内边距（参考图旋钮与槽壁留一圈细边），行程 = 宽 − 高 */
+  .ui-soft-switch {
+    --_soft-h: var(--soft-switch-h);
+    --_soft-w: var(--soft-switch-w);
+    --_soft-pad: var(--soft-switch-pad);
+    box-sizing: border-box;
+    height: var(--_soft-h);
+    width: var(--_soft-w);
+    padding: var(--_soft-pad);
+  }
+
+  .ui-soft-switch[data-size='sm'] {
+    --_soft-h: var(--soft-switch-h-sm);
+    --_soft-w: var(--soft-switch-w-sm);
+    --_soft-pad: var(--soft-switch-pad-sm);
+  }
+
+  .ui-soft-switch .ui-soft-thumb {
+    width: calc(var(--_soft-h) - var(--_soft-pad) * 2);
+    height: calc(var(--_soft-h) - var(--_soft-pad) * 2);
+    transform: translateX(0);
+  }
+
+  .ui-soft-switch[data-state='checked'] .ui-soft-thumb {
+    transform: translateX(calc(var(--_soft-w) - var(--_soft-h)));
+  }
+
+  .ui-soft-thumb [data-soft-icon] {
+    transition: opacity var(--soft-motion) ease-out;
+  }
+
+  .ui-soft-switch[data-state='unchecked'] [data-soft-icon='checked'],
+  .ui-soft-switch[data-state='checked'] [data-soft-icon='unchecked'] {
+    opacity: 0;
+  }
+
+  /* Segmented：未选项透明，选中项即「旋钮」 */
+  .ui-soft-seg-item {
+    color: var(--soft-thumb-fg);
+    transition:
+      color var(--soft-motion) ease-out,
+      box-shadow var(--soft-motion) ease-out,
+      background-color var(--soft-motion) ease-out;
+  }
+
+  .ui-soft-seg-item:hover {
+    color: var(--soft-thumb-fg-active);
+  }
+
+  .ui-soft-seg-item[data-state='checked'] {
+    color: var(--soft-thumb-fg-active);
+  }
+
+  .ui-soft-seg-item:focus-visible {
+    --_soft-ring: var(--soft-ring);
+  }
+
+  .ui-soft-seg-item[data-state='unchecked'] {
+    background-color: transparent;
+    background-image: none;
+    box-shadow: 0 0 0 var(--focus-ring) var(--_soft-ring, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ui-soft-track,
+    .ui-soft-thumb,
+    .ui-soft-thumb [data-soft-icon],
+    .ui-soft-seg-item {
+      transition: none;
+    }
+  }
+
+  .ui-page-title {
+    font-family: var(--font-display);
+  }
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+/* 显示比例 token 乘法（取代 CSS zoom，机制见 tokens.base.css --app-scale 注释）：
+   盖写 Tailwind v4 内置主题变量，使 spacing 与 text 工具类随显示比例档等比缩放。
+   本 :root 块刻意不放进任何 @layer——未分层规则优先级高于 @layer theme，才能盖掉 Tailwind 默认值。
+   覆盖常用正文/标题字号与 Dialog 宽度 token；行高伴生变量是比值不动。 */
+:root {
+  --spacing: calc(0.25rem * var(--app-scale));
+  --container-sm: calc(24rem * var(--app-scale));
+  --container-lg: calc(32rem * var(--app-scale));
+  --text-xs: calc(0.75rem * var(--app-scale));
+  --text-sm: calc(0.8125rem * var(--app-scale));
+  --text-base: calc(1rem * var(--app-scale));
+  --text-lg: calc(1.125rem * var(--app-scale));
+  --text-xl: calc(1.25rem * var(--app-scale));
+  --text-2xl: calc(1.5rem * var(--app-scale));
+  --text-3xl: calc(1.875rem * var(--app-scale));
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-size: calc(13px * var(--app-scale));
+  -webkit-font-smoothing: antialiased;
+}
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* rail 折叠钮图标切换：新图标旋转 -180° 缩小淡入弹到位（回弹曲线），每次点击重放 */
+@keyframes rail-toggle-in {
+  from {
+    transform: rotate(-180deg) scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.anim-rail-toggle {
+  animation: rail-toggle-in 360ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-rail-toggle {
+    animation: none;
+  }
+}
+
+@keyframes ovl-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sheet-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes sheet-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes sheet-in-top {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes sheet-in-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* Dialog 从点击点缩放（板 ModalOrigin.dc.html 的 <style>）：抄 antd zoom —— 0.3s 进 / 0.2s 出。
+   原点由 ui/dialog.tsx 量「最近一次 pointerdown − 弹窗左上角」写进 style.transformOrigin。 */
+@keyframes modal-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes modal-zoom-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes modal-mask-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes pg-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pg-slide {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes pg-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pg-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: calc(var(--scrollbar-size) / 2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 弹层/抽屉进场动效（原型 keyframes L19-25 + 时长缓动 L185/L266/L2652 逐字提取）。
+   只做进场（enter）：原型无退场动画，关闭即卸载。shadcn 基元用这些类替换其默认 animate-in/zoom/slide。 */
+.anim-ovl-fade {
+  animation: ovl-fade 0.2s ease;
+}
+.anim-sheet-in-right {
+  animation: sheet-in-right 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.anim-sheet-in-left {
+  animation: sheet-in-left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.anim-sheet-in-top {
+  animation: sheet-in-top 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.anim-sheet-in-bottom {
+  animation: sheet-in-bottom 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.anim-modal-in {
+  animation: modal-in 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Dialog 专用：缩放进退 + 遮罩淡入淡出（板 mask-in 0.3s / mask-out 0.2s ease）。
+   退场靠 Radix Presence 的 data-state=closed 撑住卸载，缩回同一原点。
+   Sheet 仍吃 .anim-ovl-fade（只进不退），故这里另开一个类，不改共用类的语义。 */
+.anim-modal-zoom {
+  animation: modal-zoom-in 0.3s cubic-bezier(0.08, 0.82, 0.17, 1) both;
+}
+.anim-modal-zoom[data-state='closed'] {
+  animation: modal-zoom-out 0.2s cubic-bezier(0.6, 0.04, 0.98, 0.34) both;
+}
+.anim-modal-mask {
+  animation: ovl-fade 0.3s ease both;
+}
+.anim-modal-mask[data-state='closed'] {
+  animation: modal-mask-out 0.2s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-modal-zoom,
+  .anim-modal-zoom[data-state='closed'],
+  .anim-modal-mask,
+  .anim-modal-mask[data-state='closed'] {
+    animation: none;
+  }
+}

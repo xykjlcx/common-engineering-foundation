@@ -1,0 +1,111 @@
+{
+  "title": "角色与权限",
+  "breadcrumbGroup": "组织与权限",
+  "tabs": {
+    "roles": "角色管理"
+  },
+  "searchPlaceholder": "搜索角色",
+  "permissionSearchPlaceholder": "搜索权限…",
+  "refreshing": "正在更新",
+  "empty": "暂无角色",
+  "noPermissionResult": "暂无匹配权限",
+  "roleTypes": {
+    "system": "系统角色",
+    "custom": "自定义"
+  },
+  "detailTabs": {
+    "permissions": "功能权限",
+    "dataPermissions": "数据范围",
+    "members": "成员 {{count}}"
+  },
+  "permission": {
+    "granted": "已授权 {{granted}} / {{total}}",
+    "groupCount": "{{granted}}/{{total}}",
+    "toggleAction": "切换{{resource}}{{action}}",
+    "toggleResource": "切换{{resource}}全部权限",
+    "toggleGroup": "切换{{group}}全部权限",
+    "expandGroup": "展开{{group}}权限分组",
+    "collapseGroup": "折叠{{group}}权限分组"
+  },
+  "dataPermission": {
+    "defaultScope": "角色默认数据范围",
+    "defaultScopeDesc": "未单独设置的数据资源继承此范围",
+    "customDepartments": "默认可见部门",
+    "selectDepartments": "选择部门",
+    "visibleDepartments": "可见部门",
+    "departmentsSelected": "已选择 {{count}} 个部门",
+    "selectDefaultDepartments": "选择角色默认可见部门",
+    "scopes": {
+      "inherit": "继承角色默认值",
+      "all": "全部数据",
+      "deptAndChildren": "本部门及下级部门",
+      "dept": "仅本部门",
+      "self": "仅本人数据",
+      "custom": "自定义部门"
+    }
+  },
+  "actions": {
+    "addRole": "新增角色",
+    "deleteRole": "删除角色",
+    "editRole": "保存角色",
+    "disableRole": "停用角色",
+    "expand": "展开",
+    "collapse": "折叠",
+    "grantAll": "全部授权",
+    "cancelAll": "全部取消",
+    "reset": "重置",
+    "save": "保存",
+    "savePermissions": "保存功能权限",
+    "saveDataPermissions": "保存数据权限",
+    "cancel": "取消",
+    "confirmCreate": "确定创建",
+    "confirmUpdate": "保存修改",
+    "confirmDelete": "确认删除",
+    "enableRole": "启用角色"
+  },
+  "dialog": {
+    "addRoleTitle": "新增角色",
+    "editRoleTitle": "编辑角色",
+    "deleteRoleTitle": "删除角色",
+    "deleteRoleDesc": "删除后该角色及其权限配置会从当前列表移除。"
+  },
+  "form": {
+    "roleName": "角色名称",
+    "roleNamePlaceholder": "如：运营、客服",
+    "roleDesc": "角色描述",
+    "roleDescPlaceholder": "选填，描述该角色的职责"
+  },
+  "loadFailed": "角色数据加载失败",
+  "retry": "重试",
+  "reload": "重新加载并丢弃草稿",
+  "saveFailed": "操作失败，可能存在版本冲突、引用或权限限制。草稿已保留，请重新加载后重试。",
+  "memberCountUnknown": "成员数未提供",
+  "enabled": "启用",
+  "disabled": "停用",
+  "matrix": {
+    "page": "页面",
+    "view": "查看",
+    "create": "新建",
+    "update": "编辑",
+    "delete": "删除",
+    "export": "导出",
+    "import": "导入",
+    "other": "其他",
+    "unsaved": "未保存的变更",
+    "more": " 等 {{count}} 项",
+    "affects": "保存后影响 {{count}} 名成员",
+    "discard": "放弃",
+    "onlyGranted": "仅看已授权",
+    "restricted": "当前身份不能读取可授权目录。",
+    "switchTitle": "切换角色？",
+    "switchDescription": "当前权限草稿尚未保存，切换后将放弃这些变更。",
+    "openPage": "访问页面",
+    "noActions": "无可分配项",
+    "ungrouped": "独立页面",
+    "grantVisible": "授权显示项",
+    "revokeVisible": "取消显示项授权",
+    "filterHint": "当前显示 {{count}} 项权限；行、分组和批量勾选仅影响这些显示项。",
+    "showChanges": "查看全部 {{count}} 项变更",
+    "hideChanges": "收起变更"
+  }
+}

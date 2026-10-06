@@ -1,0 +1,136 @@
+import { useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { ArrowLeft, KeyRound, MailCheck, ShieldCheck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Button } from '@/components/ui/button';
+import { Field, FieldError, FieldLabel } from '@/components/ui/field';
+import { Input } from '@/components/ui/input';
+import { ForgotPasswordSchema } from '../api';
+import { registrationApi } from '../mocks/demo-registration';
+import { Steps } from '@/components/pro/Steps';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { CardDescription } from '@/components/ui/card';
+import { AuthPageLayout } from '../components/AuthPageLayout';
+
+export function ForgotPasswordScene({ onGoLogin }: { onGoLogin: () => void }) {
+  const { t } = useTranslation();
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [sent, setSent] = useState<{ email: string; expiresInMinutes: number }>();
+  const request = useMutation({
+    mutationFn: registrationApi.forgotPassword,
+    onSuccess: setSent,
+    onError: (reason) => setError(reason instanceof Error ? reason.message : t('auth.forgotPage.failed')),
+    meta: { silent: true },
+  });
+  const valid = ForgotPasswordSchema.safeParse({ email }).success;
+  const submit = () => {
+    if (!valid) return;
+    setError('');
+    request.mutate({ email });
+  };
+  if (sent)
+    return (
+      <AuthPageLayout>
+        <div className="text-center">
+          <MailCheck className="mx-auto size-10 text-success" />
+          <h1 className="mt-4 text-xl font-bold">{t('auth.forgotPage.success')}</h1>
+          <p className="mt-2 text-sm leading-6 text-text-3">{t('auth.forgotPage.successDesc', sent)}</p>
+          <div className="mt-5 grid gap-3">
+            <Button
+              block
+              onClick={() => {
+                setSent(undefined);
+                submit();
+              }}
+              loading={request.isPending}
+            >
+              {t('auth.forgotPage.resend')}
+            </Button>
+            <Button block variant="outline" onClick={onGoLogin}>
+              {t('auth.forgotPage.backLogin')}
+            </Button>
+          </div>
+        </div>
+      </AuthPageLayout>
+    );
+  return (
+    <AuthPageLayout>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          submit();
+        }}
+      >
+        <h1 className="ui-page-title text-2xl font-bold">{t('auth.forgotPage.title')}</h1>
+        <p className="mt-2 text-sm text-text-3">{t('auth.forgotPage.desc')}</p>
+        <div className="mt-5 grid gap-3">
+          <Field>
+            <FieldLabel htmlFor="forgot-email" required>
+              {t('auth.forgotPage.email')}
+            </FieldLabel>
+            <Input
+              id="forgot-email"
+              type="email"
+              aria-label={t('auth.forgotPage.email')}
+              value={email}
+              onChange={(event) => setEmail(event.currentTarget.value)}
+            />
+          </Field>
+          {error && <FieldError role="alert">{error}</FieldError>}
+          <Button type="submit" block size="lg" disabled={!valid} loading={request.isPending}>
+            {t('auth.forgotPage.submit')}
+          </Button>
+          <Button type="button" variant="link" onClick={onGoLogin}>
+            {t('auth.forgotPage.backLogin')}
+          </Button>
+        </div>
+      </form>
+    </AuthPageLayout>
+  );
+}
+
+export function PasswordRecoveryScene({ onGoLogin }: { onGoLogin: () => void }) {
+  const { t } = useTranslation();
+  return (
+    <AuthPageLayout compact>
+      <div className="grid gap-6">
+        <div className="grid gap-3">
+          <KeyRound className="size-7" aria-hidden="true" />
+          <h1 className="text-xl font-semibold">{t('auth.forgotPage.title')}</h1>
+          <CardDescription>{t('auth.recovery.description')}</CardDescription>
+        </div>
+        <Steps
+          direction="vertical"
+          aria-label={t('auth.recovery.stepsLabel')}
+          items={[
+            {
+              key: 'contact',
+              title: t('auth.recovery.contact'),
+              description: t('auth.recovery.contactDesc'),
+            },
+            { key: 'login', title: t('auth.recovery.login'), description: t('auth.recovery.loginDesc') },
+            {
+              key: 'password',
+              title: t('auth.recovery.password'),
+              description: t('auth.recovery.passwordDesc'),
+            },
+          ]}
+        />
+        <Alert variant="info" role="note">
+          <ShieldCheck aria-hidden="true" />
+          <AlertDescription>{t('auth.recovery.safety')}</AlertDescription>
+        </Alert>
+        <div className="grid gap-2">
+          <Button block size="lg" onClick={onGoLogin}>
+            {t('auth.recovery.goLogin')}
+          </Button>
+          <Button block variant="text" onClick={onGoLogin}>
+            <ArrowLeft data-icon="inline-start" />
+            {t('auth.forgotPage.backLogin')}
+          </Button>
+        </div>
+      </div>
+    </AuthPageLayout>
+  );
+}

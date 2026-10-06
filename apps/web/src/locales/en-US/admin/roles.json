@@ -1,0 +1,111 @@
+{
+  "title": "Roles & Permissions",
+  "breadcrumbGroup": "Organization & Permissions",
+  "tabs": {
+    "roles": "Role management"
+  },
+  "searchPlaceholder": "Search roles",
+  "permissionSearchPlaceholder": "Search permissions...",
+  "refreshing": "Updating",
+  "empty": "No roles",
+  "noPermissionResult": "No matching permissions",
+  "roleTypes": {
+    "system": "System",
+    "custom": "Custom"
+  },
+  "detailTabs": {
+    "permissions": "Functional permissions",
+    "dataPermissions": "Data scope",
+    "members": "Members {{count}}"
+  },
+  "permission": {
+    "granted": "{{granted}} / {{total}} granted",
+    "groupCount": "{{granted}}/{{total}}",
+    "toggleAction": "Toggle {{resource}} {{action}}",
+    "toggleResource": "Toggle all {{resource}} permissions",
+    "toggleGroup": "Toggle all {{group}} permissions",
+    "expandGroup": "Expand {{group}} permissions",
+    "collapseGroup": "Collapse {{group}} permissions"
+  },
+  "dataPermission": {
+    "defaultScope": "Default role data scope",
+    "defaultScopeDesc": "Resources without an override inherit this scope",
+    "customDepartments": "Default visible departments",
+    "selectDepartments": "Select departments",
+    "visibleDepartments": "Visible departments",
+    "departmentsSelected": "{{count}} departments selected",
+    "selectDefaultDepartments": "Select default visible departments",
+    "scopes": {
+      "inherit": "Inherit role default",
+      "all": "All data",
+      "deptAndChildren": "Department and subdepartments",
+      "dept": "Current department only",
+      "self": "Own data only",
+      "custom": "Custom departments"
+    }
+  },
+  "actions": {
+    "addRole": "Add role",
+    "deleteRole": "Delete role",
+    "editRole": "Save role",
+    "disableRole": "Disable role",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "grantAll": "Grant all",
+    "cancelAll": "Cancel all",
+    "reset": "Reset",
+    "save": "Save",
+    "savePermissions": "Save functional permissions",
+    "saveDataPermissions": "Save data permissions",
+    "cancel": "Cancel",
+    "confirmCreate": "Create",
+    "confirmUpdate": "Save changes",
+    "confirmDelete": "Confirm delete",
+    "enableRole": "Enable role"
+  },
+  "dialog": {
+    "addRoleTitle": "Add role",
+    "editRoleTitle": "Edit role",
+    "deleteRoleTitle": "Delete role",
+    "deleteRoleDesc": "This role and its permissions will be removed."
+  },
+  "form": {
+    "roleName": "Role name",
+    "roleNamePlaceholder": "e.g. Operations, Support",
+    "roleDesc": "Role description",
+    "roleDescPlaceholder": "Optional role responsibilities"
+  },
+  "loadFailed": "Unable to load role data",
+  "retry": "Retry",
+  "reload": "Reload and discard draft",
+  "saveFailed": "The operation failed due to a conflict, reference or permission restriction. Your draft is preserved. Reload and retry.",
+  "memberCountUnknown": "Member count unavailable",
+  "enabled": "Enabled",
+  "disabled": "Disabled",
+  "matrix": {
+    "page": "Page",
+    "view": "View",
+    "create": "Create",
+    "update": "Edit",
+    "delete": "Delete",
+    "export": "Export",
+    "import": "Import",
+    "other": "Other",
+    "unsaved": "Unsaved changes",
+    "more": " · {{count}} changes",
+    "affects": "Affects {{count}} members after saving",
+    "discard": "Discard",
+    "onlyGranted": "Granted only",
+    "restricted": "Your account cannot read the grant catalog.",
+    "switchTitle": "Switch role?",
+    "switchDescription": "Switching will discard unsaved permission changes.",
+    "openPage": "Access page",
+    "noActions": "No assignable permissions",
+    "ungrouped": "Standalone pages",
+    "grantVisible": "Grant visible",
+    "revokeVisible": "Revoke visible",
+    "filterHint": "Showing {{count}} permissions. Row, group and bulk selection only affect these visible items.",
+    "showChanges": "Show all {{count}} changes",
+    "hideChanges": "Collapse changes"
+  }
+}

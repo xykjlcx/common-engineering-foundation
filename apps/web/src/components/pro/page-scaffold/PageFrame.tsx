@@ -1,0 +1,132 @@
+import {
+  createContext,
+  Fragment,
+  useContext,
+  useLayoutEffect,
+  type ComponentProps,
+  type ReactNode,
+} from 'react';
+import { cn } from '@/lib/utils';
+
+export interface PageBreadcrumbItem {
+  // 收窄为 string：header 模式下 label 会被逐项比较去重（use-shell-breadcrumbs），
+  // ReactNode 每次渲染都是新引用，会击穿比较造成 Shell header 空转重渲染。
+  label: string;
+}
+
+interface PageFrameChromeValue {
+  breadcrumbPrefix?: ReactNode;
+  // none：pipeline stacked 按板关掉 PageFrame 那条（列表无面包屑，表单/详情只留卡内 46px）
+  breadcrumbPlacement?: 'frame' | 'header' | 'none';
+  onHeaderBreadcrumbsChange?: (breadcrumbs: PageBreadcrumbItem[]) => void;
+}
+
+const PageFrameChromeContext = createContext<PageFrameChromeValue>({});
+
+export function PageFrameChromeProvider({
+  value,
+  children,
+}: {
+  value: PageFrameChromeValue;
+  children: ReactNode;
+}) {
+  return <PageFrameChromeContext.Provider value={value}>{children}</PageFrameChromeContext.Provider>;
+}
+
+type PageFrameProps = Omit<ComponentProps<'section'>, 'children'> & {
+  breadcrumbs: PageBreadcrumbItem[];
+  children: ReactNode;
+  /** 铺满型页面（列表/详情/表单）：外壳本身已是一张卡的布局（inset / pipeline）下去掉外框内距；侧栏 / 图标栏仍是「卡片浮在画布上」，保留内距。 */
+  flush?: boolean;
+};
+
+export function PageFrame({
+  breadcrumbs,
+  children,
+  flush = false,
+  className,
+  style,
+  ...props
+}: PageFrameProps) {
+  const {
+    breadcrumbPrefix,
+    breadcrumbPlacement = 'frame',
+    onHeaderBreadcrumbsChange,
+  } = useContext(PageFrameChromeContext);
+  const renderFrameBreadcrumb = breadcrumbPlacement === 'frame';
+
+  // 发布与清空拆成两个 effect：页面每次渲染传入的 breadcrumbs 是新数组字面量，
+  // 若发布 effect 自带清空 cleanup，会先发 [] 再发新值，击穿 useShellBreadcrumbs 的相等短路，
+  // 导致 Shell header 随页面每次渲染空转。拆开后清空只在卸载/placement 切换时发生。
+  useLayoutEffect(() => {
+    if (breadcrumbPlacement !== 'header') return;
+    onHeaderBreadcrumbsChange?.(breadcrumbs);
+  }, [breadcrumbPlacement, breadcrumbs, onHeaderBreadcrumbsChange]);
+  useLayoutEffect(() => {
+    if (breadcrumbPlacement !== 'header') return;
+    return () => onHeaderBreadcrumbsChange?.([]);
+  }, [breadcrumbPlacement, onHeaderBreadcrumbsChange]);
+
+  return (
+    <section
+      {...props}
+      data-flush={flush || undefined}
+      className={cn(
+        'ui-page-frame flex flex-(--page-frame-flex) min-h-(--page-frame-min-h) flex-col overflow-y-auto bg-(--page-frame-bg) px-(--page-frame-px) py-(--page-frame-py) text-text',
+        className,
+      )}
+      style={style}
+    >
+      {renderFrameBreadcrumb && (
+        <div
+          data-slot="page-breadcrumb"
+          className="mb-(--page-breadcrumb-mb) flex min-h-[calc(32px*var(--app-scale))] items-center gap-2 text-[calc(13px*var(--app-scale))] text-text-3"
+        >
+          <div data-slot="page-breadcrumb-start" className="flex min-w-0 items-center gap-2">
+            {breadcrumbPrefix && (
+              <>
+                {breadcrumbPrefix}
+                <span
+                  aria-hidden="true"
+                  data-slot="page-breadcrumb-divider"
+                  className="h-4 w-px bg-(--page-breadcrumb-divider)"
+                />
+              </>
+            )}
+            {breadcrumbs.map((item, index) => (
+              <Fragment key={index}>
+                {index > 0 && <span>›</span>}
+                <span className={cn('truncate', index === breadcrumbs.length - 1 && 'text-text')}>
+                  {item.label}
+                </span>
+              </Fragment>
+            ))}
+          </div>
+        </div>
+      )}
+      {children}
+    </section>
+  );
+}
+
+type PageSurfaceProps = Omit<ComponentProps<'div'>, 'children'> & {
+  children: ReactNode;
+  /** canvas：内容区是灰底画布（卡片分区页），外壳已是一张卡的布局（inset / pipeline）不画外框线与圆角，由外层卡片统一裁切；侧栏 / 图标栏仍是浮在画布上的圆角卡。 */
+  tone?: 'default' | 'canvas';
+};
+
+export function PageSurface({ children, tone = 'default', className, ...props }: PageSurfaceProps) {
+  return (
+    <div
+      data-tone={tone}
+      {...props}
+      className={cn(
+        'ui-page-surface flex flex-(--page-surface-flex) min-h-(--page-surface-min-h) flex-col overflow-hidden rounded-12 border border-(--page-surface-border) bg-(--page-surface-bg) shadow-(--page-surface-shadow)',
+        tone === 'canvas' && 'rounded-(--page-canvas-radius) border-(length:--page-canvas-border-w)',
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+}

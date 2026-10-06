@@ -1,0 +1,105 @@
+{
+  "title": "岗位管理",
+  "breadcrumbGroup": "系统管理",
+  "searchLabel": "搜索岗位",
+  "searchPlaceholder": "名称 / 编码",
+  "count": "共 {{count}} 条",
+  "emptyText": "暂无岗位",
+  "refreshing": "正在更新",
+  "loadFailed": "加载岗位列表失败",
+  "retry": "重试",
+  "pagination": {
+    "prev": "上一页",
+    "next": "下一页",
+    "current": "当前第 {{page}} 页",
+    "pageSize": "{{size}} 条/页",
+    "pageSizeLabel": "每页条数",
+    "filteredTotal": "{{count}} 条 · 已筛选"
+  },
+  "status": {
+    "enabled": "启用",
+    "disabled": "停用"
+  },
+  "columns": {
+    "name": "名称",
+    "code": "编码",
+    "enabled": "状态",
+    "createdAt": "创建时间"
+  },
+  "actions": {
+    "create": "新建岗位",
+    "cancel": "取消",
+    "save": "保存"
+  },
+  "fields": {
+    "name": "名称",
+    "code": "编码",
+    "enabled": "启用"
+  },
+  "form": {
+    "title": "新建岗位",
+    "saveFailed": "保存失败，请重试"
+  },
+  "permission": {
+    "noCreate": "你没有「新建岗位」权限，请联系管理员"
+  },
+  "loading": {
+    "list": "正在加载岗位",
+    "plain": "正在更新"
+  },
+  "error": {
+    "banner": "列表刷新失败：{{message}}",
+    "copyTrace": "复制跟踪号"
+  },
+  "filters": {
+    "label": "筛选",
+    "menuSearch": "搜索字段…",
+    "schemesTitle": "我的方案",
+    "fieldsTitle": "按字段筛选",
+    "advanced": "高级条件组合…",
+    "clearText": "清空",
+    "clear": "清除",
+    "removeCondition": "删除条件",
+    "conditionCount": "{{count}} 个条件",
+    "rangeFrom": "起始值",
+    "rangeTo": "结束值",
+    "fields": {
+      "enabled": "启用状态"
+    },
+    "status": {
+      "enabled": "启用",
+      "disabled": "停用"
+    },
+    "operators": {
+      "eq": "等于"
+    },
+    "textOps": {
+      "eq": "等于"
+    }
+  },
+  "sort": "排序值",
+  "remark": "备注",
+  "defaultRoles": "默认角色",
+  "templateHint": "默认角色仅用于新建用户时预填，实际授权仍须另行校验。",
+  "edit": "编辑岗位",
+  "delete": "删除岗位",
+  "deleteDescription": "删除岗位「{{name}}」？其默认角色配置一并删除。",
+  "noRoles": "没有默认角色",
+  "unavailableRole": "该角色当前不可授予，可移除后保存",
+  "invalid": "请检查字段格式",
+  "errors": {
+    "codeConflict": "岗位编码已存在",
+    "nameConflict": "岗位名称已存在",
+    "versionConflict": "岗位已更新，请重新打开；输入已保留",
+    "roleUnavailable": "角色不存在或已停用，请重新选择",
+    "escalation": "不能配置超出当前权限的默认角色",
+    "inUse": "岗位被 {{count}} 个用户引用，不能删除（包含归档用户）。"
+  },
+  "detailLabel": "岗位详情",
+  "closeDetail": "关闭岗位详情",
+  "enable": "启用",
+  "disable": "停用",
+  "members": "在岗成员",
+  "noMembers": "当前数据范围内没有成员",
+  "usageHint": "被用户引用的岗位只能停用；停用不影响已有引用，仅不可新选。"
+}

@@ -1,0 +1,66 @@
+{
+  "title": "Profile",
+  "breadcrumbGroup": "Home",
+  "tabs": {
+    "info": "Personal Information",
+    "security": "Account & Security",
+    "devices": "Login Devices"
+  },
+  "sections": {
+    "basic": "Basic Information",
+    "security": "Account & Security",
+    "devices": "Login Devices"
+  },
+  "fields": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "department": "Department",
+    "role": "Role",
+    "location": "Location",
+    "employeeNo": "Employee ID",
+    "title": "Title",
+    "joinedAt": "Joined",
+    "manager": "Manager",
+    "language": "Language",
+    "timezone": "Timezone",
+    "bio": "About",
+    "username": "Login account"
+  },
+  "actions": {
+    "edit": "Edit profile",
+    "cancel": "Cancel",
+    "save": "Save profile",
+    "view": "View"
+  },
+  "form": {
+    "title": "Edit Profile"
+  },
+  "password": {
+    "action": "Change password",
+    "label": "Login password"
+  },
+  "live": {
+    "conflict": "This profile changed. Your draft is preserved. Close the editor and review the latest profile before editing again.",
+    "saveFailed": "Could not save. Please retry.",
+    "invalidField": "Please check this field.",
+    "loadFailed": "Could not refresh. Existing content is retained.",
+    "retry": "Retry",
+    "current": "Current session",
+    "revoke": "Sign out this session",
+    "revokeTitle": "Sign out session",
+    "revokeDescription": "This session will stop working immediately. Signing out the current session requires a new login.",
+    "confirmRevoke": "Confirm sign out",
+    "revokeFailed": "Could not sign out. Please retry.",
+    "ip": "IP address",
+    "createdAt": "Signed in",
+    "renewedAt": "Last active",
+    "expiresAt": "Expires",
+    "noSessions": "No active sessions",
+    "passwordHint": "Changing your password signs out all sessions. You will need to sign in again.",
+    "sessionsHint": "{{count}} active sessions. Sign them out individually in Login Devices.",
+    "loadingSessions": "Loading active sessions",
+    "device": "Device",
+    "actions": "Actions"
+  }
+}

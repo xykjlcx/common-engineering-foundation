@@ -1,0 +1,66 @@
+{
+  "title": "个人中心",
+  "breadcrumbGroup": "首页",
+  "tabs": {
+    "info": "个人信息",
+    "security": "账号安全",
+    "devices": "登录设备"
+  },
+  "sections": {
+    "basic": "基本资料",
+    "security": "账号安全",
+    "devices": "登录设备"
+  },
+  "fields": {
+    "name": "姓名",
+    "email": "邮箱",
+    "phone": "手机",
+    "department": "所属部门",
+    "role": "角色",
+    "location": "工作地点",
+    "employeeNo": "工号",
+    "title": "岗位",
+    "joinedAt": "入职日期",
+    "manager": "直属上级",
+    "language": "语言",
+    "timezone": "时区",
+    "bio": "个人简介",
+    "username": "登录账号"
+  },
+  "actions": {
+    "edit": "编辑资料",
+    "cancel": "取消",
+    "save": "保存资料",
+    "view": "查看"
+  },
+  "form": {
+    "title": "编辑个人资料"
+  },
+  "password": {
+    "action": "修改密码",
+    "label": "登录密码"
+  },
+  "live": {
+    "conflict": "资料已被更新，您的草稿仍保留。请关闭编辑并读取最新资料后再修改。",
+    "saveFailed": "资料保存失败，请重试。",
+    "invalidField": "请检查此字段。",
+    "loadFailed": "读取失败，已有内容仍保留。",
+    "retry": "重试",
+    "current": "当前会话",
+    "revoke": "退出此会话",
+    "revokeTitle": "退出登录会话",
+    "revokeDescription": "此会话将立即失效；退出当前会话后需要重新登录。",
+    "confirmRevoke": "确认退出",
+    "revokeFailed": "退出失败，请重试。",
+    "ip": "IP 地址",
+    "createdAt": "登录时间",
+    "renewedAt": "最近活动",
+    "expiresAt": "到期时间",
+    "noSessions": "没有有效会话",
+    "passwordHint": "修改密码会退出全部登录会话，之后需要重新登录。",
+    "sessionsHint": "当前有 {{count}} 个有效会话，可在「登录设备」中逐个退出",
+    "loadingSessions": "正在读取有效会话",
+    "device": "设备",
+    "actions": "操作"
+  }
+}

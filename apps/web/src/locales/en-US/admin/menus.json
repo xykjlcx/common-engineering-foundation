@@ -1,0 +1,150 @@
+{
+  "title": "Menus",
+  "breadcrumbGroup": "Organization & Permissions",
+  "refreshing": "Updating",
+  "loading": "Loading menus",
+  "loadFailed": "Failed to load menus",
+  "retry": "Retry",
+  "searchLabel": "Search menus",
+  "searchPlaceholder": "Search menu name, route, permission",
+  "workspaceLabel": "Menu configuration workspace",
+  "treeRegionLabel": "{{subsystem}} menu tree",
+  "treeLabel": "Menu navigation tree",
+  "treeToolbarLabel": "Menu tree toolbar",
+  "treeHeading": "Menu management",
+  "treeSummary": "{{count}} navigation nodes",
+  "subsystems": {
+    "title": "Subsystems",
+    "listLabel": "Subsystem list",
+    "builtin": "Built-in",
+    "custom": "Custom",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "selector": "Subsystem"
+  },
+  "types": {
+    "dir": "Dir",
+    "menu": "Menu",
+    "action": "Action"
+  },
+  "columns": {
+    "path": "Route path",
+    "permission": "Permission",
+    "visible": "Visible",
+    "name": "Name",
+    "actions": "Actions"
+  },
+  "actions": {
+    "create": "New menu",
+    "createAction": "New action",
+    "createSubsystem": "New subsystem",
+    "inspect": "Node details",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "edit": "Edit",
+    "delete": "Delete",
+    "addPage": "New page",
+    "addPageName": "Add page under {{name}}",
+    "editName": "Edit {{name}}",
+    "deleteName": "Delete {{name}}",
+    "toggleNode": "Toggle {{name}}",
+    "toggleVisible": "Toggle {{name}} visibility",
+    "selectSubsystem": "Select {{name}} subsystem",
+    "editSubsystem": "Edit {{name}} subsystem",
+    "cancel": "Cancel",
+    "confirmCreate": "Create",
+    "save": "Save menu",
+    "saveSubsystem": "Save subsystem",
+    "confirmDelete": "Confirm delete",
+    "viewSubsystems": "View subsystems",
+    "createDirectory": "Add directory"
+  },
+  "dialog": {
+    "createTitle": "New menu",
+    "createSubsystemTitle": "New subsystem",
+    "editTitle": "Edit menu",
+    "editSubsystemTitle": "Edit subsystem",
+    "deleteTitle": "Confirm delete menu",
+    "deleteDesc": "\"{{name}}\" will be removed from this menu tree."
+  },
+  "subsystemForm": {
+    "key": "Subsystem key",
+    "keyPlaceholder": "e.g. wms",
+    "keyHint": "Used for routes and data isolation. Lowercase letters, numbers, and hyphens only",
+    "name": "Subsystem name",
+    "namePlaceholder": "e.g. Admin",
+    "desc": "Subsystem description",
+    "descPlaceholder": "e.g. Organization · Permissions · Audit",
+    "icon": "Icon",
+    "home": "Subsystem home",
+    "homePlaceholder": "Select a home route",
+    "enabled": "Enabled",
+    "enabledHint": "Disabled subsystems are excluded from the subsystem switcher",
+    "errors": {
+      "keyInvalid": "Use lowercase letters, numbers, and hyphens only",
+      "keyDuplicated": "Subsystem key already exists",
+      "nameRequired": "Subsystem name is required",
+      "descRequired": "Subsystem description is required",
+      "homeRequired": "Select a subsystem home route"
+    }
+  },
+  "form": {
+    "type": "Node type",
+    "parent": "Parent menu",
+    "rootParent": "Root menu",
+    "name": "Menu name",
+    "namePlaceholder": "e.g. Menu management",
+    "icon": "Icon",
+    "path": "Route path",
+    "pathPlaceholder": "Select route",
+    "permission": "Permission",
+    "shortLabel": "Short label",
+    "shortLabelPlaceholder": "For collapsed nav",
+    "sort": "Sort",
+    "visible": "Visible",
+    "errors": {
+      "nameRequired": "Menu name is required",
+      "pathRequired": "Menu nodes must select a route",
+      "permissionRequired": "Action nodes must define a permission",
+      "parentRequired": "Action nodes must select a parent menu"
+    }
+  },
+  "iconOptions": {
+    "default": "Default icon",
+    "layoutDashboard": "Dashboard",
+    "users": "User group",
+    "user": "User",
+    "shield": "Permission",
+    "menu": "Menu",
+    "list": "List",
+    "folder": "Folder",
+    "settings": "Settings",
+    "chart": "Chart"
+  },
+  "empty": {
+    "title": "No menus in this subsystem",
+    "desc": "Click \"New menu\" to configure"
+  },
+  "inspector": {
+    "label": "Node details",
+    "title": "Menu details",
+    "basicInfo": "Basic information",
+    "empty": "Select a menu node to inspect its configuration.",
+    "emptyValue": "Not configured",
+    "visible": "Visible",
+    "hidden": "Hidden"
+  },
+  "actionSection": {
+    "label": "Action permissions",
+    "title": "Action permissions",
+    "desc": "{{count}} action permissions configured for this page",
+    "empty": "No action permissions configured for this page"
+  },
+  "toast": {
+    "created": "Menu created",
+    "updated": "Menu updated",
+    "deleted": "Menu deleted",
+    "visibilityUpdated": "Visibility updated",
+    "failed": "Action failed"
+  }
+}

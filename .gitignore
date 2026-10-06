@@ -1,0 +1,65 @@
+.DS_Store
+node_modules/
+.pnpm-store/
+dist/
+dist-ssr/
+.env
+.env.*
+!**/.env.example
+*.local
+
+# Logs
+/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor / agent 本机配置（settings.json 是共享配置，.local.json 是本机私有）
+.claude/settings.local.json
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Test / build artifacts
+test-results/
+# verify-keel / Cloud Agent 证据（截图、录像、转码 MP4）。禁止 git add 媒体。
+.cursor/skills/verify-keel/artifacts/
+scripts/verify-keel/artifacts/
+**/verify-keel-artifacts/
+coverage/
+.playwright-mcp/
+.tanstack/
+.superpowers/
+**/target/
+.flattened-pom.xml
+.metabuilder-dev/
+
+# 旧独立试点仓已移至仓外归档；恢复到旧路径时仍禁止混入主仓
+banking-vsa/
+
+# PGlite 本地数据目录（PGLITE_DATA_DIR 指到仓内时）
+.pglite/
+*.tsbuildinfo
+
+# 开发态本地文件存储（FILE_STORAGE_DIR 缺省落 .data/avatars）
+.data/
+
+# 画布发布产物（.dc.html + canvas.json 经 /design 可再生，勿入仓）
+design-explore/scaffold-visual-redesign.html
+design-explore/pipeline-board/shipment-pipeline-board.html
+
+# agent 临时 worktree（各自是独立 git 仓，绝不入库）
+.claude/worktrees/
+
+# 本机视觉验收与设计参考素材
+.impeccable/
+/ChatGPT 图像 2026年10月5日 22_08_42.png

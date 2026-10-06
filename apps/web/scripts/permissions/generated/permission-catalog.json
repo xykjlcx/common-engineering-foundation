@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "sourceKey": "/_auth/admin/audit#action:audit-log-view",
+      "code": "audit:log:view",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/audit",
+      "labelKey": "audit.logView"
+    },
+    {
+      "sourceKey": "/_auth/admin/audit#action:audit-session-revoke",
+      "code": "audit:session:revoke",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/audit",
+      "labelKey": "audit.sessionRevoke"
+    },
+    {
+      "sourceKey": "/_auth/admin/audit#action:audit-session-view",
+      "code": "audit:session:view",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/audit",
+      "labelKey": "audit.sessionView"
+    },
+    {
+      "sourceKey": "/_auth/admin/audit#page",
+      "code": "sys:audit:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/audit",
+      "labelKey": "audit.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/depts#action:dept-create",
+      "code": "iam:dept:create",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/depts",
+      "labelKey": "depts.actions.create",
+      "superuserOnly": true
+    },
+    {
+      "sourceKey": "/_auth/admin/depts#action:dept-del",
+      "code": "iam:dept:del",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/depts",
+      "labelKey": "depts.actions.delete",
+      "superuserOnly": true
+    },
+    {
+      "sourceKey": "/_auth/admin/depts#action:dept-update",
+      "code": "iam:dept:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/depts",
+      "labelKey": "depts.actions.edit",
+      "superuserOnly": true
+    },
+    {
+      "sourceKey": "/_auth/admin/depts#page",
+      "code": "iam:dept:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/depts",
+      "labelKey": "depts.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/dicts#action:dict-create",
+      "code": "sys:dict:create",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/dicts",
+      "labelKey": "dicts.createType"
+    },
+    {
+      "sourceKey": "/_auth/admin/dicts#action:dict-delete",
+      "code": "sys:dict:delete",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/dicts",
+      "labelKey": "dicts.delete"
+    },
+    {
+      "sourceKey": "/_auth/admin/dicts#action:dict-update",
+      "code": "sys:dict:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/dicts",
+      "labelKey": "dicts.edit"
+    },
+    {
+      "sourceKey": "/_auth/admin/dicts#page",
+      "code": "sys:dict:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/dicts",
+      "labelKey": "dicts.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/jobs#action:job-run",
+      "code": "sys:job:run",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/jobs",
+      "labelKey": "jobs.run"
+    },
+    {
+      "sourceKey": "/_auth/admin/jobs#action:job-update",
+      "code": "sys:job:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/jobs",
+      "labelKey": "jobs.save"
+    },
+    {
+      "sourceKey": "/_auth/admin/jobs#page",
+      "code": "sys:job:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/jobs",
+      "labelKey": "jobs.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/menus#action:menu-create",
+      "code": "iam:menu:create",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/menus",
+      "labelKey": "menus.actions.create"
+    },
+    {
+      "sourceKey": "/_auth/admin/menus#action:menu-del",
+      "code": "iam:menu:del",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/menus",
+      "labelKey": "menus.actions.delete"
+    },
+    {
+      "sourceKey": "/_auth/admin/menus#action:menu-update",
+      "code": "iam:menu:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/menus",
+      "labelKey": "menus.actions.edit"
+    },
+    {
+      "sourceKey": "/_auth/admin/menus#page",
+      "code": "iam:menu:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/menus",
+      "labelKey": "menus.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/notices#action:notice-create",
+      "code": "iam:notice:create",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/notices",
+      "labelKey": "notices.create"
+    },
+    {
+      "sourceKey": "/_auth/admin/notices#action:notice-delete",
+      "code": "iam:notice:delete",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/notices",
+      "labelKey": "notices.delete"
+    },
+    {
+      "sourceKey": "/_auth/admin/notices#action:notice-publish",
+      "code": "iam:notice:publish",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/notices",
+      "labelKey": "notices.publish"
+    },
+    {
+      "sourceKey": "/_auth/admin/notices#action:notice-update",
+      "code": "iam:notice:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/notices",
+      "labelKey": "notices.edit"
+    },
+    {
+      "sourceKey": "/_auth/admin/notices#action:notice-withdraw",
+      "code": "iam:notice:withdraw",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/notices",
+      "labelKey": "notices.withdraw"
+    },
+    {
+      "sourceKey": "/_auth/admin/notices#page",
+      "code": "iam:notice:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/notices",
+      "labelKey": "notices.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/posts#action:post-create",
+      "code": "iam:post:create",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/posts",
+      "labelKey": "posts.actions.create"
+    },
+    {
+      "sourceKey": "/_auth/admin/posts#action:post-delete",
+      "code": "iam:post:delete",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/posts",
+      "labelKey": "posts.delete"
+    },
+    {
+      "sourceKey": "/_auth/admin/posts#action:post-update",
+      "code": "iam:post:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/posts",
+      "labelKey": "posts.edit"
+    },
+    {
+      "sourceKey": "/_auth/admin/posts#page",
+      "code": "iam:post:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/posts",
+      "labelKey": "posts.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/roles#action:role-create",
+      "code": "iam:role:create",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/roles",
+      "labelKey": "roles.actions.addRole"
+    },
+    {
+      "sourceKey": "/_auth/admin/roles#action:role-del",
+      "code": "iam:role:del",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/roles",
+      "labelKey": "roles.actions.deleteRole"
+    },
+    {
+      "sourceKey": "/_auth/admin/roles#action:role-grant",
+      "code": "iam:role:grant",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/roles",
+      "labelKey": "roles.actions.savePermissions"
+    },
+    {
+      "sourceKey": "/_auth/admin/roles#action:role-update",
+      "code": "iam:role:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/roles",
+      "labelKey": "roles.actions.editRole"
+    },
+    {
+      "sourceKey": "/_auth/admin/roles#page",
+      "code": "iam:role:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/roles",
+      "labelKey": "roles.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/settings#action:settings-update",
+      "code": "sys:settings:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/settings",
+      "labelKey": "settings.save"
+    },
+    {
+      "sourceKey": "/_auth/admin/settings#page",
+      "code": "sys:settings:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/settings",
+      "labelKey": "settings.title"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-assign-role",
+      "code": "iam:user:assign_roles",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.actions.assignRoles"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-create",
+      "code": "iam:user:create",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.actions.create"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-del",
+      "code": "iam:user:delete",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.actions.delete"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-disable",
+      "code": "iam:user:change_status",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.actions.disable"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-export",
+      "code": "iam:user:export",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.actions.export"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-import",
+      "code": "iam:user:import",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.import.users"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-move",
+      "code": "iam:user:move",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.actions.move"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-reset-pwd",
+      "code": "iam:user:reset_password",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.actions.resetPassword"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#action:user-update",
+      "code": "iam:user:update",
+      "kind": "ACTION",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.actions.edit"
+    },
+    {
+      "sourceKey": "/_auth/admin/users/#page",
+      "code": "iam:user:view",
+      "kind": "PAGE",
+      "routeId": "/_auth/admin/users/",
+      "labelKey": "users.title"
+    }
+  ],
+  "digest": "78a3eaf112e2eef31ffafef3aaa5ddb102b26d19de38f0ea10d4be0ad3ca8809"
+}

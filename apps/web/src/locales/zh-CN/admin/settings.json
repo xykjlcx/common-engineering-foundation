@@ -1,0 +1,110 @@
+{
+  "title": "系统设置",
+  "scope": "对全部用户生效 · 修改会写入审计",
+  "loading": "正在读取设置",
+  "reload": "重新载入",
+  "readOnly": "你可以查看系统设置，编辑需要系统设置修改权限。",
+  "save": "保存更改",
+  "discard": "放弃",
+  "saved": "设置已保存",
+  "unsaved": "{{count}} 项未保存",
+  "unsavedHint": "当前修改尚未生效，保存后将应用到对应操作。",
+  "discardTitle": "放弃未保存的更改？",
+  "discardDescription": "当前草稿将被丢弃，已保存的设置不会改变。",
+  "discardConfirm": "放弃更改",
+  "keepEditing": "继续编辑",
+  "defaults": "当前使用系统默认值",
+  "updatedAt": "最近保存：{{date}}",
+  "sessionHint": "会话时长用于之后的新登录；已有会话维持签发时的期限，最长从签发起 30 天。",
+  "passwordHint": "用于新建用户、导入、重置和本人改密。已有密码仍可正常登录，不强制回溯改密。",
+  "uploadHint": "当前存储用于用户头像，允许 PNG、JPEG、WebP，并验证文件头。存储目录由部署环境管理。",
+  "avatarRequirements": "请选择 PNG、JPEG 或 WebP，文件不超过 {{size}} MiB。",
+  "passwordRequirements": "密码至少 {{length}} 位{{requirements}}。",
+  "passwordJoin": "、",
+  "passwordPrefix": "，并包含",
+  "passwordUpper": "大写字母",
+  "passwordLower": "小写字母",
+  "passwordNumber": "数字",
+  "passwordSymbol": "符号",
+  "sections": {
+    "general": "基本信息",
+    "security": "安全策略",
+    "credentials": "密码策略",
+    "uploads": "文件上传"
+  },
+  "groups": {
+    "general": "登录展示",
+    "login": "登录",
+    "session": "会话",
+    "password": "密码要求",
+    "uploads": "用户头像"
+  },
+  "units": {
+    "times": "次",
+    "minutes": "分钟",
+    "days": "天",
+    "characters": "位",
+    "mib": "MiB"
+  },
+  "errors": {
+    "load": "读取系统设置失败，请重试。",
+    "save": "保存失败，当前草稿已保留，请重试。",
+    "conflict": "设置已被其他管理员更新，当前草稿已保留。请刷新页面后再修改。",
+    "forbidden": "没有修改系统设置的权限。",
+    "invalid": "请填写有效值，并遵守字段范围。"
+  },
+  "fields": {
+    "appName": {
+      "label": "系统名称",
+      "hint": "显示在登录页品牌位置。"
+    },
+    "loginDescription": {
+      "label": "登录说明",
+      "hint": "向用户说明这个系统的用途或登录方式。"
+    },
+    "lockThreshold": {
+      "label": "登录失败锁定",
+      "hint": "同一账号在失败窗口内达到次数后，暂时禁止登录。"
+    },
+    "ipLockThreshold": {
+      "label": "IP 失败阈值",
+      "hint": "同一出口累计失败达到阈值时限制错误尝试，合法账号仍可登录。"
+    },
+    "lockWindowMs": {
+      "label": "失败计数窗口",
+      "hint": "只统计此窗口内的失败记录；锁定随记录过期解除。"
+    },
+    "sessionTtlMs": {
+      "label": "会话有效期",
+      "hint": "普通登录会话的滑动有效期，活动达到续期阈值时延长。"
+    },
+    "sessionRememberTtlMs": {
+      "label": "记住我有效期",
+      "hint": "勾选保持登录后签发的会话时长，最长 30 天。"
+    },
+    "minLength": {
+      "label": "最小长度",
+      "hint": "新设置的密码至少需要这些字符，范围 8–128。"
+    },
+    "requireUppercase": {
+      "label": "包含大写字母",
+      "hint": "密码至少包含一个 A–Z。"
+    },
+    "requireLowercase": {
+      "label": "包含小写字母",
+      "hint": "密码至少包含一个 a–z。"
+    },
+    "requireNumber": {
+      "label": "包含数字",
+      "hint": "密码至少包含一个 0–9。"
+    },
+    "requireSymbol": {
+      "label": "包含符号",
+      "hint": "密码至少包含一个非字母、数字或空白的符号。"
+    },
+    "avatarMaxMiB": {
+      "label": "头像大小上限",
+      "hint": "每个头像文件允许的最大体积，范围 1–10 MiB。"
+    }
+  }
+}

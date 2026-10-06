@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "key": "admin/users",
+      "kind": "live",
+      "routers": ["user", "file"]
+    },
+    {
+      "key": "admin/roles",
+      "kind": "live",
+      "routers": ["role"]
+    },
+    {
+      "key": "admin/depts",
+      "kind": "live",
+      "routers": ["dept"]
+    },
+    {
+      "key": "admin/menus",
+      "kind": "live",
+      "routers": ["menu"]
+    },
+    {
+      "key": "admin/profile",
+      "kind": "live",
+      "routers": ["profile", "auth"]
+    },
+    {
+      "key": "admin/auth",
+      "kind": "live",
+      "routers": ["auth"]
+    },
+    {
+      "key": "admin/dashboard",
+      "kind": "live",
+      "routers": ["auth", "menu", "dashboard", "system"]
+    },
+    {
+      "key": "admin/dicts",
+      "kind": "live",
+      "routers": ["dict"]
+    },
+    {
+      "key": "admin/posts",
+      "kind": "live",
+      "routers": ["post"]
+    },
+    {
+      "key": "admin/audit",
+      "kind": "live",
+      "routers": ["audit"]
+    },
+    {
+      "key": "admin/jobs",
+      "kind": "live",
+      "routers": ["job"]
+    },
+    {
+      "key": "admin/messages",
+      "kind": "live",
+      "routers": ["message"]
+    },
+    {
+      "key": "admin/notices",
+      "kind": "live",
+      "routers": ["notice"]
+    },
+    {
+      "key": "admin/settings",
+      "kind": "live",
+      "routers": ["settings"]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "groups": {
+    "organization": "Organization & Accounts",
+    "permissions": "Permissions",
+    "data": "Reference data"
+  },
+  "pages": {
+    "dashboard": "Home",
+    "users": "Users",
+    "depts": "Departments",
+    "roles": "Roles",
+    "menus": "Menus",
+    "posts": "Posts"
+  }
+}

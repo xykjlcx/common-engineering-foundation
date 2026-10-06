@@ -1,0 +1,104 @@
+import { lv } from '@/lib/localized';
+import { manifests } from '@/modules/registry';
+import type { MenuRecord } from '@/modules/types';
+
+const registeredRouteOptions = new Map<
+  NonNullable<MenuRecord['path']>,
+  { value: NonNullable<MenuRecord['path']>; label: MenuRecord['label'] }
+>();
+
+for (const manifest of manifests) {
+  for (const menu of manifest.menuSeed) {
+    if (menu.type !== 'menu' || !menu.path || registeredRouteOptions.has(menu.path)) continue;
+    registeredRouteOptions.set(menu.path, { value: menu.path, label: menu.label });
+  }
+}
+
+export const menuRouteOptions = [...registeredRouteOptions.values()];
+
+export type NavigationMenuRecord = MenuRecord & { type: 'dir' | 'menu' };
+
+export interface ManagedMenuRow {
+  menu: NavigationMenuRecord;
+  depth: number;
+  hasChildren: boolean;
+  hiddenByCollapse: boolean;
+}
+
+function menuLabel(menu: MenuRecord, locale: string) {
+  return lv(menu.label, locale);
+}
+
+function sortMenus(locale: string) {
+  return (a: MenuRecord, b: MenuRecord) =>
+    a.sort - b.sort || menuLabel(a, locale).localeCompare(menuLabel(b, locale), locale);
+}
+
+function matchesKeyword(menu: MenuRecord, locale: string, keyword: string) {
+  if (!keyword) return true;
+  const haystack = [menuLabel(menu, locale), menu.path ?? '', menu.permission ?? '', menu.icon ?? '']
+    .join(' ')
+    .toLowerCase();
+  return haystack.includes(keyword.toLowerCase());
+}
+
+export function nextSiblingSort(menus: MenuRecord[], subsystemKey: string, parentId: string | null) {
+  return (
+    Math.max(
+      0,
+      ...menus
+        .filter((menu) => menu.subsystemKey === subsystemKey && menu.parentId === parentId)
+        .map((menu) => menu.sort),
+    ) + 1
+  );
+}
+
+export function buildManagedMenuRows(
+  menus: MenuRecord[],
+  collapsedIds: string[],
+  locale: string,
+  keyword: string,
+): ManagedMenuRow[] {
+  const collapsed = new Set(collapsedIds);
+  const normalizedKeyword = keyword.trim();
+  const navigationMenus = menus.filter((menu): menu is NavigationMenuRecord => menu.type !== 'action');
+  const byParent = new Map<string | null, NavigationMenuRecord[]>();
+  for (const menu of navigationMenus.toSorted(sortMenus(locale))) {
+    const siblings = byParent.get(menu.parentId) ?? [];
+    siblings.push(menu);
+    byParent.set(menu.parentId, siblings);
+  }
+
+  const hasMatchingDescendant = (id: string): boolean =>
+    (byParent.get(id) ?? []).some(
+      (child) => matchesKeyword(child, locale, normalizedKeyword) || hasMatchingDescendant(child.id),
+    );
+
+  const rows: ManagedMenuRow[] = [];
+  const walk = (parentId: string | null, depth: number, hiddenByCollapse = false) => {
+    for (const menu of byParent.get(parentId) ?? []) {
+      const children = byParent.get(menu.id) ?? [];
+      const hasChildren = children.length > 0;
+      const shouldInclude =
+        !normalizedKeyword ||
+        matchesKeyword(menu, locale, normalizedKeyword) ||
+        hasMatchingDescendant(menu.id);
+      if (!shouldInclude) continue;
+
+      rows.push({ menu, depth, hasChildren, hiddenByCollapse });
+      walk(menu.id, depth + 1, normalizedKeyword ? false : hiddenByCollapse || collapsed.has(menu.id));
+    }
+  };
+
+  walk(null, 0);
+  return rows;
+}
+
+export function hasMenuChildren(menus: MenuRecord[], id: string) {
+  return menus.some((menu) => menu.parentId === id);
+}
+
+export function collapsibleMenuIds(menus: MenuRecord[]) {
+  const parentIds = new Set(menus.map((menu) => menu.parentId).filter((id): id is string => !!id));
+  return menus.filter((menu) => parentIds.has(menu.id)).map((menu) => menu.id);
+}

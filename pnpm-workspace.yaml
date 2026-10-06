@@ -1,0 +1,22 @@
+packages:
+  - apps/*
+  - packages/*
+
+# 构建许可（workspace 设置只认根文件）：msw 自 apps/web 上移；esbuild 供 vitest/tsx
+allowBuilds:
+  esbuild: true
+  msw: true
+# （pnpm 11 起 allowBuilds 全面取代 onlyBuiltDependencies，旧键已删）
+
+# jest-dom 上游未声明 vitest peer，靠隐藏 hoist 裸解析 `import 'vitest'`——
+# workspace 出现第二个 vitest 主版本（apps/core 3.x vs apps/web 4.x）后 hoist 槽位被抢，
+# expect.extend 落错副本（2026-08-31 M1 实测：web 全套 toHaveClass 失效）。补 peer 声明根治。
+#
+# 2026-09-07 复核：vitest 已统一到 4.x（`node_modules/.pnpm` 下只有一个 vitest@4），
+# 但 jest-dom 上游**仍未声明该 peer**，靠本条声明才把它绑到那一份 vitest 上
+# （store 里的目录名带 `_vitest@4.1.9` 后缀即证据）。故本条保留，作为防再分裂的保险：
+# 哪天有人给某个包锁回 vitest 3，槽位争抢会立刻复现，而症状是"断言静默失效"不是报错。
+packageExtensions:
+  '@testing-library/jest-dom':
+    peerDependencies:
+      vitest: '*'

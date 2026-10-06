@@ -1,0 +1,719 @@
+/* src/styles/tokens.base.css —— flavor 无关的共享 token 骨架。
+   权威源：spec v4.1 §10.2b + docs/design/*.design.md。
+   本文件含：:root 颜色兜底(=feishu light，FOUC 兜底) + 组件族默认 + 通用暗色 + radius/scale 档。
+   per-flavor 增量在 tokens.<flavor>.css（当前 feishu/claude/shadcn/sera）。
+   ⚠️ global.css 中本文件必须最先 @import：巨型 :root 与 [data-flavor=xxx] 同特异性，靠源顺序决胜。 */
+
+:root, [data-flavor='feishu'][data-mode='light'] {
+  --pri: #3370ff; --pri-soft: #eef3ff;
+  --bg: #f5f6f7; --canvas: #eceef1; --surface: #ffffff; --chrome: #ffffff;
+  --surface-2: #f2f3f5; --surface-blur: rgba(255, 255, 255, 0.72);
+  --text: #1f2329; --text-2: #4e5969; --text-3: #8f959e; --border: #dee0e3;
+  --control-border: #d0d3d6; --divider: rgba(31, 35, 41, 0.15);
+}
+
+:root {
+  --pri-hover: color-mix(in srgb, var(--pri) 85%, white);
+  --pri-active: color-mix(in srgb, var(--pri) 76%, black);
+  --soft: var(--pri-soft);
+  --on-pri: #ffffff;
+  --success: #16a34a; --success-soft: #e8f7ee;
+  --warning: #ff8000; --warning-soft: #fff3e8;
+  --danger: #f53f3f; --danger-soft: #feecec;
+  --danger-hover: color-mix(in srgb, var(--danger) 90%, transparent);
+  --on-danger: #ffffff;
+  --info: var(--pri); --info-soft: var(--pri-soft);
+  --purple: #7f5bff; --purple-soft: color-mix(in srgb, var(--purple) 13%, var(--surface));
+  --teal: #00b3a4; --teal-soft: color-mix(in srgb, var(--teal) 13%, var(--surface));
+  --success-bg: var(--success-soft);
+  --warning-bg: var(--warning-soft);
+  --danger-bg: var(--danger-soft);
+  --info-bg: var(--info-soft);
+  --purple-bg: var(--purple-soft);
+  --teal-bg: var(--teal-soft);
+  --fill-hover: rgba(31, 35, 41, 0.08);
+  --fill-pressed: rgba(31, 35, 41, 0.12);
+  --fill-selected: color-mix(in srgb, var(--pri) 10%, transparent);
+  --divider: var(--border);
+  /* 表单/表格小控件边框。比普通分割线更清楚，接近原型 stdCheck 未选中边框。 */
+  --control-border: color-mix(in srgb, var(--border) 70%, var(--text-3));
+  --line-strong: var(--control-border);
+  /* 控件高度四档 = 统一基座板值（2026-09-02 密度轴裁决：改 base 到板值，全 flavor 同变）：
+     sm 28 = 状态 tab / 分页钮 / 详情页小按钮（UserList.dc.html 状态 tab height:28px、分页钮 28×28）；
+     btn-md 32 = 工具条控件与主按钮（UserList 工具区 height:32px 147/147 处）；
+     md 34 = 表单输入（UserForm.dc.html form-input height:34px）；lg 40 = 登录输入（AuthLogin.dc.html） */
+  --control-sm: calc(28px * var(--app-scale));
+  --control-md: calc(34px * var(--app-scale));
+  --control-btn-md: calc(32px * var(--app-scale));
+  --control-lg: calc(40px * var(--app-scale));
+  /* 按钮水平内距：md/default 档由 variant 决定档位（洋哥 2026-09-02 裁决「主次分距，忠实板值」）。
+     板实证（outline.py 扫 48 板，h32 档聚类）：品牌实心主钮 pad 0 15px ×23（次多 17 ×10）；
+     次要/文字/虚线钮 pad 0 12px ×39（次多 11 ×19）。红色实心钮板上只 2 处且 ≈12，故不进 strong 档。
+     size 只管高度与字号，内距下沉到 variant：variant 就地把 --button-px 改写成 strong 值，
+     size 的 px-[var(--button-px)] 读的是元素自身的值，不产生两条 padding 类互相 twMerge。 */
+  --button-px: calc(12px * var(--app-scale));
+  --button-px-strong: calc(15px * var(--app-scale));
+  --button-font-weight: 400;
+  --button-primary-bg: var(--pri);
+  --button-primary-bg-hover: var(--pri-hover);
+  --button-primary-bg-active: var(--pri-active);
+  --button-primary-fg: var(--on-pri);
+  --button-secondary-bg: var(--surface);
+  --button-secondary-bg-hover: var(--surface);
+  --button-secondary-bg-active: var(--fill-pressed);
+  --button-secondary-fg: var(--text);
+  --button-secondary-fg-hover: var(--pri);
+  --button-secondary-border: var(--border);
+  --button-secondary-border-hover: var(--pri);
+  --button-secondary-shadow: var(--shadow-card-sm);
+  --button-dashed-fg: var(--text-2);
+  --button-dashed-fg-hover: var(--pri);
+  --button-dashed-border: var(--line-strong);
+  --button-dashed-border-hover: var(--pri);
+  --button-text-fg: var(--pri);
+  --button-text-bg-hover: var(--fill-selected);
+  --button-link-fg: var(--pri);
+  --button-ghost-fg: var(--text-2);
+  --button-ghost-fg-hover: var(--text);
+  --button-ghost-bg-hover: var(--fill-hover);
+  --button-danger-bg: var(--danger);
+  --button-danger-bg-hover: var(--danger-hover);
+  --button-danger-fg: var(--on-danger);
+  --button-danger-ring: var(--danger-bg);
+  --button-danger-ghost-fg: var(--danger);
+  --button-danger-ghost-bg: var(--danger-bg);
+  --button-danger-ghost-border: var(--danger);
+  --button-icon-fg: var(--text-3);
+  --button-icon-fg-hover: var(--text);
+  --button-icon-bg-hover: var(--fill-hover);
+  --button-ring: var(--soft);
+  --overlay-mask-bg: rgba(0, 0, 0, 0.22);
+  --overlay-mask-blur: 6px;
+  --overlay-bg: var(--surface);
+  --overlay-fg: var(--text);
+  --overlay-muted-fg: var(--text-2);
+  --overlay-border: var(--border);
+  --overlay-shadow-modal: var(--shadow-modal);
+  --overlay-shadow-popover: var(--shadow-popover);
+  --overlay-close-fg: var(--button-icon-fg);
+  --overlay-close-fg-hover: var(--button-icon-fg-hover);
+  --overlay-close-bg-hover: var(--button-icon-bg-hover);
+  --option-fg: var(--text);
+  --option-fg-muted: var(--text-3);
+  --option-bg-highlighted: var(--fill-hover);
+  --option-fg-highlighted: var(--pri);
+  --option-bg-selected: var(--fill-selected);
+  --option-fg-selected: var(--pri);
+  --option-check: var(--pri);
+  /* 选项之间的细缝：选中态与高亮态相邻时不粘连（2026-09-03 洋哥点名） */
+  --option-gap: calc(2px * var(--app-scale));
+  --menu-item-fg: var(--text);
+  --menu-item-muted-fg: var(--text-3);
+  --menu-item-bg-highlighted: var(--fill-hover);
+  --menu-item-fg-highlighted: var(--text);
+  --menu-item-fg-danger: var(--danger);
+  --menu-item-bg-danger-highlighted: var(--danger-bg);
+  --tabs-seg-list-bg: var(--surface-2);
+  --tabs-seg-trigger-fg: var(--type-3-fg);
+  --tabs-seg-trigger-fg-hover: var(--text);
+  --tabs-seg-trigger-bg-active: var(--surface);
+  --tabs-seg-trigger-fg-active: var(--text);
+  --tabs-seg-trigger-shadow-active: var(--shadow-card-sm);
+  --tabs-line-border: var(--border);
+  --tabs-line-trigger-fg: var(--type-2-fg);
+  --tabs-line-trigger-fg-hover: var(--text);
+  --tabs-line-trigger-fg-active: var(--pri);
+  --tabs-line-indicator: var(--pri);
+  --tabs-ring: var(--soft);
+  --choice-bg: var(--surface);
+  --choice-border: var(--control-border);
+  --choice-border-hover: var(--pri);
+  --choice-bg-checked: var(--pri);
+  --choice-border-checked: var(--pri);
+  --choice-fg-checked: var(--on-pri);
+  --choice-bg-indeterminate: var(--fill-selected);
+  --choice-border-indeterminate: var(--pri);
+  --choice-fg-indeterminate: var(--pri);
+  --choice-bg-disabled: var(--surface-2);
+  --choice-ring: var(--soft);
+  --switch-bg: var(--control-border);
+  --switch-bg-checked: var(--pri);
+  --switch-thumb-bg: var(--surface);
+  /* 软浮起（soft UI）实验件 SoftSwitch / SoftSegmented（2026-09-03，独立于 Switch/Tabs，不替换）。
+     光源统一左上：投影落右下、高光在左上。投影由 --text 混出偏灰不偏黑；高光由 --surface 混出。
+     暗色模式只改本组比例（见下 [data-mode='dark']），组件不再碰颜色。accent 为实验橘，刻意不接 --pri。 */
+  /* 跟随主题色：原硬编码 #ff6a1a 在 shadcn / 飞书等主题下仍是橙色（洋哥 2026-09-04 指出） */
+  --soft-accent: var(--pri);
+  --soft-track-bg: color-mix(in srgb, var(--text) 10%, var(--surface));
+  --soft-track-bg-checked: var(--soft-accent);
+  --soft-track-inset: color-mix(in srgb, var(--text) 8%, transparent);
+  --soft-thumb-bg: var(--surface);
+  --soft-thumb-fg: var(--text-3);
+  --soft-thumb-fg-active: var(--text);
+  --soft-shadow: color-mix(in srgb, var(--text) 18%, transparent);
+  --soft-shadow-far: color-mix(in srgb, var(--text) 8%, transparent);
+  --soft-highlight: color-mix(in srgb, var(--surface) 85%, transparent);
+  --soft-shade: color-mix(in srgb, var(--text) 5%, transparent);
+  --soft-ring: color-mix(in srgb, var(--soft-accent) 35%, transparent);
+  --soft-motion: 200ms;
+  --soft-switch-h: calc(30px * var(--app-scale));
+  --soft-switch-w: calc(54px * var(--app-scale));
+  --soft-switch-pad: calc(2px * var(--app-scale));
+  --soft-switch-h-sm: calc(22px * var(--app-scale));
+  --soft-switch-w-sm: calc(40px * var(--app-scale));
+  --soft-switch-pad-sm: calc(2px * var(--app-scale));
+  --skeleton-bg: var(--surface-2);
+  --progress-bg: var(--surface-2);
+  --progress-indicator-bg: var(--pri);
+  /* 文字四级（洋哥 2026-10-05 整体梳理）：全部由 --text 与 --surface 混出，换 flavor / 暗色自动跟随。
+     L1 主要：页面标题、卡片/分区标题、关键数值、主列、选中态          weight 600（标题）/ 500（强调）
+     L2 正文：表格行内容、侧栏菜单、树节点、表单值与标签、次要按钮      weight 400
+     L3 辅助：表头、描述文字、面包屑上级、计数与元信息、描述列表标签      weight 表头 500 / 其余 400
+     L4 提示：占位符、空态、禁用、最弱的补充说明（--text-3 / --text-4）   weight 400
+     链接与选中走主题色（--pri 系），不占文字层级。 */
+  --type-1-fg: var(--text);
+  --type-2-fg: color-mix(in srgb, var(--text) 86%, var(--surface));
+  --type-3-fg: color-mix(in srgb, var(--text) 68%, var(--surface));
+  --type-4-fg: var(--text-3);
+  --table-cell-secondary-fg: var(--type-2-fg);
+  --tree-item-fg: var(--type-2-fg);
+  --tree-meta-fg: var(--type-3-fg);
+  --table-cell-hint-fg: var(--text-4);
+  --table-cell-success-fg: var(--success);
+  --table-cell-danger-fg: var(--danger);
+  --page-breadcrumb-muted-fg: var(--type-3-fg);
+  --page-breadcrumb-current-fg: var(--text);
+  --page-identity-title-fg: var(--list-title-fg);
+  --page-identity-subtitle-fg: var(--type-3-fg);
+  --field-required-fg: var(--danger);
+  --field-required-hint-fg: var(--text-faint);
+  --field-description-fg: var(--text-3);
+  --page-section-title-fg: var(--text);
+  --page-section-description-fg: var(--type-3-fg);
+  --field-label-fg: var(--type-2-fg);
+  --field-hint-fg: var(--list-hint-fg);
+  --field-value-fg: var(--text);
+  --avatar-muted-bg: var(--badge-neutral-bg);
+  --avatar-muted-fg: var(--table-row-fg-muted);
+  --avatar-bg: var(--surface-2);
+  --avatar-fg: var(--text-3);
+  /* 详情页身份头大头像：品牌软底 + 品牌字，随主题色变化 */
+  --avatar-brand-bg: var(--pri-soft);
+  --avatar-brand-fg: var(--pri);
+  --avatar-ring: var(--surface);
+  --avatar-badge-bg: var(--pri);
+  --avatar-badge-fg: var(--on-pri);
+  --empty-fg: var(--text-3);
+  /* 横切状态族挂点（值=现状，零视觉变化）：空态插画/说明、错误码、faint 文字（ink-100 档回落）、
+     feedback 通条·Toast·摘要的底/字/边、撤销 Toast、双 Toast 阴影。
+     pipeline 用 StateEmpty / StateError / FormFeedback 板的 feedback 专用色覆盖（与语义 -soft 差半档）。 */
+  --empty-icon-fg: var(--border);
+  --empty-desc-fg: var(--empty-fg);
+  /* 业务空态图标的一点品牌色（洋哥 2026-09-03「稍微加一点点颜色」）：主色掺纸面，不抢主按钮 */
+  --empty-icon-accent: color-mix(in srgb, var(--pri) 55%, var(--surface));
+  --error-code-fg: var(--border);
+  --text-faint: var(--control-border);
+  --feedback-success-bg: var(--success-bg);
+  --feedback-success-fg: var(--success);
+  --feedback-success-border: color-mix(in srgb, var(--success) 30%, transparent);
+  --feedback-warning-bg: var(--warning-bg);
+  --feedback-warning-fg: var(--warning);
+  --feedback-warning-border: color-mix(in srgb, var(--warning) 30%, transparent);
+  --feedback-danger-bg: var(--danger-bg);
+  --feedback-danger-fg: var(--danger);
+  --feedback-danger-border: color-mix(in srgb, var(--danger) 30%, transparent);
+  --toast-undo-bg: var(--tooltip-bg);
+  --toast-undo-fg: #ffffff;
+  --shadow-toast: var(--shadow-card);
+  --shadow-toast-undo: var(--shadow-popover);
+  --table-bg: var(--surface);
+  --table-border: var(--border);
+  --table-shell-border: var(--table-border);
+  --table-row-border: var(--table-border);
+  --table-header-bg: var(--surface-2);
+  --table-header-fg: var(--text-3);
+  --table-head-fg: var(--type-3-fg);
+  --table-row-bg: var(--surface);
+  --table-row-bg-hover: var(--fill-hover);
+  --table-row-bg-selected: var(--fill-selected);
+  --table-row-bg-expanded: var(--fill-hover);
+  --table-row-fg: var(--text);
+  --table-row-focus-ring: var(--soft);
+  --table-action-fg: var(--pri);
+  --table-resize-handle: var(--table-action-fg);
+  --table-resize-line: var(--border);
+  --table-resize-glow: color-mix(in srgb, var(--pri) 18%, transparent);
+  --table-busy-opacity: .45;
+  --table-banner-error-bg: var(--danger-bg);
+  --table-banner-error-border: var(--feedback-danger-border);
+  --table-banner-error-fg: var(--danger);
+  /* 共享表格几何（密度轴不属 flavor：flavor 只改变颜色、圆角、阴影与排印气质，
+     不改变表头、行高和单元格内距，避免切换主题时布局跳变）。
+     值 = 统一基座板值（DSFoundations 1.5「数据行 32px 密度基准」；UserList.dc.html 表头/数据行 height:32px）：
+     三档行高 —— 32 数据行 / 34 成员·日志行（行内 20px 头像或多列 badge，DeptTree 成员表 height:34px）/
+     44 行内有输入或 logo（SubsystemList 子系统表）。消费方经 TableShell/DataTable 的 density 档切换，不得自改 token。 */
+  --table-cell-px: calc(12px * var(--app-scale));
+  --table-row-h: calc(32px * var(--app-scale));
+  --table-row-h-relaxed: calc(34px * var(--app-scale));
+  --table-row-h-loose: calc(44px * var(--app-scale));
+  --table-header-h: calc(32px * var(--app-scale));
+  /* 行内头像挂点：板值 20px（UserList.dc.html 行内头像 width:20px;height:20px，15/15 行） */
+  --table-avatar-size: calc(20px * var(--app-scale));
+  /* Badge 几何/排印/语义色（挂点，值=现状，零视觉变化）。radius 走 --radius-5、px/py = 现状 px-2/py-0.5、
+     字号 text-xs、字重 medium 500；默认旧三套 flavor 全同，随 --app-scale 缩放。sera(S5) 覆盖型差异。 */
+  --badge-radius: var(--radius-5);
+  --badge-px: calc(8px * var(--app-scale));
+  --badge-py: calc(2px * var(--app-scale));
+  --badge-font-size: var(--text-xs);
+  --badge-font-weight: 500;
+  --badge-bg: var(--badge-neutral-bg);
+  --badge-fg: var(--badge-neutral-fg);
+  --badge-neutral-bg: var(--surface-2); --badge-neutral-fg: var(--text-3);
+  --badge-primary-bg: var(--pri-soft); --badge-primary-fg: var(--pri);
+  --badge-success-bg: var(--success-bg); --badge-success-fg: var(--success);
+  --badge-warning-bg: var(--warning-bg); --badge-warning-fg: var(--warning);
+  --badge-danger-bg: var(--danger-bg); --badge-danger-fg: var(--danger);
+  --badge-purple-bg: var(--purple-bg); --badge-purple-fg: var(--purple);
+  --badge-teal-bg: var(--teal-bg); --badge-teal-fg: var(--teal);
+  /* info 档（UserList.dc.html L113/L121「试用」color:#0a6cff; background:#dbf1ff）。
+     --info / --info-soft 在 pipeline 已是板值，缺的只是承载它的 badge 槽位。 */
+  --badge-info-bg: var(--info-bg); --badge-info-fg: var(--info);
+  /* Card spacing 是内容语义，不是 flavor 密度轴。 */
+  --card-spacing: calc(16px * var(--app-scale));
+  --card-spacing-compact: calc(14px * var(--app-scale));
+  --card-spacing-comfortable: calc(24px * var(--app-scale));
+  --card-radius: var(--radius-10);
+  --card-shadow: var(--shadow-card);
+  /* 浮层圆角语义槽位（值=现状 rounded-10/14，零视觉变化）：popover/menu/select 吃 --overlay-radius，
+     modal 吃 --overlay-radius-modal。pipeline 按板值把浮层/浮卡统一压到 8px（见 tokens.pipeline.css）。 */
+  --overlay-radius: var(--radius-10);
+  --overlay-radius-modal: var(--radius-14);
+  /* 排印 transform/tracking 挂点（S5 批1，值=none/normal，当前全 flavor 默认无效果）。
+     sera（S5 批2）兑现差异：button uppercase/0.1em、label uppercase/0.025em、
+     表头 uppercase/0.05em、标题 uppercase/0.05em。tracking 用 em 原值不乘 --app-scale
+     （em 相对 font-size 已天然等比）。--title-* 由 dialog title / card title 共用。 */
+  --button-transform: none;    --button-tracking: normal;
+  --label-transform: none;     --label-tracking: normal;
+  --table-header-transform: none; --table-header-tracking: normal;
+  --title-transform: none;     --title-tracking: normal;
+  --accent-emphasis: var(--pri);
+  --accent-emphasis-soft: var(--fill-selected);
+  --pro-page-bg: var(--bg);
+  --pro-panel-bg: var(--surface);
+  --pro-panel-border: var(--border);
+  --pro-toolbar-bg: var(--surface);
+  --pro-filter-bg: var(--surface);
+  --pro-timeline-marker-bg: var(--surface-2);
+  --pro-timeline-marker-border: var(--border);
+  --pro-timeline-marker-active: var(--pri);
+  /* ── 日历 / 步骤条族（2026-09-03 吸收 antd 缺件：DatePicker / Steps，板上无稿，
+     全部从既有族派生，flavor 文件不覆盖）──────────────────────────────────────── */
+  --calendar-cell-size: calc(30px * var(--app-scale));
+  --calendar-head-fg: var(--text-3);
+  --calendar-fg: var(--text);
+  --calendar-fg-outside: var(--text-faint);
+  --calendar-fg-today: var(--pri);
+  --calendar-bg-hover: var(--fill-hover);
+  --calendar-bg-selected: var(--pri);
+  --calendar-fg-selected: var(--button-primary-fg);
+  --calendar-bg-range: var(--fill-selected);
+  --calendar-fg-range: var(--text);
+  --calendar-nav-fg: var(--button-icon-fg);
+  --calendar-nav-bg-hover: var(--button-icon-bg-hover);
+  --steps-marker-bg: var(--surface-2);
+  --steps-marker-border: var(--border);
+  --steps-marker-fg: var(--text-3);
+  --steps-marker-active-bg: var(--pri);
+  --steps-marker-active-fg: var(--button-primary-fg);
+  --steps-marker-done-fg: var(--pri);
+  --steps-marker-done-border: var(--pri);
+  --steps-marker-error-bg: var(--danger-bg);
+  --steps-marker-error-fg: var(--danger);
+  --steps-line: var(--border);
+  --steps-line-done: var(--pri);
+  --steps-title-fg: var(--text);
+  --steps-title-muted-fg: var(--text-3);
+  --steps-desc-fg: var(--text-3);
+  /* 行内编辑态底（EditableGrid 编辑行 / DescriptionList 编辑字段），pipeline 覆盖为板值 #fffcf7 */
+  /* 不借 --fill-selected：飞书等蓝主题下整表编辑会变成「每行都被选中」的蓝底；按主题色 4% 混纸面，只比纸面暖/冷一点点 */
+  --pro-editing-bg: color-mix(in srgb, var(--pri) 4%, var(--surface));
+  /* ── 列表 chrome 族（阶段二新增，统一基座板）──────────────────────────────────────────
+     消费方：components/pro/filter-builder/FilterBuilder.tsx · StatusTabs.tsx · ListChrome.tsx ·
+     FloatingActionBar.tsx。这些槽位此前无消费方，base 只给**语义回落值**（其余 flavor 跟自身
+     语义色走，无视觉回归）；pipeline 板值见 tokens.pipeline.css（板值恰等于回落解析值的不重复覆盖）。 */
+  /* FilterBuilder（FilterBuilder.dc.html「条件构造行」）：三段式条件 chip / 连接词 chip / 括号组 / 虚线添加 chip。
+     chip 高 28 直接吃 --control-sm（板 height:28px）；chip 圆角 4 走 rounded-md（pipeline --radius-factor .5）；
+     连接词圆角 3 走 --badge-radius。 */
+  --filter-label-fg: var(--text-3);
+  --filter-chip-bg: var(--field-bg);
+  --filter-chip-border: var(--field-border);
+  --filter-chip-bg-hover: var(--surface-2);
+  --filter-chip-bg-active: var(--fill-selected);
+  --filter-chip-border-active: var(--pri);
+  --filter-chip-divider: var(--border);
+  --filter-chip-field-fg: var(--text-3);
+  --filter-chip-op-fg: var(--text-2);
+  --filter-chip-value-fg: var(--text);
+  --filter-chip-remove-fg: var(--text-3);
+  /* 板 height:22px（连接词 chip 比条件 chip 矮一档）。密度值即板值，不给 flavor 覆盖。 */
+  --filter-connector-h: calc(22px * var(--app-scale));
+  --filter-connector-bg: var(--surface-2);
+  --filter-connector-fg: var(--text-2);
+  --filter-connector-bg-or: var(--pri-soft);
+  --filter-connector-fg-or: var(--pri);
+  --filter-group-bg: var(--surface-2);
+  --filter-group-paren-fg: var(--text-3);
+  --filter-add-border: var(--button-dashed-border);
+  --filter-add-fg: var(--text-3);
+  --filter-menu-w: calc(260px * var(--app-scale));
+  --filter-panel-w: calc(268px * var(--app-scale));
+  /* StatusTabs 计数（板：选中 mono 500 #8f8f8c / 未选中 mono #9a9a97）。药丸本体复用 --tabs-seg-* 族。 */
+  --tabs-seg-count-fg: var(--text-3);
+  --tabs-seg-count-fg-active: var(--text-3);
+  /* ListChrome 页头（UserList.dc.html 页头行）：标题 18/600、计数 13、「保存为方案」12.5 提示字 */
+  --list-title-fg: var(--text);
+  --list-count-fg: var(--text-3);
+  --list-hint-fg: var(--text-3);
+  /* 悬浮批量操作条（ActionDark.dc.html）：44px 深色条，浮卡内 bottom 100 + 浮卡下边距 10 = 视口 110。
+     --action-bar-space 给表格滚动容器补等高底部 padding，防悬浮条盖住末行。 */
+  --action-bar-h: calc(44px * var(--app-scale));
+  --action-bar-bottom: calc(110px * var(--app-scale));
+  --action-bar-space: calc(var(--action-bar-h) + var(--action-bar-bottom));
+  --action-bar-bg: var(--tooltip-bg);
+  --action-bar-shadow: var(--shadow-popover);
+  --action-bar-label-fg: var(--toast-undo-fg);
+  --action-bar-count-fg: var(--pri);
+  --action-bar-divider: rgba(255, 255, 255, 0.16);
+  --action-bar-item-fg: var(--toast-undo-fg);
+  --action-bar-item-bg-hover: rgba(255, 255, 255, 0.1);
+  --action-bar-item-fg-danger: var(--danger);
+  --action-bar-item-fg-muted: var(--action-bar-label-fg);
+  /* ── 行操作 / 选择器族（阶段二新增，统一基座板）──────────────────────────────────────
+     消费方：components/pro/RowActionsMenu.tsx · PickerPopover.tsx · ChipsField.tsx ·
+     SegmentedProgress.tsx · DescriptionList.tsx(size="compact") · components/ui/context-menu.tsx。
+     base 只给**语义回落值**（其余 flavor 跟自身语义色走，无视觉回归）；pipeline 板值见
+     tokens.pipeline.css —— 与列表 chrome 族不同，本族**每一条都显式覆盖**（含板值恰等于回落
+     解析值的四条），因为回落链的源值将来可能变，而板值不会。 */
+  /* 菜单快捷键提示（RowMenuHover.dc.html 节点 500/507/515… mono 11px #b8b8b5，3 板 22 处）。
+     比 --menu-item-muted-fg 更弱一档，dropdown / context 两个入口共用。 */
+  --menu-item-shortcut-fg: var(--menu-item-muted-fg);
+  /* 行尾 hover 三点钮（RowMenuHover.dc.html 节点 488：26×26 / radius 4 / #ffffff /
+     1px #e6e6e3（5 板）/ 0 1px 2px rgba(0,0,0,.05)（3 板））。是浮在行上的抬起控件，
+     底与边都不等于表面族，故独立成槽。几何 26 与遮罩 93×31 写死在组件里，不进 token。 */
+  --row-menu-trigger-bg: var(--surface);
+  --row-menu-trigger-border: var(--border);
+  --row-menu-trigger-shadow: var(--shadow-card-sm);
+  /* 选择器浮层（PickerPopover.dc.html 节点 209-257）。
+     hint = 「最近」标题与「搜索「x」· N 个匹配」提示 #a7a7a5（18 板 140 处）；
+     最近 chip 底 #f5f5f3；底部条 34px 底 #fafaf9 / 上边 #f0f0ee(line-2) / 键盘提示字 #b0b0ad(ink-200)。 */
+  --picker-hint-fg: var(--text-3);
+  --picker-recent-chip-bg: var(--surface-2);
+  --picker-footer-bg: var(--surface-2);
+  --picker-footer-border: var(--border);
+  --picker-footer-fg: var(--text-3);
+  /* 多值 chip（UserForm.dc.html 节点 237/242/255/260 与 247/265）：24px 高 / radius 3 走
+     --badge-radius / 底 #f2f2f0 / 字 #4f4f4d(ink-600) / 虚线「添加」1px dashed #dcdcd9。 */
+  --chip-bg: var(--surface-2);
+  --chip-fg: var(--text-2);
+  --chip-border-dashed: var(--control-border);
+  /* 分段进度未达成段（DeptTree.dc.html 节点 247-250 #e8e8e5 = 1.2 border-2「分段条未达成」）。
+     值表原写「无槽位（分段进度条尚未组件化）」，本切片已组件化，前提消失故落地。 */
+  --progress-segment-off: var(--progress-bg);
+  /* 详情侧栏键值行标签（UserDetail.dc.html 节点 143-174：62px 定宽 / 12.5px / #9a9a97 ink-300）。
+     比 --text-3(ink-400) 弱一档，与 --field-placeholder 同值与语义无关，故独立成槽。 */
+  --desc-label-fg: var(--type-3-fg);
+  /* ── 阶段二 users 范本补槽（板值来源逐条见 tokens.pipeline.css）────────────────
+     沿用本项目既有约定：**同值不同语义各自独立成槽**（见上面 --desc-label-fg 与 --field-placeholder），
+     因为回落链的源值将来可能变、而板值不会。 */
+  /* DS 1.2 line-2「分区分割」#f0f0ee：表单分区分隔线 / 详情侧栏右边框与分组线 / 表格行内冻结分界。
+     3 处消费方同值同语义，合成一个槽。 */
+  --page-section-hairline: var(--border);
+  /* DS 1.2 ink-200 #b0b0ad「最弱信息」：分区说明、角色「+N」计数、底部条快捷键提示。
+     灰阶位置在 --text-3(ink-400) 与 --text-faint(ink-100) 之间，补上这一档。 */
+  --text-4: var(--text-3);
+  /* 整行灰化（离职 / 已禁用）时的次要字与头像字 #a7a7a5（不在 DS 十档灰阶内）。 */
+  --table-row-fg-muted: var(--text-3);
+  /* chip 上的次要标注（权限点 chip 的「来源角色」）#a7a7a5：与上一条同值，语义是 chip 内附注。 */
+  --chip-meta-fg: var(--text-3);
+  /* 静态展示 chip 的底（权限点 chip）= DS 1.2 fill-2 #f5f5f4，比 --chip-bg(#f2f2f0) 浅一档。 */
+  --chip-bg-subtle: var(--surface-2);
+  /* 表单底部操作条上边框 = DS 1.2 line-1「结构分割：顶栏 / 分页 / 底部条」#efefed。
+     这是 line-1 的第三个消费方（另两个 --rail-card-divider / --pagination-bar-border 同值），
+     三处齐了之后可考虑收敛成一个共享槽；本轮先照既有约定各自成槽。 */
+  --page-action-bar-border: var(--border);
+  --side-list-bg: var(--surface);
+  --side-list-border: var(--border);
+  --page-pane-divider: var(--side-list-border);
+  --page-section-divider: var(--border);
+  --page-inset-section-divider: transparent;
+  --page-breadcrumb-divider: var(--border);
+  --side-list-item-bg-hover: var(--fill-hover);
+  --side-list-item-bg-active: var(--fill-selected);
+  --side-list-item-fg-active: var(--pri);
+  --side-list-item-meta-fg-active: var(--pri);
+  --page-canvas-radius: var(--radius-12);
+  --page-canvas-border-w: 1px;
+  --page-frame-px: calc(18px * var(--app-scale));
+  --page-frame-py: calc(14px * var(--app-scale));
+  --page-frame-flex: 0 0 auto;
+  --page-frame-min-h: 0px;
+  --page-breadcrumb-mb: calc(8px * var(--app-scale));
+  --page-frame-bg: var(--pro-page-bg);
+  --page-surface-flex: 0 0 auto;
+  --page-surface-min-h: calc(640px * var(--app-scale));
+  --page-surface-bg: var(--pro-panel-bg);
+  --page-surface-border: var(--pro-panel-border);
+  --page-surface-shadow: var(--shadow-card);
+  --page-tabs-px: calc(10px * var(--app-scale));
+  --page-tabs-pt: calc(10px * var(--app-scale));
+  --page-tabs-gap: calc(20px * var(--app-scale));
+  --page-scene-px: calc(18px * var(--app-scale));
+  --page-scene-py: calc(14px * var(--app-scale));
+  --page-side-px: calc(10px * var(--app-scale));
+  --page-side-py: calc(12px * var(--app-scale));
+  --shell-header-bg: var(--chrome);
+  --shell-side-bg: #f5f5f5;
+  --shell-header-h: calc(52px * var(--app-scale));
+  /* 内容卡 / 外壳卡与画布之间的留白：四种布局共用，四周等距 */
+  --shell-card-gap: calc(6px * var(--app-scale));
+  --shell-sidebar-w: calc(200px * var(--app-scale));
+  --shell-sidebar-collapsed-w: calc(60px * var(--app-scale));
+  --shell-rail-w: calc(60px * var(--app-scale));
+  --shell-rail-panel-w: calc(140px * var(--app-scale));
+  --shell-inset-sidebar-w: calc(200px * var(--app-scale));
+  --nav-item-h: calc(36px * var(--app-scale));
+  /* 侧栏式布局：分组行与叶子菜单同一文字色（略浅于正文，避免整栏发黑发重）；字号行高沿用共享 nav token */
+  --nav-side-fg: var(--type-2-fg);
+  --nav-subitem-h: calc(34px * var(--app-scale));
+  --nav-icon-size: calc(16px * var(--app-scale));
+  --nav-item-bg-hover: var(--fill-hover);
+  --nav-item-bg-current: var(--fill-selected);
+  --nav-item-fg-current: var(--pri);
+  --nav-item-border-current: transparent;
+  --nav-item-shadow-current: none;
+  --pagination-current-bg: var(--fill-selected);
+  --pagination-current-fg: var(--pri);
+  --pagination-current-border: var(--pri);
+  /* 分页条本体（UserList.dc.html L127 —— 全画布 16 板逐字节同值：
+     height:46px; padding:0 20px; gap:6px; border-top:1px solid #efefed）。
+     #efefed 是 DS 1.2 line-1「结构分割：顶栏 / 分页 / 底部条」，分页是它三个具名用途之一；
+     另一个消费方是 --rail-card-divider（同值不同语义，各自独立成槽，不互相引用）。 */
+  --pagination-bar-h: calc(46px * var(--app-scale));
+  --pagination-bar-px: calc(20px * var(--app-scale));
+  --pagination-bar-border: var(--border);
+  /* 「共 248 人」font-size:13px; color:#9a9a97（ink-300） */
+  --pagination-total-fg: var(--text-3);
+  --pagination-nav-fg: var(--text-2);
+  --pagination-nav-fg-disabled: var(--text-3);
+  /* Rail 族（pipeline 布局的组合 token）：几何是共享轴，只住 base；颜色给中性回落，
+     由 flavor 覆盖成板值。出处逐值见 docs/design/pipeline.design.md「Rail 与浮卡（pipeline 布局）」。
+     ThemeSwitch.dc.html 把 rail 激活色做成 --rail-active（默认 #2f2e30 / 飞书 #3370ff），
+     即「rail 激活色跟主题走」，所以 base 回落到 --pri 而不是写死墨色。 */
+  --rail-w: calc(65px * var(--app-scale));
+  --rail-py: calc(14px * var(--app-scale));
+  --rail-item-size: calc(36px * var(--app-scale));
+  --rail-item-gap: calc(6px * var(--app-scale));
+  --rail-icon-size: calc(22px * var(--app-scale));
+  --rail-sys-icon-size: calc(21px * var(--app-scale));
+  --rail-toggle-icon-size: calc(20px * var(--app-scale));
+  --rail-avatar-size: calc(34px * var(--app-scale));
+  --rail-avatar-icon-size: calc(17px * var(--app-scale));
+  --rail-divider-w: calc(22px * var(--app-scale));
+  --rail-indicator-w: calc(3px * var(--app-scale));
+  --rail-indicator-h: calc(22px * var(--app-scale));
+  --rail-dot-size: calc(7px * var(--app-scale));
+  /* 未读点外圈：板上是 box-shadow: 0 0 0 2px #f0f0f0（用 rail 底色把点从图标上"抠"出来） */
+  --rail-dot-ring: 0 0 0 calc(2px * var(--app-scale)) var(--rail-bg);
+  /* 子系统 logo 顶部高光：全画布 42 处 rgba(255,255,255,0.3)，Main / RailCollapsed 两处 0.35，按频次取前者 */
+  --rail-logo-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  --rail-icon-stroke: 1.7;
+  --rail-menu-icon-stroke: 1.6;
+  --rail-bg: var(--canvas);
+  /* 毛玻璃分层（2026-09-03 试验）：画布可铺一张「壁纸」（渐变 + 色块），rail / 浮卡 / 卡内侧栏 / 内容区
+     各自半透明 + backdrop-blur 透出它。base 缺省全部不透明、blur 0 —— 只有 flavor 显式开启才生效。 */
+  --canvas-wallpaper: none;
+  --glass-blur: 0px;
+  --rail-glass-bg: var(--rail-bg);
+  --rail-card-bg: var(--surface);
+  --rail-card-sidebar-bg: var(--chrome);
+  --rail-content-glass-bg: var(--rail-content-bg);
+  --rail-indicator-bg: var(--pri);
+  --rail-item-fg: var(--text-3);
+  --rail-item-fg-current: var(--pri);
+  /* 浮卡阴影：默认同 --shadow-card；pipeline flavor 用冷色调（rgba(20,40,70)，借鉴 weagent，洋哥 2026-09-03 保留） */
+  --rail-card-shadow: var(--shadow-card);
+  /* 浮卡边：默认同发丝边；毛玻璃 flavor 换成白色高光边（材质受光，而非描边） */
+  --rail-card-border: var(--pro-panel-border);
+  --rail-toggle-fg: var(--text-3);
+  --rail-toggle-fg-active: var(--text-2);
+  --rail-toggle-bg-active: var(--fill-hover);
+  --rail-divider-bg: var(--border);
+  --rail-dot-bg: var(--pri);
+  --rail-avatar-bg: var(--surface);
+  --rail-avatar-border: var(--border);
+  --rail-avatar-fg: var(--text-2);
+  --rail-avatar-shadow: var(--shadow-card);
+  /* 浮卡内部（卡内侧栏 / 卡内顶栏 / 面包屑行 / 内容列） */
+  --rail-card-sidebar-w: calc(263px * var(--app-scale));
+  --rail-card-head-h: calc(54px * var(--app-scale));
+  --rail-card-logo-size: calc(26px * var(--app-scale));
+  --rail-card-logo-icon-size: calc(14px * var(--app-scale));
+  --rail-crumb-h: calc(46px * var(--app-scale));
+  --rail-crumb-logo-size: calc(22px * var(--app-scale));
+  --rail-crumb-logo-icon-size: calc(12px * var(--app-scale));
+  --rail-search-h: calc(34px * var(--app-scale));
+  --rail-tab-h: calc(30px * var(--app-scale));
+  --rail-tab-px: calc(11px * var(--app-scale));
+  --rail-account-w: calc(222px * var(--app-scale));
+  --rail-account-avatar-size: calc(38px * var(--app-scale));
+  --rail-account-item-h: calc(32px * var(--app-scale));
+  --rail-card-divider: var(--border);
+  --rail-content-bg: var(--bg);
+  --rail-crumb-sep-fg: var(--text-3);
+  --rail-menu-group-fg: var(--text-3);
+  --rail-menu-icon-fg: var(--text-3);
+  --rail-menu-bg-hover: var(--nav-item-bg-hover);
+  --rail-menu-bg-current: var(--nav-item-bg-current);
+  --rail-menu-fg-current: var(--nav-item-fg-current);
+  --rail-menu-indicator: var(--pri);
+  --focus-ring: calc(3px * var(--app-scale));
+  /* 字体家族挂点（值=现状，零视觉变化）：--font-ui 由 global.css 的 @theme inline 接到 Tailwind 的
+     --font-sans（故 html / font-sans 工具类 / --font-display 全部经它取值）；--font-mono 盖写 Tailwind
+     默认等宽栈（未分层 :root 优先级高于 @layer theme，同 --spacing 的做法）。flavor 只切家族，不切机制。 */
+  --font-ui: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-display: var(--font-sans);
+  /* 输入框水平内距与基础控件几何同样跨 flavor 共享。 */
+  --field-px: calc(12px * var(--app-scale));
+  --choice-size: calc(14px * var(--app-scale));
+  --metric-min-h: calc(96px * var(--app-scale));
+  --metric-spacing: calc(14px * var(--app-scale));
+  --metric-bg: var(--surface);
+  --metric-border: var(--border);
+  --metric-shadow: var(--shadow-card);
+  --metric-label-fg: var(--text-3);
+  --metric-value-fg: var(--text);
+  --metric-meta-fg: var(--text-3);
+  --metric-icon-fg: var(--text-3);
+  --metric-positive-fg: var(--success);
+  --metric-negative-fg: var(--danger);
+  --metric-neutral-fg: var(--text-2);
+  --auth-hero-bg: linear-gradient(135deg, color-mix(in srgb, var(--pri) 14%, var(--surface)), var(--surface) 55%, color-mix(in srgb, var(--pri) 6%, var(--surface)));
+  --login-hero-bg: var(--surface-2);
+  --login-hull-fg: var(--text);
+  --login-mark-bg: var(--text-2);
+  --auth-hero-glow: radial-gradient(circle, color-mix(in srgb, var(--pri) 35%, transparent), transparent 70%);
+  /* 详情页侧栏：统一基座板值（UserDetail.dc.html 左侧栏 width:304px；旧 296 为 Claude 视觉契约） */
+  --detail-aside-w: calc(304px * var(--app-scale));
+  --field-bg: var(--surface-2);
+  --field-fg: var(--text);
+  --field-placeholder: var(--text-3);
+  --field-icon: var(--text-3);
+  --field-border: var(--surface-2);
+  --field-shadow: none;
+  --field-border-hover: var(--control-border);
+  --field-bg-focus: var(--surface);
+  --field-border-focus: var(--pri);
+  --field-ring-focus: transparent;
+  --field-border-invalid: var(--danger);
+  --field-ring-invalid: var(--danger-bg);
+  --field-bg-disabled: var(--surface-2);
+  --field-bg-readonly: var(--surface-2);
+  --field-changed-bg: color-mix(in srgb, var(--pri) 6%, var(--surface));
+  --field-changed-border: color-mix(in srgb, var(--pri) 38%, transparent);
+  --field-addon-bg: var(--surface-2);
+  --field-addon-fg: var(--text-3);
+  /* Tooltip 恒深底白字（原型 .hicon-tip L32：background #1f2329，明暗两 flavor 都不反转）。
+     走 token 供组件 bg-tooltip 消费，禁组件内写 hex（ESLint 拦）。 */
+  --tooltip-bg: #1f2329;
+  --tooltip-fg: #ffffff;
+  --radius-factor: 1;
+  /* 圆角 = 基准 px × 圆角风格档(--radius-factor) × 显示比例档(--app-scale)。
+     两个维度独立：圆角风格改控件圆润度，显示比例整体等比缩放（原型 zoom 会连圆角一起缩）。 */
+  --radius-xs: calc(2px * var(--radius-factor) * var(--app-scale));
+  --radius-sm: calc(6px * var(--radius-factor) * var(--app-scale));
+  --radius-md: calc(8px * var(--radius-factor) * var(--app-scale));
+  --radius-lg: calc(12px * var(--radius-factor) * var(--app-scale));
+  --radius-xl: calc(14px * var(--radius-factor) * var(--app-scale));
+  /* 圆角数字全档（原型各控件精确值 7/9/11 等，取最近 sm/md/lg/xl 档会失真）。
+     全部乘 --radius-factor + --app-scale，随圆角风格档与显示比例档缩放。旧 sm/md/lg/xl 别名保留（既有代码在用）。 */
+  --radius-4: calc(4px * var(--radius-factor) * var(--app-scale));
+  --radius-5: calc(5px * var(--radius-factor) * var(--app-scale));
+  --radius-6: calc(6px * var(--radius-factor) * var(--app-scale));
+  --radius-7: calc(7px * var(--radius-factor) * var(--app-scale));
+  --radius-8: calc(8px * var(--radius-factor) * var(--app-scale));
+  --radius-9: calc(9px * var(--radius-factor) * var(--app-scale));
+  --radius-10: calc(10px * var(--radius-factor) * var(--app-scale));
+  --radius-11: calc(11px * var(--radius-factor) * var(--app-scale));
+  --radius-12: calc(12px * var(--radius-factor) * var(--app-scale));
+  --radius-14: calc(14px * var(--radius-factor) * var(--app-scale));
+  /* 弹层/悬浮阴影 token（原型 box-shadow 精确值，见直方图）：
+     menu/popover 0 12px 40px .16、modal 0 16px 48px .18、drawer -8px 0 32px .14、
+     tooltip 0 4px 14px .18、card 0 1px 3px .03、inset 浮起卡、lifted 项 0 1px 2px .08、
+     header 滚动态 0 1px 12px .06、小卡片（子系统切换器品牌位）0 1px 2px .06。
+     rgba 黑色与主题无关，故 :root 一次定义；组件禁写 shadow-[...] 任意值，统一用 shadow-popover 等 token。 */
+  --shadow-popover: 0 12px 40px rgba(0, 0, 0, 0.16);
+  --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.18);
+  --shadow-drawer: -8px 0 32px rgba(0, 0, 0, 0.14);
+  --shadow-tooltip: 0 4px 14px rgba(0, 0, 0, 0.18);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-card-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-inset-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 6px 20px rgba(0, 0, 0, 0.05);
+  --shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-header: 0 1px 12px rgba(0, 0, 0, 0.06);
+  /* 滚动条（借鉴 weagent，2026-09-03 保留）：6px 细条，thumb 跟随文字色混色，深浅色自适应 */
+  --scrollbar-size: 6px;
+  --scrollbar-thumb: color-mix(in srgb, var(--text) 14%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--text) 24%, transparent);
+}
+
+[data-mode='dark'] {
+  --shell-side-bg: var(--bg);
+  --soft-track-bg: color-mix(in srgb, var(--text) 10%, var(--surface));
+  --soft-thumb-bg: color-mix(in srgb, var(--text) 14%, var(--surface));
+  --soft-shadow: rgba(0, 0, 0, 0.45);
+  --soft-shadow-far: rgba(0, 0, 0, 0.25);
+  --soft-highlight: rgba(255, 255, 255, 0.14);
+  --soft-shade: rgba(0, 0, 0, 0.25);
+  --pri-active: color-mix(in srgb, var(--pri) 76%, white);
+  --fill-hover: rgba(255, 255, 255, 0.08);
+  --fill-pressed: rgba(255, 255, 255, 0.12);
+  --field-ring-invalid: color-mix(in srgb, var(--danger) 24%, transparent);
+  --menu-item-bg-danger-highlighted: color-mix(in srgb, var(--danger) 20%, transparent);
+}
+
+[data-radius='sharp'] { --radius-factor: 0.28; }
+[data-radius='round'] { --radius-factor: 1.55; }
+
+/* 显示比例档系数（原型实际系数 sm 0.9 / md 1 / lg 1.08）。取代旧 CSS zoom 方案：
+   zoom 在规范层是双坐标系（gBCR 返回视觉像素、offset* 返回未缩放像素），floating-ui 官方不支持，
+   且弹层 portal 到 body 会脱离缩放子树。改为 token 乘法（Radix Themes scaling 同款机制）——
+   --app-scale 定义在 html（data-zoom 写在 documentElement），被 body 继承，portal 弹层同样继承，
+   故尺寸/排版 token 乘它即全页等比缩放，弹层天然随档缩放，且全页零 zoom、JS 几何测量永远单坐标系。
+   谁乘：尺寸/排版/圆角 token（见上）+ global.css 盖写的 --spacing/--text-*；谁不乘：边框宽/阴影（保持锐利）。 */
+:root { --app-scale: 1; }
+[data-zoom='sm'] { --app-scale: 0.9; }
+[data-zoom='lg'] { --app-scale: 1.08; }
+
+:root {
+  --metric-warning-bg: var(--warning-soft);
+  --metric-warning-fg: var(--warning);
+  --metric-warning-border: var(--warning-soft);
+  --pro-chart-primary: var(--pri);
+  --pro-chart-secondary: var(--text-3);
+  --pro-chart-grid: var(--border);
+  --pro-chart-label: var(--text-3);
+  --pro-org-bg: var(--surface);
+  --pro-org-border: var(--border);
+  --pro-org-connector: var(--border);
+  --pro-org-node-bg: var(--surface);
+  --pro-org-node-border: var(--border);
+  --pro-org-node-fg: var(--type-2-fg);
+  --pro-org-node-hover: var(--option-bg-highlighted);
+  --pro-org-selected-bg: var(--option-bg-selected);
+  --pro-org-selected-border: var(--pri);
+  --pro-org-icon: var(--type-3-fg);
+  --pro-org-meta: var(--type-3-fg);
+  --pro-org-muted: var(--type-4-fg);
+  --pro-org-focus: var(--pri);
+}

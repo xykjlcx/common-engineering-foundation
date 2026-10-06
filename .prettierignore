@@ -1,0 +1,37 @@
+# prettier 作用域 = 手写源码。生成产物、二进制、归档与本机数据一律排除——
+# 格式化它们只会制造与生成器打架的假 diff（下一次 generate 又改回去）。
+
+node_modules
+dist
+dist-ssr
+coverage
+test-results
+.pglite
+*.tsbuildinfo
+
+# 锁文件与 agent 临时工作区（各自是独立 git 仓）
+pnpm-lock.yaml
+.claude/worktrees
+banking-vsa/
+
+# 生成产物（改它们的正确方式是重跑生成器，不是格式化）
+**/routeTree.gen.ts
+**/api.generated.json
+apps/web/scripts/permissions/generated
+apps/core/openapi.json
+apps/core/drizzle
+
+# 只读档案：历史执行记录与视觉基座画布，排版按原样保留
+docs/archive
+design-explore
+
+# 外部设计系统 token 抓取产物（原样保存以便与来源比对）
+docs/research/design/*.json
+
+# Markdown 不进 prettier：本仓文档大量使用中英混排、表格对齐与守卫可识别的
+# `> 状态：` 头部行，自动重排会制造大面积无意义 diff 并可能改动这些约定。
+*.md
+
+# 手写 token CSS 与生成 ts：守卫按源码文本逐行快照，重排即假红
+apps/web/src/styles/*.css
+**/*.generated.ts
